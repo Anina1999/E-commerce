@@ -2377,3 +2377,88 @@ responsive
     opacity: 0;
   }
 }
+
+
+/*
+---------------------------------------------
+Shop by Activity
+---------------------------------------------
+*/
+
+.shop-by-activity .section-heading {
+  margin-bottom: 60px;
+}
+
+.shop-by-activity .activity-item {
+  margin-bottom: 30px;
+}
+
+.shop-by-activity .activity-item .thumb {
+  position: relative;
+  text-align: center;
+}
+
+.shop-by-activity .activity-item .thumb img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.shop-by-activity .activity-item .thumb .inner-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.shop-by-activity .activity-item .thumb .inner-content h4 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.shop-by-activity .activity-item .thumb .inner-content span {
+  font-size: 16px;
+  color: #fff;
+  font-style: italic;
+}
+
+.shop-by-activity .activity-item .thumb .hover-content {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  left: 15px;
+  bottom: 15px;
+  text-align: center;
+  background-color: rgba(42,42,42,.97);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.shop-by-activity .activity-item .thumb:hover .hover-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.shop-by-activity .activity-item .thumb .hover-content .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.shop-by-activity .activity-item .thumb .hover-content h4 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.shop-by-activity .activity-item .thumb .hover-content p {
+  color: #fff;
+  padding: 0px 20px;
+  margin-bottom: 20px;
+}
