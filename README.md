@@ -9,4 +9,6 @@
     - [x] Extract components
     - [x] Clean up App.jsx by extracting home page sections into Home Page Component
     - [x] Extract Hero Card as reusable component
-    - [ ] Extract New Arrivals Item as reusable component
+    - [ ] Extract New Arrivals Product as reusable component
+    - [x] Install swiper for carousel "npm install swiper"
+    - [x] Add Swiper carousel to NewArrivals - import Swiper, SwiperSlide, Navigation and wrap each product in SwiperSlide

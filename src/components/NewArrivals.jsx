@@ -1,3 +1,9 @@
+import NewArrivalsProducts from "./NewArrivalsProducts";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from 'swiper/modules';
+import "swiper/css";
+import 'swiper/css/navigation';
+
 export default function NewArrivals() {
     return (
         <section className="section" id="men">
@@ -5,7 +11,7 @@ export default function NewArrivals() {
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="section-heading">
-                            <h2>Men's Latest</h2>
+                            <h2>Hiking's Latest</h2>
                             <span>
                                 Details to details is what makes Hexashop different from the other
                                 themes.
@@ -18,188 +24,40 @@ export default function NewArrivals() {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="men-item-carousel">
-                            <div className="owl-men-item owl-carousel">
-                                <div className="item">
-                                    <div className="thumb">
-                                        <div className="hover-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-eye" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-star" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-shopping-cart" />
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <img src="/assets/images/men-01.jpg" alt="" />
-                                    </div>
-                                    <div className="down-content">
-                                        <h4>Classic Spring</h4>
-                                        <span>$120.00</span>
-                                        <ul className="stars">
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="item">
-                                    <div className="thumb">
-                                        <div className="hover-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-eye" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-star" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-shopping-cart" />
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <img src="assets/images/men-02.jpg" alt="" />
-                                    </div>
-                                    <div className="down-content">
-                                        <h4>Air Force 1 X</h4>
-                                        <span>$90.00</span>
-                                        <ul className="stars">
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="item">
-                                    <div className="thumb">
-                                        <div className="hover-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-eye" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-star" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-shopping-cart" />
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <img src="assets/images/men-03.jpg" alt="" />
-                                    </div>
-                                    <div className="down-content">
-                                        <h4>Love Nana ‘20</h4>
-                                        <span>$150.00</span>
-                                        <ul className="stars">
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="item">
-                                    <div className="thumb">
-                                        <div className="hover-content">
-                                            <ul>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-eye" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-star" />
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">
-                                                        <i className="fa fa-shopping-cart" />
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <img src="assets/images/men-01.jpg" alt="" />
-                                    </div>
-                                    <div className="down-content">
-                                        <h4>Classic Spring</h4>
-                                        <span>$120.00</span>
-                                        <ul className="stars">
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-star" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <Swiper modules={[Navigation]} navigation spaceBetween={30} slidesPerView={1} breakpoints={{ 768: {slidesPerView: 2 }, 992: {slidesPerView: 3 } }} loop>
+                                <SwiperSlide>
+                                    <NewArrivalsProducts 
+                                    productName="Classic Spring"
+                                    productPrice={120.00}
+                                    productImage="/assets/images/men-01.jpg"
+                                />
+                                </SwiperSlide>
+                                
+                                <SwiperSlide>
+                                    <NewArrivalsProducts 
+                                    productName="Classic Spring"
+                                    productPrice={120.00}
+                                    productImage="/assets/images/men-01.jpg"
+                                />
+                                </SwiperSlide>
+                                
+                                <SwiperSlide>
+                                    <NewArrivalsProducts 
+                                    productName="Classic Spring"
+                                    productPrice={120.00}
+                                    productImage="/assets/images/men-01.jpg"
+                                />
+                                </SwiperSlide>
+                                
+                                <SwiperSlide>
+                                    <NewArrivalsProducts 
+                                    productName="Classic Spring"
+                                    productPrice={120.00}
+                                    productImage="/assets/images/men-01.jpg"
+                                />
+                                </SwiperSlide>
+                                
+                            </Swiper>
                         </div>
                     </div>
                 </div>
