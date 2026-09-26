@@ -6,6 +6,7 @@ import "swiper/css";
 export default function CarouselSection({
     id,
     title,
+    subtitle,
     products
 }) {
     return (
@@ -16,8 +17,7 @@ export default function CarouselSection({
                         <div className="section-heading">
                             <h2>{title}</h2>
                             <span>
-                                Details to details is what makes Hexashop different from the other
-                                themes.
+                                {subtitle}
                             </span>
                         </div>
                     </div>

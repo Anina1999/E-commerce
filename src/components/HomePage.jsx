@@ -10,13 +10,33 @@ export default function HomePage() {
         <>
             <HeroSection />
 
-            <CarouselSection id="hiking" title="Hiking's Latest" products={hikingProducts} />
+            <CarouselSection 
+                id="hiking" 
+                title="Hiking's Latest" 
+                subtitle="Boots, poles and shells built for long days on the trail."
+                products={hikingProducts}
+            />
 
-            <CarouselSection id="running" title="Running's Latest" products={runningProducts} />
+            <CarouselSection 
+                id="running" 
+                title="Running's Latest"
+                subtitle="Lightweight kit that keeps up, from morning miles to race day." 
+                products={runningProducts}
+            />
 
-            <CarouselSection id="biking" title="Biking's Latest" products={bikingProducts} />
+            <CarouselSection 
+                id="biking" 
+                title="Biking's Latest" 
+                subtitle="Helmets, bibs and bags for the commute and the climb."
+                products={bikingProducts}
+            />
 
-            <CarouselSection id="climbing" title="Climbing's Latest" products={climbingProducts} />
+            <CarouselSection 
+                id="climbing" 
+                title="Climbing's Latest" 
+                subtitle="Harnesses, shoes and chalk you can put your weight on."
+                products={climbingProducts}  
+            />
 
             <ExploreSection />
 
