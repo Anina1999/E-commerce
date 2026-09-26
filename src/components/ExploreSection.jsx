@@ -1,3 +1,18 @@
+const content = {
+    title: "Gear Advice From People Who Use It",
+    intro: "Not sure what to pick? Every item in our store has been tested on real trails, runs, rides and climbs.",
+    quote: "They helped me pick boots that lasted my whole Rila traverse.",
+    paragraphs: [
+        "Tell us where you're heading and we'll help you choose the right size, fit and layers for the conditions.",
+        "Changed your mind? Returns are free within 30 days, so you can order with confidence.",
+    ],
+    buttonText: "Shop All Gear",
+    highlights: [
+        { title: "Free Returns", subtitle: "Within 30 days" },
+        { title: "Expert Advice", subtitle: "From real adventurers" },
+    ],
+};
+
 export default function ExploreSection() {
     return (
         <section className="section" id="explore">
@@ -5,39 +20,17 @@ export default function ExploreSection() {
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="left-content">
-                            <h2>Explore Our Products</h2>
-                            <span>
-                                You are allowed to use this HexaShop HTML CSS template. You can
-                                feel free to modify or edit this layout. You can convert this
-                                template as any kind of ecommerce CMS theme as you wish.
-                            </span>
+                            <h2>{content.title}</h2>
+                            <span>{content.intro}</span>
                             <div className="quote">
                                 <i className="fa fa-quote-left" />
-                                <p>
-                                    You are not allowed to redistribute this template ZIP file on
-                                    any other website.
-                                </p>
+                                <p>{content.quote}</p>
                             </div>
-                            <p>
-                                There are 5 pages included in this HexaShop Template and we are
-                                providing it to you for absolutely free of charge at our
-                                TemplateMo website. There are web development costs for us.
-                            </p>
-                            <p>
-                                If this template is beneficial for your website or business,
-                                please kindly{" "}
-                                <a
-                                    rel="nofollow"
-                                    href="https://paypal.me/templatemo"
-                                    target="_blank"
-                                >
-                                    support us
-                                </a>{" "}
-                                a little via PayPal. Please also tell your friends about our great
-                                website. Thank you.
-                            </p>
+                            {content.paragraphs.map((text) => (
+                                <p key={text}>{text}</p>
+                            ))}
                             <div className="main-border-button">
-                                <a href="products.html">Discover More</a>
+                                <a href="#hiking">{content.buttonText}</a>
                             </div>
                         </div>
                     </div>
@@ -46,8 +39,8 @@ export default function ExploreSection() {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="leather">
-                                        <h4>Leather Bags</h4>
-                                        <span>Latest Collection</span>
+                                        <h4>{content.highlights[0].title}</h4>
+                                        <span>{content.highlights[0].subtitle}</span>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -62,8 +55,8 @@ export default function ExploreSection() {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="types">
-                                        <h4>Different Types</h4>
-                                        <span>Over 304 Products</span>
+                                        <h4>{content.highlights[1].title}</h4>
+                                        <span>{content.highlights[1].subtitle}</span>
                                     </div>
                                 </div>
                             </div>

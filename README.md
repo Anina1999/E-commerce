@@ -21,3 +21,4 @@
     - [x] Rename NewArrivalsProducts to ProductCard as reusable for all carousels
     - [x] Add subtitle as a prop into CarouselSection component to replace the hardcoded data
     - [x] Extract Section heading as reusable component (CarouselSection, SubscribeSection,CommunitySection)
+    - [x] Replace the Explore section text with suitable store content

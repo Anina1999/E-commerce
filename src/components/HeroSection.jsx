@@ -10,7 +10,7 @@ export default function HeroSection() {
                             <div className="thumb">
                                 <div className="inner-content">
                                     <h4>We Are Tourashop</h4>
-                                    <span>Our products are designed for the modern adventurer</span>
+                                    <span>Our products are chosen for the modern adventurer</span>
                                     <div className="main-border-button">
                                         <a href="#">Purchase Now!</a>
                                     </div>
