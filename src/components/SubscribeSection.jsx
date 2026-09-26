@@ -7,8 +7,8 @@ export default function SubscribeSection() {
                 <div className="row">
                     <div className="col-lg-8">
                         <SectionHeading
-                            title="By Subscribing To Our Newsletter You Can Get 30% Off"
-                            subtitle="Details to details is what makes Hexashop different from the other themes."
+                            title="Subscribe To Our Newsletter And Get 30% Off Your First Order"
+                            subtitle="New gear drops, trail tips and member-only deals, straight to your inbox."
                         />
                         <form id="subscribe" action="" method="get">
                             <div className="row">
@@ -19,7 +19,7 @@ export default function SubscribeSection() {
                                             type="text"
                                             id="name"
                                             placeholder="Your Name"
-                                            required=""
+                                            required
                                         />
                                     </fieldset>
                                 </div>
@@ -27,11 +27,10 @@ export default function SubscribeSection() {
                                     <fieldset>
                                         <input
                                             name="email"
-                                            type="text"
+                                            type="email"
                                             id="email"
-                                            pattern="[^ @]*@[^ @]*"
                                             placeholder="Your Email Address"
-                                            required=""
+                                            required
                                         />
                                     </fieldset>
                                 </div>
@@ -56,7 +55,7 @@ export default function SubscribeSection() {
                                     <li>
                                         Store Location:
                                         <br />
-                                        <span>Sunny Isles Beach, FL 33160, United States</span>
+                                        <span>12 Trailhead Road, Boulder, CO 80302</span>
                                     </li>
                                     <li>
                                         Phone:
@@ -66,7 +65,7 @@ export default function SubscribeSection() {
                                     <li>
                                         Office Location:
                                         <br />
-                                        <span>North Miami Beach</span>
+                                        <span>Boulder, Colorado</span>
                                     </li>
                                 </ul>
                             </div>
@@ -75,19 +74,21 @@ export default function SubscribeSection() {
                                     <li>
                                         Work Hours:
                                         <br />
-                                        <span>07:30 AM - 9:30 PM Daily</span>
+                                        <span>08:00 AM - 8:00 PM Daily</span>
                                     </li>
                                     <li>
                                         Email:
                                         <br />
-                                        <span>info@company.com</span>
+                                        <span>hello@yourstore.com</span>
                                     </li>
                                     <li>
                                         Social Media:
                                         <br />
                                         <span>
-                                            <a href="#">Facebook</a>, <a href="#">Instagram</a>,{" "}
-                                            <a href="#">Behance</a>, <a href="#">Linkedin</a>
+                                            <a href="https://www.instagram.com">Instagram</a>,{" "}
+                                            <a href="https://www.facebook.com">Facebook</a>,{" "}
+                                            <a href="https://www.tiktok.com">TikTok</a>,{" "}
+                                            <a href="https://www.youtube.com">YouTube</a>
                                         </span>
                                     </li>
                                 </ul>

@@ -22,3 +22,4 @@
     - [x] Add subtitle as a prop into CarouselSection component to replace the hardcoded data
     - [x] Extract Section heading as reusable component (CarouselSection, SubscribeSection,CommunitySection)
     - [x] Replace the Explore section text with suitable store content
+    - [x] Replace Subscribe section text and fix the form validation (required, type="email")
