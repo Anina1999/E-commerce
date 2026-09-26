@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import SectionHeading from "./SectionHeading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import "swiper/css";
@@ -14,12 +15,7 @@ export default function CarouselSection({
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <div className="section-heading">
-                            <h2>{title}</h2>
-                            <span>
-                                {subtitle}
-                            </span>
-                        </div>
+                        <SectionHeading title={title} subtitle={subtitle} />
                     </div>
                 </div>
             </div>

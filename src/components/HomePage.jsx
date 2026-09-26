@@ -1,6 +1,6 @@
 import CarouselSection from "./CarouselSection"
 import ExploreSection from "./ExploreSection"
-import SocialSection from "./SocialSection"
+import CommunitySection from "./CommunitySection"
 import SubscribeSection from "./SubscribeSection"
 import HeroSection from "./HeroSection"
 import { hikingProducts, runningProducts, bikingProducts, climbingProducts } from "../data/products"
@@ -40,7 +40,7 @@ export default function HomePage() {
 
             <ExploreSection />
 
-            <SocialSection />
+            <CommunitySection />
 
             <SubscribeSection />
         </>

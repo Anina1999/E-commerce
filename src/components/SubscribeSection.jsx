@@ -1,16 +1,15 @@
+import SectionHeading from "./SectionHeading";
+
 export default function SubscribeSection() {
     return (
         <div className="subscribe">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8">
-                        <div className="section-heading">
-                            <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>
-                            <span>
-                                Details to details is what makes Hexashop different from the other
-                                themes.
-                            </span>
-                        </div>
+                        <SectionHeading
+                            title="By Subscribing To Our Newsletter You Can Get 30% Off"
+                            subtitle="Details to details is what makes Hexashop different from the other themes."
+                        />
                         <form id="subscribe" action="" method="get">
                             <div className="row">
                                 <div className="col-lg-5">
