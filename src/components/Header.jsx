@@ -5,29 +5,29 @@ export default function Header() {
                 <div className="row">
                     <div className="col-12">
                         <nav className="main-nav">
-                            {/* ***** Logo Start ***** */}
                             <a href="index.html" className="logo">
                                 <img src="/assets/images/logo.png" />
                             </a>
-                            {/* ***** Logo End ***** */}
-                            {/* ***** Menu Start ***** */}
                             <ul className="nav">
                                 <li className="scroll-to-section">
-                                    <a href="#top" className="active">
+                                    <a href="#dashboard" className="active">
                                         Home
                                     </a>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#men">Men's</a>
+                                    <a href="#hiking">Hiking</a>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#women">Women's</a>
+                                    <a href="#running">Running</a>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#kids">Kid's</a>
+                                    <a href="#biking">Biking</a>
+                                </li>
+                                <li className="scroll-to-section">
+                                    <a href="#climbing">Climbing</a>
                                 </li>
                                 <li className="submenu">
-                                    <a href="javascript:;">Pages</a>
+                                    <a href="#">Pages</a>
                                     <ul>
                                         <li>
                                             <a href="about.html">About Us</a>
@@ -44,7 +44,7 @@ export default function Header() {
                                     </ul>
                                 </li>
                                 <li className="submenu">
-                                    <a href="javascript:;">Features</a>
+                                    <a href="#">Features</a>
                                     <ul>
                                         <li>
                                             <a href="#">Features Page 1</a>

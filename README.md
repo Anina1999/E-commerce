@@ -16,3 +16,5 @@
     - [x] Move product data out of the components into src/data/products.js
     - [x] Rename sections to activities (hiking, running, biking) and add a fourth one (climbing)
     - [x] Replace the id-scoped CSS (#men, #women, #kids) with a single reusable .product-carousel class to apply for all carousel sections.
+    - [x] Update header navigation - point the anchors to the new section ids and rename the link labels
+    - [ ] Restyle the default Swiper arrows to match the template design
