@@ -1,7 +1,8 @@
 /*
 
-TemplateMo 571 Hexashop
+Main stylesheet for the React e-commerce project
 
+Based on TemplateMo 571 Hexashop
 https://templatemo.com/tm-571-hexashop
 
 */
@@ -9,26 +10,23 @@ https://templatemo.com/tm-571-hexashop
 /* ---------------------------------------------
 Table of contents
 ------------------------------------------------
-01. font & reset css
-02. reset
-03. global styles
-04. header
-05. banner
-06. features
-07. testimonials
-08. contact
+01. reset
+02. global styles
+03. header
+04. banner
+05. product carousel
+06. explore
+07. social
+08. subscribe
 09. footer
-10. preloader
-11. search
-12. portfolio
+10. products page
+11. single product page
+12. about us page
+13. contact us page
+14. responsive
+15. shop by activity
 
 --------------------------------------------- */
-/* 
----------------------------------------------
-font & reset css
---------------------------------------------- 
-*/
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 /* 
 ---------------------------------------------
 reset
@@ -763,7 +761,7 @@ banner
 
 /*
 ---------------------------------------------
-Men
+Product Carousel
 ---------------------------------------------
 */
 
@@ -846,79 +844,54 @@ Men
 }
 
 
-.product-carousel .owl-nav {
-  text-align: center;
+.product-carousel .carousel-prev,
+.product-carousel .carousel-next {
   position: absolute;
-  width: 100%;
   top: 40%;
   transform: translateY(-25px);
-}
-
-.product-carousel .owl-dots {
-  display: none;
-}
-    
-.product-carousel .owl-nav .owl-prev{
-  position: absolute;
-  left: -80px;
-  outline: none;
-}
-
-.product-carousel .owl-nav .owl-prev span,
-.product-carousel .owl-nav .owl-next span {
-  opacity: 0;
-}
-
-.product-carousel .owl-nav .owl-prev:before {
-  display: inline-block;
-  font-family: 'FontAwesome';
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 1px solid #2a2a2a;
+  background-color: transparent;
   color: #2a2a2a;
   font-size: 25px;
   font-weight: 700;
-  content: '\f104';
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
   line-height: 48px;
-  border :1px solid #2a2a2a;
-}
-
-.product-carousel .owl-nav .owl-prev {
-  opacity: 0.75;
-  transition: all .5s;
-}
-
-.product-carousel .owl-nav .owl-prev:hover {
-  opacity: 1;
-}
-
-.product-carousel .owl-nav .owl-next {
-  opacity: 0.75;
-  transition: all .5s;
-}
-
-.product-carousel .owl-nav .owl-next:hover {
-  opacity: 1;
-}
-
-.product-carousel .owl-nav .owl-next{
+  text-align: center;
+  cursor: pointer;
   outline: none;
-  position: absolute;
+  opacity: 0.75;
+  transition: all .5s;
+}
+
+.product-carousel .carousel-prev:hover,
+.product-carousel .carousel-next:hover {
+  opacity: 1;
+}
+
+.product-carousel .carousel-prev {
+  left: -80px;
+}
+
+.product-carousel .carousel-next {
   right: -85px;
 }
 
-.product-carousel .owl-nav .owl-next:before {
-  display: inline-block;
-  font-family: 'FontAwesome';
-  color: #2a2a2a;
-  font-size: 25px;
-  font-weight: 700;
-  content: '\f105';
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  line-height: 48px;
-  border :1px solid #2a2a2a;
+@media (max-width: 1340px) {
+  .product-carousel .carousel-prev,
+  .product-carousel .carousel-next {
+    background-color: #fff;
+  }
+
+  .product-carousel .carousel-prev {
+    left: 15px;
+  }
+
+  .product-carousel .carousel-next {
+    right: 15px;
+  }
 }
 
 /*

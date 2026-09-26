@@ -2,13 +2,12 @@ import NewArrivalsProducts from "./NewArrivalsProducts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import "swiper/css";
-import 'swiper/css/navigation';
 
-export default function CarouselSection({ 
-    id, 
-    title, 
+export default function CarouselSection({
+    id,
+    title,
     products
- }) {
+}) {
     return (
         <section className="section product-carousel" id={id}>
             <div className="container">
@@ -27,7 +26,17 @@ export default function CarouselSection({
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <Swiper modules={[Navigation]} navigation spaceBetween={30} slidesPerView={1} breakpoints={{ 768: {slidesPerView: 2 }, 992: {slidesPerView: 3 } }} loop>
+                        <button type="button" className="carousel-prev" aria-label="Previous" >
+                            <i className="fa fa-angle-left" />
+                        </button>
+                        <Swiper
+                            modules={[Navigation]}
+                            navigation={{
+                                prevEl: `#${id} .carousel-prev`,
+                                nextEl: `#${id} .carousel-next` }}
+                            spaceBetween={30}
+                            slidesPerView={1}
+                            breakpoints={{768: { slidesPerView: 2 }, 992: { slidesPerView: 3 }}} loop>
                             {products.map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <NewArrivalsProducts
@@ -38,6 +47,9 @@ export default function CarouselSection({
                                 </SwiperSlide>
                             ))}
                         </Swiper>
+                        <button type="button" className="carousel-next" aria-label="Next" >
+                            <i className="fa fa-angle-right" />
+                        </button>
                     </div>
                 </div>
             </div>
