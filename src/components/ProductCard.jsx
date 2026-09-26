@@ -1,4 +1,8 @@
-export default function NewArrivalsProducts({ productName, productPrice, productImage }) {
+export default function ProductCard({ 
+    productName, 
+    productPrice, 
+    productImage
+}) {
     return (
         <div className="item">
             <div className="thumb">

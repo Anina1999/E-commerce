@@ -18,3 +18,4 @@
     - [x] Replace the id-scoped CSS (#men, #women, #kids) with a single reusable .product-carousel class to apply for all carousel sections.
     - [x] Update header navigation - point the anchors to the new section ids and rename the link labels
     - [x] Restyle the default Swiper arrows to match the template design
+    - [x] Rename NewArrivalsProducts to ProductCard as reusable for all carousels

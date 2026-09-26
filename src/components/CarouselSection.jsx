@@ -1,4 +1,4 @@
-import NewArrivalsProducts from "./NewArrivalsProducts";
+import ProductCard from "./ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import "swiper/css";
@@ -39,7 +39,7 @@ export default function CarouselSection({
                             breakpoints={{768: { slidesPerView: 2 }, 992: { slidesPerView: 3 }}} loop>
                             {products.map((product) => (
                                 <SwiperSlide key={product.id}>
-                                    <NewArrivalsProducts
+                                    <ProductCard
                                         productName={product.name}
                                         productPrice={product.price}
                                         productImage={product.image}
