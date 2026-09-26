@@ -80,7 +80,7 @@ header, nav, section, article, aside, footer, hgroup {
 html, body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  background-color: #fff;
+  background-color: var(--color-bg);
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -103,7 +103,7 @@ ul {
 p {
   font-size: 14px;
   line-height: 25px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 /* 
@@ -111,19 +111,40 @@ p {
 global styles
 --------------------------------------------- 
 */
+/* Tourashop palette: graphite and lake teal from the logo; the page is one sky, from dawn mist at the top to the subscribe sunset over the footer ridge */
+:root {
+  --color-graphite: #1f2a33;
+  --color-graphite-soft: #3a4750;
+  --color-muted: #3f4d54;
+  --color-teal: #3d8b8f;
+  --color-teal-dark: #2f6f73;
+  --color-teal-light: #7cc4c7;
+  --color-sky: #57c6e1;
+  --color-bg: #f1f4f4;
+  --color-mist: #dcebee;
+  --color-sky-pale: #c6e6ef;
+  --color-surface: #fff;
+  /* Page background: dawn mist with a faint alpenglow blush at the top, clearing into pale sky that hands off to the subscribe gradient */
+  --gradient-page: linear-gradient(180deg, #f1f4f4 0%, #f7eeee 12%, #eef3f4 35%, #dcedf1 65%, var(--color-sky-pale) 85%, var(--color-sky-pale) 100%);
+  --color-border: #c3d8dd;
+  --color-alpenglow: #eea2a2;
+  --radius: 6px;
+}
+
 html,
 body {
-  background: #fff;
+  background: var(--gradient-page);
   font-family: 'Poppins', sans-serif;
+  color: var(--color-graphite);
 }
 
 ::selection {
-  background: #2a2a2a;
+  background: var(--color-teal);
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #2a2a2a;
+  background: var(--color-teal);
   color: #fff;
 }
 
@@ -147,20 +168,22 @@ body {
   font-size: 13px;
   color: #fff;
   border: 1px solid #fff;
+  border-radius: var(--radius);
   padding: 12px 25px;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   transition: all .3s;
 }
 
 .main-border-button a:hover {
   background-color: #fff;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 .main-white-button a {
   font-size: 13px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   background-color: #fff;
   padding: 12px 25px;
   display: inline-block;
@@ -187,14 +210,45 @@ body {
 .section-heading h2 {
   font-size: 34px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 .section-heading span {
   font-size: 14px;
-  color: #a1a1a1;
-  font-style: italic;
+  color: var(--color-muted);
   font-weight: 400;
+}
+
+/* Small uppercase label above headings, echoing "OUTDOOR GEAR" in the logo */
+.eyebrow,
+.section-heading .eyebrow,
+#explore .left-content .eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  /* Deep teal keeps the small label readable on the darkest section tiers */
+  color: #22575a;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Filled accent button */
+.main-teal-button a,
+#explore .left-content .main-border-button a,
+.main-banner .left-content .main-border-button a {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  color: #fff;
+}
+
+.main-teal-button a:hover,
+#explore .left-content .main-border-button a:hover,
+.main-banner .left-content .main-border-button a:hover {
+  background-color: var(--color-graphite);
+  border-color: var(--color-graphite);
+  color: #fff;
 }
 
 
@@ -207,7 +261,7 @@ header
 
 .background-header {
   border-bottom: none !important;
-  background-color: #fff;
+  background-color: var(--color-bg);
   height: 80px!important;
   position: fixed!important;
   top: 0px;
@@ -218,31 +272,61 @@ header
 
 .background-header .logo,
 .background-header .main-nav .nav li a {
-  color: #1e1e1e!important;
+  color: var(--color-graphite)!important;
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #2a2a2a!important;
+  color: var(--color-teal)!important;
 }
 
 .background-header .nav li a.active {
-  color: #2a2a2a!important;
+  color: var(--color-teal)!important;
 }
 
+/* Sunrise to mirror the subscribe sunset: pale sky at the top warming to alpenglow, with the hero rising into it as a ridge */
 .header-area {
-  border-bottom: 3px dotted #eee;
+  border-bottom: none;
   box-shadow: none;
-  background-color: #fff;
+  background-color: var(--tier-0);
+  background-image: linear-gradient(180deg, #bfe3ec 0%, #dcecf0 45%, #f2d4d4 100%);
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 100;
-  height: 100px;
+  height: 136px;
   -webkit-transition: all .5s ease 0s;
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
+}
+
+/* Same ridge as between the sections, in the hero color, so the page starts with mountains at dawn */
+.header-area::before,
+.header-area::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  background-color: var(--tier-0);
+  pointer-events: none;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.header-area::before {
+  opacity: 0.5;
+  -webkit-mask-image: var(--ridge-shape-back);
+  mask-image: var(--ridge-shape-back);
+}
+
+.header-area::after {
+  -webkit-mask-image: var(--ridge-shape-front);
+  mask-image: var(--ridge-shape-front);
 }
 
 .header-area .main-nav {
@@ -298,7 +382,7 @@ header
   display: block;
   font-weight: 600;
   font-size: 15px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   text-transform: capitalize;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -311,17 +395,41 @@ header
 }
 
 .header-area .main-nav .nav li a {
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #aaa!important;
+  color: var(--color-teal)!important;
+}
+
+@media (min-width: 768px) {
+  .header-area .main-nav .nav li.scroll-to-section a {
+    position: relative;
+  }
+
+  .header-area .main-nav .nav li.scroll-to-section a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-teal);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .header-area .main-nav .nav li.scroll-to-section a.active::after,
+  .header-area .main-nav .nav li.scroll-to-section a:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #aaa!important;
+  color: var(--color-teal)!important;
   opacity: 1;
 }
 
@@ -334,14 +442,14 @@ header
   font-family: FontAwesome;
   content: "\f107";
   font-size: 12px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   position: absolute;
   right: 18px;
   top: 12px;
 }
 
 .background-header .main-nav .nav li.submenu:after {
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 .header-area .main-nav .nav li.submenu ul {
@@ -366,8 +474,8 @@ header
 .header-area .main-nav .nav li.submenu ul li a {
   opacity: 1;
   display: block;
-  background: #f7f7f7;
-  color: #2a2a2a!important;
+  background: #fff;
+  color: var(--color-graphite)!important;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;
@@ -378,12 +486,12 @@ header
   position: relative;
   font-size: 13px;
   font-weight: 400;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
-  background: #fff;
-  color: #aaa!important;
+  background: var(--color-mist);
+  color: var(--color-teal)!important;
   padding-left: 25px;
 }
 
@@ -423,7 +531,7 @@ header
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
   display: block;
   position: absolute;
   width: 30px;
@@ -434,7 +542,7 @@ header
 .background-header .main-nav .menu-trigger span,
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
 }
 
 .header-area .main-nav .menu-trigger span:before,
@@ -443,7 +551,7 @@ header
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
   display: block;
   position: absolute;
   width: 30px;
@@ -454,7 +562,7 @@ header
 
 .background-header .main-nav .menu-trigger span:before,
 .background-header .main-nav .menu-trigger span:after {
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
 }
 
 .header-area .main-nav .menu-trigger span:before,
@@ -495,11 +603,11 @@ header
   -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
   -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
   transform: translateY(6px) translateX(1px) rotate(45deg);
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
 }
 
 .background-header .main-nav .menu-trigger.active span:before {
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
 }
 
 .header-area .main-nav .menu-trigger.active span:after {
@@ -507,11 +615,11 @@ header
   -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   transform: translateY(-6px) translateX(1px) rotate(-45deg);
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
 }
 
 .background-header .main-nav .menu-trigger.active span:after {
-  background-color: #1e1e1e;
+  background-color: var(--color-graphite);
 }
 
 .header-area.header-sticky {
@@ -523,7 +631,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #aaa;
+  color: var(--color-teal);
 }
 
 @media (max-width: 1200px) {
@@ -538,20 +646,20 @@ header
 
 @media (max-width: 767px) {
   .header-area .main-nav .logo {
-    color: #1e1e1e;
+    color: var(--color-graphite);
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #aaa!important;
+    color: var(--color-teal)!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
     width: 100%;
   }
   .header-area {
-    background-color: #f7f7f7;
+    background-color: var(--color-bg);
     padding: 0px 15px;
-    height: 100px;
+    height: 136px;
     box-shadow: none;
     text-align: center;
   }
@@ -578,7 +686,7 @@ header
     margin-left: 0px;
   }
   .header-area .main-nav .nav li:first-child {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--color-border);
   }
   .header-area.header-sticky .nav {
     margin-top: 100px !important;
@@ -586,7 +694,7 @@ header
   .header-area .main-nav .nav li {
     width: 100%;
     background: #fff;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
@@ -595,12 +703,12 @@ header
     line-height: 50px !important;
     padding: 0px !important;
     border: none !important;
-    background: #f7f7f7 !important;
-    color: #191a20 !important;
+    background: var(--color-mist) !important;
+    color: var(--color-graphite) !important;
   }
   .header-area .main-nav .nav li a:hover {
-    background: #eee !important;
-    color: #aaa!important;
+    background: var(--color-border) !important;
+    color: var(--color-teal)!important;
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -625,7 +733,7 @@ header
     height: auto !important;
   }
   .header-area .main-nav .nav li.submenu:after {
-    color: #3B566E;
+    color: var(--color-graphite);
     right: 25px;
     font-size: 14px;
     top: 15px;
@@ -649,9 +757,53 @@ banner
 */
 
 .main-banner {
-  border-bottom: 3px dotted #eee;
-  padding-top: 160px;
-  padding-bottom: 30px;
+  /* Clears the 136px header and its ridge */
+  padding-top: 166px;
+  /* Room for the first ridge rising out of the hiking section */
+  padding-bottom: 90px;
+}
+
+/* Rounded photos with a graphite fade so white text always reads */
+.main-banner .left-content .thumb,
+.main-banner .right-content .right-first-image .thumb,
+.shop-by-activity .activity-item .thumb {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.main-banner .left-content .thumb::before,
+.main-banner .right-content .right-first-image .thumb::before,
+.shop-by-activity .activity-item .thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.main-banner .left-content .thumb::before {
+  background-image: linear-gradient(90deg, rgba(31,42,51,0.85) 0%, rgba(31,42,51,0.4) 55%, rgba(31,42,51,0) 100%);
+}
+
+.shop-by-activity .activity-item .thumb::before {
+  background-image: linear-gradient(0deg, rgba(31,42,51,0.8) 0%, rgba(31,42,51,0) 55%);
+}
+
+/* Captions sit in the middle, so the tint covers the whole photo evenly */
+.main-banner .right-content .right-first-image .thumb::before {
+  background-color: rgba(31,42,51,0.45);
+}
+
+.main-banner .left-content .inner-content {
+  z-index: 2;
+}
+
+.main-banner .left-content .inner-content .eyebrow {
+  color: var(--color-teal-light);
+  font-style: normal;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
 .main-banner .left-content .thumb img {
@@ -661,7 +813,7 @@ banner
 
 .main-banner .left-content .inner-content {
   position: absolute;
-  left: 100px;
+  left: 60px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -676,9 +828,8 @@ banner
 
 .main-banner .left-content .inner-content span {
   font-size: 16px;
-  color: #fff;
+  color: rgba(255,255,255,0.85);
   font-weight: 400;
-  font-style: italic;
   display: block;
   margin-bottom: 30px;
 }
@@ -700,22 +851,25 @@ banner
 .main-banner .right-content .right-first-image .thumb .inner-content {
   position: absolute;
   top: 50%;
+  left: 24px;
+  right: 24px;
   transform: translateY(-50%);
-  width: 100%;
+  z-index: 2;
   text-align: center;
 }
 
 .main-banner .right-content .right-first-image .thumb .inner-content h4 {
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
 .main-banner .right-content .right-first-image .thumb .inner-content span {
-  font-size: 16px;
-  color: #fff;
-  font-style: italic;
+  font-size: 13px;
+  color: var(--color-teal-light);
 }
 
 .main-banner .right-content .right-first-image .thumb .hover-content {
@@ -725,7 +879,9 @@ banner
   left: 15px;
   bottom: 15px;
   text-align: center;
-  background-color: rgba(42,42,42,.97);
+  z-index: 3;
+  border-radius: var(--radius);
+  background-color: rgba(31,42,51,.92);
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s;
@@ -768,7 +924,139 @@ Product Carousel
 .product-carousel {
   padding-top: 90px;
   padding-bottom: 90px;
-  border-bottom: 3px dotted #eee;
+}
+
+/* Sunrise path down the page: white, cream, sage, morning blue, blue-grey dusk, sky, then the subscribe sunset closes it over the footer ridge.
+   The top half stays near neutral and colour builds toward the end, so subscribe and the footer remain the high point.
+   The hue shifts but every tier is a step darker than the one above, so each ridge reads against the section it rises into. */
+:root {
+  --tier-0: #f7f6f2; /* first light, warm white */
+  --tier-1: #f2f0e6; /* hint of cream */
+  --tier-2: #eaede3; /* cream turning green */
+  --tier-3: #e0e6dc; /* pale sage */
+  --tier-4: #d6ddd3; /* sage */
+  --tier-5: #cad6dc; /* first blue of the morning sky */
+  --tier-6: #c8ccd6; /* blue-grey dusk, leading into the subscribe sky */
+  --tier-7: #a8cadc; /* sky, handing off to the subscribe gradient */
+}
+
+.main-banner { background-color: var(--tier-0); }
+
+#hiking { --tier-bg: var(--tier-1); }
+#running { --tier-bg: var(--tier-2); }
+#biking { --tier-bg: var(--tier-3); }
+#climbing { --tier-bg: var(--tier-4); }
+#explore { --tier-bg: var(--tier-5); }
+#social { --tier-bg: var(--tier-6); }
+.subscribe { --tier-bg: var(--tier-7); }
+
+#hiking,
+#running,
+#biking,
+#climbing,
+#explore,
+#social,
+.subscribe {
+  position: relative;
+  background-color: var(--tier-bg);
+}
+
+/* The footer ridge in pale tones: a front range in the next section's color rising into the one above, and a back range halfway between the two */
+#hiking::before,
+#running::before,
+#biking::before,
+#climbing::before,
+#explore::before,
+#social::before,
+.subscribe::before,
+#hiking::after,
+#running::after,
+#biking::after,
+#climbing::after,
+#explore::after,
+#social::after,
+.subscribe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 70px;
+  pointer-events: none;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+#hiking::before,
+#running::before,
+#biking::before,
+#climbing::before,
+#explore::before,
+#social::before,
+.subscribe::before {
+  /* Half-transparent section color over the section above lands between the two tones */
+  background-color: var(--tier-bg);
+  opacity: 0.5;
+  -webkit-mask-image: var(--ridge-shape-back);
+  mask-image: var(--ridge-shape-back);
+}
+
+#hiking::after,
+#running::after,
+#biking::after,
+#climbing::after,
+#explore::after,
+#social::after,
+.subscribe::after {
+  background-color: var(--tier-bg);
+  -webkit-mask-image: var(--ridge-shape-front);
+  mask-image: var(--ridge-shape-front);
+}
+
+/* Mirror every other ridge so the skyline doesn't repeat */
+#running::before,
+#running::after,
+#climbing::before,
+#climbing::after,
+#social::before,
+#social::after {
+  transform: scaleX(-1);
+}
+
+/* Same outlines as the footer ridge, used as masks so each section can paint them in its own color */
+:root {
+  --ridge-shape-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 44 L160 20 L260 36 L420 6 L560 34 L700 22 L860 44 L1010 8 L1150 30 L1300 16 L1440 34 L1440 70 Z'/%3E%3C/svg%3E");
+  --ridge-shape-front: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 52 L110 40 L230 54 L340 28 L400 38 L470 22 L600 52 L740 36 L820 46 L940 20 L1000 30 L1060 26 L1210 52 L1330 40 L1440 50 L1440 70 Z'/%3E%3C/svg%3E");
+}
+
+/* Room for the card lift and shadow inside Swiper's overflow */
+.product-carousel .swiper {
+  padding: 8px 4px 16px;
+}
+
+.product-carousel .item {
+  transition: transform 0.3s;
+}
+
+.product-carousel .item:hover {
+  transform: translateY(-4px);
+}
+
+.product-carousel .item .thumb {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.product-carousel .item:hover .thumb {
+  box-shadow: 0 12px 28px rgba(31,42,51,0.15);
+}
+
+.product-carousel .item .thumb img {
+  display: block;
+  width: 100%;
 }
 
 .product-carousel .section-heading {
@@ -776,35 +1064,36 @@ Product Carousel
 }
 
 .product-carousel .item .down-content {
-  padding-top: 30px;
+  padding-top: 20px;
   position: relative;
   z-index: 3;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .product-carousel .item .down-content h4 {
-  font-size: 22px;
-  color: #2a2a2a;
+  font-size: 18px;
+  color: var(--color-graphite);
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .product-carousel .item .down-content span {
-  font-size: 18px;
-  color: #a1a1a1;
-  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-teal);
+  font-weight: 600;
   display: block;
 }
 
 .product-carousel .item .down-content ul.stars {
   position: absolute;
   right: 0;
-  top: 30px;
+  top: 22px;
 }
 
 .product-carousel .item .down-content ul.stars li {
   display: inline;
-  font-size: 13px;
+  font-size: 12px;
+  color: var(--color-teal);
 }
 
 .product-carousel .item .thumb .hover-content {
@@ -839,8 +1128,16 @@ Product Carousel
   text-align: center;
   line-height: 50px;
   display: inline-block;
-  color: #2a2a2a;
+  border-radius: 50%;
+  color: var(--color-graphite);
   background-color: #fff;
+  box-shadow: 0 4px 12px rgba(31,42,51,0.15);
+  transition: all 0.3s;
+}
+
+.product-carousel .item .thumb .hover-content ul li a:hover {
+  background-color: var(--color-teal);
+  color: #fff;
 }
 
 
@@ -853,22 +1150,25 @@ Product Carousel
   width: 50px;
   height: 50px;
   padding: 0;
-  border: 1px solid #2a2a2a;
-  background-color: transparent;
-  color: #2a2a2a;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--color-graphite);
   font-size: 25px;
   font-weight: 700;
   line-height: 48px;
   text-align: center;
   cursor: pointer;
   outline: none;
-  opacity: 0.75;
-  transition: all .5s;
+  box-shadow: 0 4px 12px rgba(31,42,51,0.08);
+  transition: all .3s;
 }
 
 .product-carousel .carousel-prev:hover,
 .product-carousel .carousel-next:hover {
-  opacity: 1;
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  color: #fff;
 }
 
 .product-carousel .carousel-prev {
@@ -903,7 +1203,10 @@ Explore
 #explore {
   padding-top: 90px;
   padding-bottom: 90px;
-  border-bottom: 3px dotted #eee;
+}
+
+#explore img {
+  border-radius: var(--radius);
 }
 
 #explore .left-content {
@@ -913,12 +1216,12 @@ Explore
 #explore .left-content h2 {
   font-size: 34px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 #explore .left-content span {
   font-size: 14px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -929,6 +1232,7 @@ Explore
 }
 
 #explore .left-content .quote i {
+  color: var(--color-teal);
   float: left;
   font-size: 32px;
   margin-right: 15px;
@@ -937,27 +1241,20 @@ Explore
 
 #explore .left-content .quote p {
   font-style: italic;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   font-weight: 500;
 }
 
 #explore .left-content p {
   font-size: 14px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 25px;
 }
 
 #explore .left-content .main-border-button a {
-  color: #2a2a2a;
-  border-color: #2a2a2a;
   margin-top: 35px;
-}
-
-#explore .left-content .main-border-button a:hover {
-  background-color: #2a2a2a;
-  color: #fff;
 }
 
 #explore img {
@@ -976,7 +1273,9 @@ Explore
 #explore .leather,
 #explore .types {
   min-height: 255px;
-  background-color: #f8f8f8;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--color-teal);
   text-align: center;
   width: 100%;
 }
@@ -985,7 +1284,7 @@ Explore
 #explore .types h4 {
   font-size: 24px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   padding-top: 90px;
   margin-bottom: 5px;
 }
@@ -993,8 +1292,7 @@ Explore
 #explore .leather span,
 #explore .types span {
   font-size: 14px;
-  font-style: italic;
-  color: #aaa;
+  color: var(--color-muted);
   font-weight: 500;
 }
 
@@ -1005,9 +1303,8 @@ Social
 */
 
 #social {
-  margin-top: 90px;
+  padding-top: 90px;
   padding-bottom: 90px;
-  border-bottom: 3px dotted #eee;
 }
 
 #social .col-3 {
@@ -1032,7 +1329,7 @@ Social
   right: 0;
   top: 0;
   width: 100%;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(31,42,51,0.85);
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
@@ -1072,7 +1369,14 @@ Subscribe
 */
 
 .subscribe {
-  margin-top: 90px;
+  padding: 80px 0 130px 0;
+  /* Transparent top blends into the section color (--tier-7); sunset at the bottom meets the footer ridge */
+  background-image: linear-gradient(0deg, var(--color-alpenglow) 0%, #bbc1bf 19%, var(--color-sky) 45%, rgba(87,198,225,0.45) 75%, rgba(87,198,225,0) 100%);
+}
+
+.subscribe .section-heading span,
+.subscribe .section-heading .eyebrow {
+  color: var(--color-graphite-soft);
 }
 
 .subscribe .section-heading {
@@ -1089,17 +1393,16 @@ Subscribe
   line-height: 44px;
   padding: 0px 15px;
   font-size: 14px;
-  font-style: italic;
   font-weight: 500;
-  color: #aaa;
-  border-radius: 0px;
-  border: 1px solid #7a7a7a;
-  box-shadow: none;
+  color: var(--color-graphite);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  box-shadow: 0 2px 8px rgba(31,42,51,0.08);
+  outline: none;
 }
 
-.subscribe form input::focus {
-  border-color: #2a2a2a;
-  border-radius: 0px;
+.subscribe form input:focus {
+  border-color: var(--color-teal);
 }
 
 .subscribe form button {
@@ -1108,7 +1411,8 @@ Subscribe
   display: inline-block;
   text-align: center;
   line-height: 44px;
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
+  border-radius: var(--radius);
   box-shadow: none;
   border: 1px solid transparent;
   color: #fff;
@@ -1116,9 +1420,7 @@ Subscribe
 }
 
 .subscribe form button:hover {
-  background-color: #fff;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+  background-color: var(--color-teal);
 }
 
 .subscribe ul li {
@@ -1129,18 +1431,18 @@ Subscribe
 .subscribe ul li {
   font-size: 16px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 .subscribe ul li span,
 .subscribe ul li span a {
   font-size: 14px;
   font-weight: 400;
-  color: #aaa;
+  color: var(--color-graphite-soft);
 }
 
 .subscribe ul li span a:hover {
-  color: #2a2a2a;
+  color: #fff;
 }
 
 
@@ -1151,9 +1453,29 @@ footer
 */
 
 footer {
-  margin-top: 60px;
+  position: relative;
+  margin-top: 0;
   padding: 60px 0px 30px 0px;
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
+}
+
+/* Mountain ridge rising out of the footer, same two tones as the logo */
+footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 70px;
+  background-image: var(--ridge-front), var(--ridge-back);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+:root {
+  --ridge-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 44 L160 20 L260 36 L420 6 L560 34 L700 22 L860 44 L1010 8 L1150 30 L1300 16 L1440 34 L1440 70 Z' fill='%233d8b8f'/%3E%3C/svg%3E");
+  --ridge-front: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 52 L110 40 L230 54 L340 28 L400 38 L470 22 L600 52 L740 36 L820 46 L940 20 L1000 30 L1060 26 L1210 52 L1330 40 L1440 50 L1440 70 Z' fill='%231f2a33'/%3E%3C/svg%3E");
 }
 
 footer .logo {
@@ -1165,20 +1487,25 @@ footer ul li {
   margin-bottom: 10px;
 }
 
+footer .logo img {
+  max-width: 195px;
+}
+
 footer ul li a {
   font-size: 14px;
-  color: #fff;
+  color: rgba(255,255,255,0.75);
   transition: all .3s;
 }
 
 footer ul li a:hover {
-  color: #aaa;
+  color: var(--color-teal-light);
 }
 
 footer h4 {
-  letter-spacing: 0.5px;
-  font-size: 16px;
-  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--color-teal-light);
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -1187,7 +1514,7 @@ footer .under-footer {
   margin-top: 30px;
   padding-top: 30px;
   text-align: center;
-  border-top: 1px solid rgba(250,250,250,0.3);
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 footer .under-footer ul {
@@ -1200,21 +1527,34 @@ footer .under-footer ul li {
 }
 
 footer .under-footer ul li a {
-  font-size: 22px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  font-size: 16px;
+  color: #fff;
+}
+
+footer .under-footer ul li a:hover {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  color: #fff;
 }
 
 footer .under-footer p {
-  color: #fff;
+  color: rgba(255,255,255,0.6);
   font-size: 14px;
   font-weight: 300;
 }
 
-footer .under-footer a {
-  color: #cff;
+footer .under-footer p a {
+  color: var(--color-teal-light);
 }
 
-footer .under-footer a:hover {
-  color: #c66;
+footer .under-footer p a:hover {
+  color: #fff;
 }
 
 
@@ -1276,14 +1616,14 @@ Products Page
 
 #products .item .down-content h4 {
   font-size: 22px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 #products .item .down-content span {
   font-size: 18px;
-  color: #a1a1a1;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
 }
@@ -1331,7 +1671,7 @@ Products Page
   text-align: center;
   line-height: 50px;
   display: inline-block;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   background-color: #fff;
 }
 
@@ -1353,18 +1693,18 @@ Products Page
 #products .pagination ul li a {
   width: 44px;
   height: 44px;
-  border: 1px solid #2a2a2a;
+  border: 1px solid var(--color-graphite);
   display: inline-block;
   text-align: center;
   line-height: 44px;
   font-size: 14px;
   font-weight: 500;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 #products .pagination ul li a:hover,
 #products .pagination ul li.active a {
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
   color: #fff;
 }
 
@@ -1394,18 +1734,18 @@ Single Product Page
 
 #product .right-content h4 {
   font-size: 22px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   font-weight: 700;
   margin-bottom: 0px;
 }
 
 #product .right-content span.price {
   font-size: 18px;
-  color: #a1a1a1;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 5px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 20px;
 }
 
@@ -1422,7 +1762,7 @@ Single Product Page
 
 #product .right-content span {
   font-size: 14px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1441,13 +1781,13 @@ Single Product Page
 
 #product .right-content .quote p {
   font-style: italic;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   font-weight: 500;
 }
 
 #product .right-content p {
   font-size: 14px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1456,8 +1796,8 @@ Single Product Page
 .quantity-content {
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   width: 100%;
   padding-bottom: 30px;
   margin-bottom: 30px;
@@ -1476,7 +1816,7 @@ Single Product Page
   padding-top: 7px;
   font-size: 20px;
   font-weight: 700;
-  color: #aaa;
+  color: var(--color-muted);
   position: relative;
   z-index: 11;
 }
@@ -1485,7 +1825,7 @@ Single Product Page
   float: left;
   font-size: 20px;
   margin-top: 10px;
-  color: #aaa!important;
+  color: var(--color-muted)!important;
 }
 
 .total .main-border-button {
@@ -1493,13 +1833,13 @@ Single Product Page
 }
 
 .total .main-border-button a {
-  border-color: #2a2a2a;
-  color: #2a2a2a;
+  border-color: var(--color-graphite);
+  color: var(--color-graphite);
 }
 
 .total .main-border-button a:hover {
   color: #fff;
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
 }
 
 .quantity {
@@ -1511,7 +1851,7 @@ Single Product Page
   padding: 0 5px;
   text-align: center;
   background-color: transparent;
-  border: 1px solid #efefef;
+  border: 1px solid var(--color-border);
  }
  
  .quantity.buttons_added {
@@ -1532,7 +1872,7 @@ Single Product Page
   padding: 7px 10px 8px;
   height: 39px;
   background-color: #ffffff;
-  border: 1px solid #efefef;
+  border: 1px solid var(--color-border);
   cursor:pointer;}
  
  .quantity.buttons_added .minus {
@@ -1543,7 +1883,7 @@ Single Product Page
  
  .quantity.buttons_added .minus:hover,
  .quantity.buttons_added .plus:hover {
-  background: #eeeeee; }
+  background: var(--color-border); }
  
  .quantity input::-webkit-outer-spin-button,
  .quantity input::-webkit-inner-spin-button {
@@ -1588,12 +1928,12 @@ About Us Page
 .about-us .right-content h4 {
   font-size: 34px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--color-graphite);
 }
 
 .about-us .right-content span {
   font-size: 14px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 25px;
@@ -1612,20 +1952,20 @@ About Us Page
 
 .about-us .right-content .quote p {
   font-style: italic;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   font-weight: 500;
 }
 
 .about-us .right-content p {
   font-size: 14px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   margin-top: 25px;
 }
 
 .about-us .right-content ul {
-  border-top: 3px dotted #eee;
+  border-top: 1px solid var(--color-border);
   margin-top: 30px;
   padding-top: 30px;
 }
@@ -1638,7 +1978,7 @@ About Us Page
 .about-us .right-content ul li a {
   width: 44px;
   height: 44px;
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
   color: #fff;
   display: inline-block;
   text-align: center;
@@ -1648,15 +1988,15 @@ About Us Page
 }
 
 .about-us .right-content ul li a:hover {
-  background-color: #eee;
-  color: #2a2a2a;
+  background-color: var(--color-border);
+  color: var(--color-graphite);
 }
 
 .our-team {
   margin-top: 100px;
   padding-top: 90px;
   padding-bottom: 90px;
-  border-top: 3px dotted #eee;
+  border-top: 1px solid var(--color-border);
 }
 
 .our-team .section-heading {
@@ -1711,7 +2051,7 @@ About Us Page
   width: 44px;
   height: 44px;
   background-color: #fff;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   display: inline-block;
   text-align: center;
   line-height: 44px;
@@ -1720,7 +2060,7 @@ About Us Page
 }
 
 .our-team .team-item .thumb .hover-effect .inner-content ul li a:hover {
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
   color: #fff;
 }
 
@@ -1731,14 +2071,14 @@ About Us Page
 
 .our-team .team-item .down-content h4 {
   font-size: 24px;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   font-weight: 700;
   margin-bottom: 5px;
 }
 
 .our-team .team-item .down-content span {
   font-size: 14px;
-  color: #a1a1a1;
+  color: var(--color-muted);
   font-weight: 500;
   display: block;
   font-style: italic;
@@ -1747,8 +2087,8 @@ About Us Page
 .our-services {
   padding-top: 90px;
   padding-bottom: 90px;
-  border-top: 3px dotted #eee;
-  border-bottom: 3px dotted #eee;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .our-services .section-heading {
@@ -1774,7 +2114,7 @@ About Us Page
 .our-services .service-item h4 {
   font-size: 24px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: var(--color-graphite);
   margin-bottom: 20px;
 }
 
@@ -1792,7 +2132,7 @@ contact Us Page
 
 .contact-us {
   margin-top: 90px;
-  border-bottom: 3px dotted #eee;
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 90px;
 }
 
@@ -1812,14 +2152,14 @@ contact Us Page
   font-size: 14px;
   font-style: italic;
   font-weight: 500;
-  color: #aaa;
+  color: var(--color-muted);
   border-radius: 0px;
-  border: 1px solid #7a7a7a;
+  border: 1px solid var(--color-muted);
   box-shadow: none;
 }
 
 .contact-us form input::focus {
-  border-color: #2a2a2a;
+  border-color: var(--color-graphite);
   border-radius: 0px;
 }
 
@@ -1835,14 +2175,14 @@ contact Us Page
   font-size: 14px;
   font-style: italic;
   font-weight: 500;
-  color: #aaa;
+  color: var(--color-muted);
   border-radius: 0px;
-  border: 1px solid #7a7a7a;
+  border: 1px solid var(--color-muted);
   box-shadow: none;
 }
 
 .contact-us form textarea::focus {
-  border-color: #2a2a2a;
+  border-color: var(--color-graphite);
   border-radius: 0px;
 }
 
@@ -1852,7 +2192,7 @@ contact Us Page
   display: inline-block;
   text-align: center;
   line-height: 44px;
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
   box-shadow: none;
   border: 1px solid transparent;
   color: #fff;
@@ -1861,8 +2201,8 @@ contact Us Page
 
 .contact-us form button:hover {
   background-color: #fff;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+  border: 1px solid var(--color-graphite);
+  color: var(--color-graphite);
 }
 
 
@@ -1952,7 +2292,7 @@ responsive
 
 #preloader {
   overflow: hidden;
-  background-color: #2a2a2a;
+  background-color: var(--color-graphite);
   left: 0;
   right: 0;
   top: 0;
@@ -2055,6 +2395,7 @@ Shop by Activity
 }
 
 .shop-by-activity .activity-item .thumb .inner-content {
+  z-index: 2;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -2082,7 +2423,8 @@ Shop by Activity
   left: 15px;
   bottom: 15px;
   text-align: center;
-  background-color: rgba(42,42,42,.97);
+  z-index: 3;
+  background-color: rgba(31,42,51,.92);
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s;

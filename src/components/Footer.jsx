@@ -1,3 +1,5 @@
+import logo from "../assets/logo-white.svg";
+
 export default function Footer() {
     return (
         <footer>
@@ -6,19 +8,14 @@ export default function Footer() {
                     <div className="col-lg-3">
                         <div className="first-item">
                             <div className="logo">
-                                <img
-                                    src="/assets/images/white-logo.png"
-                                    alt="hexashop ecommerce templatemo"
-                                />
+                                <img src={logo} alt="Tourashop" />
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#">
-                                        16501 Collins Ave, Sunny Isles Beach, FL 33160, United States
-                                    </a>
+                                    <a href="#">12 Trailhead Road, Boulder, CO 80302</a>
                                 </li>
                                 <li>
-                                    <a href="#">hexashop@company.com</a>
+                                    <a href="#">hello@yourstore.com</a>
                                 </li>
                                 <li>
                                     <a href="#">010-020-0340</a>
@@ -27,16 +24,19 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="col-lg-3">
-                        <h4>Shopping &amp; Categories</h4>
+                        <h4>Shop by Activity</h4>
                         <ul>
                             <li>
-                                <a href="#">Men’s Shopping</a>
+                                <a href="#hiking">Hiking</a>
                             </li>
                             <li>
-                                <a href="#">Women’s Shopping</a>
+                                <a href="#running">Running</a>
                             </li>
                             <li>
-                                <a href="#">Kid's Shopping</a>
+                                <a href="#biking">Biking</a>
+                            </li>
+                            <li>
+                                <a href="#climbing">Climbing</a>
                             </li>
                         </ul>
                     </div>
@@ -77,7 +77,7 @@ export default function Footer() {
                     <div className="col-lg-12">
                         <div className="under-footer">
                             <p>
-                                Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
+                                Copyright © 2026 Tourashop. All Rights Reserved.
                                 <br />
                                 Design:{" "}
                                 <a
@@ -99,23 +99,18 @@ export default function Footer() {
                             </p>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.instagram.com" aria-label="Instagram">
+                                        <i className="fa fa-instagram" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com" aria-label="Facebook">
                                         <i className="fa fa-facebook" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i className="fa fa-twitter" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i className="fa fa-linkedin" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i className="fa fa-behance" />
+                                    <a href="https://www.youtube.com" aria-label="YouTube">
+                                        <i className="fa fa-youtube-play" />
                                     </a>
                                 </li>
                             </ul>

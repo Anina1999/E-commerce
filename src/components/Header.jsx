@@ -1,3 +1,5 @@
+import logo from "../assets/logo.svg";
+
 export default function Header() {
     return (
         <header className="header-area header-sticky">
@@ -6,7 +8,7 @@ export default function Header() {
                     <div className="col-12">
                         <nav className="main-nav">
                             <a href="index.html" className="logo">
-                                <img src="/assets/images/logo.png" />
+                                <img src={logo} alt="Tourashop" />
                             </a>
                             <ul className="nav">
                                 <li className="scroll-to-section">

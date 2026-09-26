@@ -1,4 +1,5 @@
 const content = {
+    eyebrow: "Why Tourashop",
     title: "Gear Advice From People Who Use It",
     intro: "Not sure what to pick? Every item in our store has been tested on real trails, runs, rides and climbs.",
     quote: "They helped me pick boots that lasted my whole Rila traverse.",
@@ -20,6 +21,7 @@ export default function ExploreSection() {
                 <div className="row">
                     <div className="col-lg-6">
                         <div className="left-content">
+                            <span className="eyebrow">{content.eyebrow}</span>
                             <h2>{content.title}</h2>
                             <span>{content.intro}</span>
                             <div className="quote">

@@ -23,3 +23,12 @@
     - [x] Extract Section heading as reusable component (CarouselSection, SubscribeSection,CommunitySection)
     - [x] Replace the Explore section text with suitable store content
     - [x] Replace Subscribe section text and fix the form validation (required, type="email")
+
+   
+## Steps to brand and design the UI
+    - [x] Rebrand to Tourashop - add SVG logos (src/assets/logo.svg, logo-white.svg) to Header and Footer, replace the footer contacts, category links and social icons
+    - [x] Add eyebrow as an optional prop to SectionHeading - small uppercase label above the heading, used in Hero, Carousel, Explore, Community and Subscribe sections
+    - [x] Define the Tourashop palette as CSS variables in main.css (graphite, teal, sky, alpenglow) and replace the hardcoded template colors
+    - [x] Add a mountain ridge on top of the footer in the logo colors
+    - [x] Build a sunrise-to-sunset page background - each home section is a step darker (white, cream, sage, blue) with a pale ridge between sections, closing with the Subscribe sunset gradient and the footer ridge
+    - [x] Style the header as a sunrise gradient with the hero rising into it as a ridge

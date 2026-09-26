@@ -8,6 +8,7 @@ export default function CarouselSection({
     id,
     title,
     subtitle,
+    eyebrow = "New Arrivals",
     products
 }) {
     return (
@@ -15,7 +16,7 @@ export default function CarouselSection({
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <SectionHeading title={title} subtitle={subtitle} />
+                        <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
                     </div>
                 </div>
             </div>

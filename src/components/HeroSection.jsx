@@ -9,6 +9,7 @@ export default function HeroSection() {
                         <div className="left-content">
                             <div className="thumb">
                                 <div className="inner-content">
+                                    <span className="eyebrow">Outdoor Gear</span>
                                     <h4>We Are Tourashop</h4>
                                     <span>Our products are chosen for the modern adventurer</span>
                                     <div className="main-border-button">

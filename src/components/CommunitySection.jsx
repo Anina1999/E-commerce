@@ -9,6 +9,7 @@ export default function CommunitySection() {
                 <div className="row">
                     <div className="col-lg-12">
                         <SectionHeading
+                            eyebrow="#Tourashop"
                             title="Follow the Adventure"
                             subtitle="Real adventures from our community — tag us on Instagram to be featured."
                         />
