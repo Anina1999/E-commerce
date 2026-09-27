@@ -43,3 +43,4 @@
     - [x] Highlight the nav link of the section in view while scrolling
     - [x] Toggle the mobile menu with the .menu-trigger button
     - [x] Close the mobile menu after a section link is clicked
+    - [x] Make Pages and Features submenus self closing on mobile version

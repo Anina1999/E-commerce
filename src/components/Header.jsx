@@ -28,10 +28,19 @@ export default function Header() {
     const [isSticky, setIsSticky] = useState(false);
     const [activeSection, setActiveSection] = useState("top");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
+
 
     const handleSectionSelect = (id) => {
         setActiveSection(id);
         setIsMenuOpen(false);
+    };
+
+    const toggleSubmenu = (event, name) => {
+        event.preventDefault();
+        setOpenSubmenu((current) => (
+            current === name ? null : name
+        ));
     };
 
     useEffect(() => {
@@ -80,8 +89,10 @@ export default function Header() {
                                     ))}
 
                                 <li className="submenu">
-                                    <a href="#">Pages</a>
-                                    <ul>
+                                    <a href="#" onClick={(event) => toggleSubmenu(event, "pages")}>
+                                        Pages
+                                    </a>
+                                    <ul className={openSubmenu === "pages" ? "active" : undefined}>
                                         <li>
                                             <a href="about.html">About Us</a>
                                         </li>
@@ -97,8 +108,10 @@ export default function Header() {
                                     </ul>
                                 </li>
                                 <li className="submenu">
-                                    <a href="#">Features</a>
-                                    <ul>
+                                    <a href="#" onClick={(event) => toggleSubmenu(event, "features")}>
+                                        Features
+                                    </a>
+                                    <ul className={openSubmenu === "features" ? "active" : undefined}>
                                         <li>
                                             <a href="#">Features Page 1</a>
                                         </li>
