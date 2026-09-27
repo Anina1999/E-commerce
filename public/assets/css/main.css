@@ -419,6 +419,37 @@ header
   color: var(--color-teal)!important;
 }
 
+.header-area .main-nav .nav li .submenu-toggle {
+  display: block;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-graphite);
+  height: 40px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.header-area .main-nav .nav li:hover .submenu-toggle {
+  color: var(--color-teal);
+}
+
+/* Bootstrap outlines every focused button, so a mouse click left a black box; show a ring only for keyboard focus */
+.header-area .main-nav .nav li .submenu-toggle:focus {
+  outline: none;
+}
+
+.header-area .main-nav .nav li .submenu-toggle:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: -2px;
+  border-radius: var(--radius);
+}
+
 @media (min-width: 768px) {
   .header-area .main-nav .nav li.scroll-to-section a {
     position: relative;
@@ -738,6 +769,16 @@ header
   .header-area .main-nav .nav li a:hover {
     background: var(--color-border) !important;
     color: var(--color-teal)!important;
+  }
+ 
+  .header-area .main-nav .nav li .submenu-toggle {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: var(--color-mist);
+  }
+  .header-area .main-nav .nav li .submenu-toggle:hover {
+    background: var(--color-border);
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -2261,7 +2302,8 @@ responsive
     padding-right: 5px;
     padding-left: 5px;
   }
-  .header-area .main-nav .nav li a {
+  .header-area .main-nav .nav li a,
+  .header-area .main-nav .nav li .submenu-toggle {
     font-size: 14px;
     letter-spacing: 0px;
   }

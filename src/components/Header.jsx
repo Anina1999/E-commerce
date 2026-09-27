@@ -36,8 +36,7 @@ export default function Header() {
         setIsMenuOpen(false);
     };
 
-    const toggleSubmenu = (event, name) => {
-        event.preventDefault();
+    const toggleSubmenu = (name) => {
         setOpenSubmenu((current) => (
             current === name ? null : name
         ));
@@ -89,9 +88,14 @@ export default function Header() {
                                     ))}
 
                                 <li className="submenu">
-                                    <a href="#" onClick={(event) => toggleSubmenu(event, "pages")}>
+                                    <button
+                                        type="button"
+                                        className="submenu-toggle"
+                                        aria-expanded={openSubmenu === "pages"}
+                                        onClick={() => toggleSubmenu("pages")}
+                                    >
                                         Pages
-                                    </a>
+                                    </button>
                                     <ul className={openSubmenu === "pages" ? "active" : undefined}>
                                         <li>
                                             <a href="about.html">About Us</a>
@@ -108,9 +112,14 @@ export default function Header() {
                                     </ul>
                                 </li>
                                 <li className="submenu">
-                                    <a href="#" onClick={(event) => toggleSubmenu(event, "features")}>
+                                    <button
+                                        type="button"
+                                        className="submenu-toggle"
+                                        aria-expanded={openSubmenu === "features"}
+                                        onClick={() => toggleSubmenu("features")}
+                                    >
                                         Features
-                                    </a>
+                                    </button>
                                     <ul className={openSubmenu === "features" ? "active" : undefined}>
                                         <li>
                                             <a href="#">Features Page 1</a>
