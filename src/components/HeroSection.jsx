@@ -27,7 +27,7 @@ export default function HeroSection() {
                                 <HeroCard 
                                     activity="Hiking"
                                     activityBestItems="Best Items For Hiking"
-                                    itemsText="Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
+                                    itemsText="Boots, packs and layers built for long days on the trail."
                                     activityImage="/assets/images/baner-right-image-01.jpg"
                                     
                                 />
@@ -35,21 +35,21 @@ export default function HeroSection() {
                                 <HeroCard 
                                     activity="Running"
                                     activityBestItems="Best Items For Running"
-                                    itemsText="Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
+                                    itemsText="Light shoes and breathable gear for road and trail miles."
                                     activityImage="/assets/images/baner-right-image-03.jpg"
                                 />
 
                                 <HeroCard 
                                     activity="Biking"
                                     activityBestItems="Best Items For Biking"
-                                    itemsText="Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
+                                    itemsText="Helmets, gloves and apparel for every ride, from city streets to singletrack."
                                     activityImage="/assets/images/baner-right-image-02.jpg"
                                 />
                                 
                                 <HeroCard 
                                     activity="Climbing"
                                     activityBestItems="Best Items For Climbing"
-                                    itemsText="Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
+                                    itemsText="Harnesses, shoes and chalk bags for the crag and the gym."
                                     activityImage="/assets/images/baner-right-image-03.jpg"
                                 />
 

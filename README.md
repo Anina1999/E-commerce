@@ -40,3 +40,4 @@
     - [x] Make the header sticky - using useEffect scroll listener
     - [x] Add smooth scroll for nav links
     - [x] Clicked nav link become active. Active section goes in Header state.
+    - [x] Highlight the nav link of the section in view while scrolling

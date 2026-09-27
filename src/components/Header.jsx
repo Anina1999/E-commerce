@@ -7,6 +7,7 @@ const sectionLinks = [
     { id: "running", label: "Running" },
     { id: "biking", label: "Biking" },
     { id: "climbing", label: "Climbing" },
+    { id: "explore", label: "Explore", afterSubmenus: true },
 ];
 
 function SectionLink({ id, label, activeSection, onSelect }) {
@@ -34,6 +35,14 @@ export default function Header() {
             const offset = (banner?.offsetHeight ?? 0) - (header?.offsetHeight ?? 0);
 
             setIsSticky(window.scrollY >= offset);
+
+            const current = sectionLinks.map((link) => link.id)
+                .findLast((id) => {
+                    const section = document.getElementById(id);
+                    return section && section.getBoundingClientRect().top <= 81;
+                });
+
+            if (current) setActiveSection(current);
         };
 
         handleScroll();
@@ -52,14 +61,17 @@ export default function Header() {
                                 <img src={logo} alt="Tourashop" />
                             </a>
                             <ul className="nav">
-                                {sectionLinks.map((link) => (
-                                    <SectionLink
-                                        key={link.id}
-                                        {...link}
-                                        activeSection={activeSection}
-                                        onSelect={setActiveSection}
-                                    />
-                                ))}
+                                {sectionLinks
+                                    .filter((link) => !link.afterSubmenus)
+                                    .map((link) => (
+                                        <SectionLink
+                                            key={link.id}
+                                            {...link}
+                                            activeSection={activeSection}
+                                            onSelect={setActiveSection}
+                                        />
+                                    ))}
+
                                 <li className="submenu">
                                     <a href="#">Pages</a>
                                     <ul>
@@ -100,12 +112,17 @@ export default function Header() {
                                         </li>
                                     </ul>
                                 </li>
-                                <SectionLink
-                                    id="explore"
-                                    label="Explore"
-                                    activeSection={activeSection}
-                                    onSelect={setActiveSection}
-                                />
+                                {sectionLinks
+                                    .filter((link) => link.afterSubmenus)
+                                    .map((link) => (
+                                        <SectionLink
+                                            key={link.id}
+                                            {...link}
+                                            activeSection={activeSection}
+                                            onSelect={setActiveSection}
+                                        />
+                                    ))}
+
                             </ul>
                             <a className="menu-trigger">
                                 <span>Menu</span>
