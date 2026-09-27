@@ -34,3 +34,4 @@
     - [x] Style the header as a sunrise gradient with the hero rising into it as a ridge
     - [x] Make the header sticky - using useEffect scroll listener
     - [x] Add smooth scroll for nav links
+    - [x] Clicked nav link become active. Active section goes in Header state.

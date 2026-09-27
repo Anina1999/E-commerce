@@ -1,8 +1,31 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 
+const sectionLinks = [
+    { id: "top", label: "Home" },
+    { id: "hiking", label: "Hiking" },
+    { id: "running", label: "Running" },
+    { id: "biking", label: "Biking" },
+    { id: "climbing", label: "Climbing" },
+];
+
+function SectionLink({ id, label, activeSection, onSelect }) {
+    return (
+        <li className="scroll-to-section">
+            <a
+                href={`#${id}`}
+                className={activeSection === id ? "active" : undefined}
+                onClick={() => onSelect(id)}
+            >
+                {label}
+            </a>
+        </li>
+    );
+}
+
 export default function Header() {
     const [isSticky, setIsSticky] = useState(false);
+    const [activeSection, setActiveSection] = useState("top");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,23 +52,14 @@ export default function Header() {
                                 <img src={logo} alt="Tourashop" />
                             </a>
                             <ul className="nav">
-                                <li className="scroll-to-section">
-                                    <a href="#top" className="active">
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="scroll-to-section">
-                                    <a href="#hiking">Hiking</a>
-                                </li>
-                                <li className="scroll-to-section">
-                                    <a href="#running">Running</a>
-                                </li>
-                                <li className="scroll-to-section">
-                                    <a href="#biking">Biking</a>
-                                </li>
-                                <li className="scroll-to-section">
-                                    <a href="#climbing">Climbing</a>
-                                </li>
+                                {sectionLinks.map((link) => (
+                                    <SectionLink
+                                        key={link.id}
+                                        {...link}
+                                        activeSection={activeSection}
+                                        onSelect={setActiveSection}
+                                    />
+                                ))}
                                 <li className="submenu">
                                     <a href="#">Pages</a>
                                     <ul>
@@ -86,9 +100,12 @@ export default function Header() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="scroll-to-section">
-                                    <a href="#explore">Explore</a>
-                                </li>
+                                <SectionLink
+                                    id="explore"
+                                    label="Explore"
+                                    activeSection={activeSection}
+                                    onSelect={setActiveSection}
+                                />
                             </ul>
                             <a className="menu-trigger">
                                 <span>Menu</span>
