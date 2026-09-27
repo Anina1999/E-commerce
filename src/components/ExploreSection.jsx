@@ -47,12 +47,12 @@ export default function ExploreSection() {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="first-image">
-                                        <img src="assets/images/explore-image-01.jpg" alt="" />
+                                        <img src="assets/images/explore-store.jpg" alt="" />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="second-image">
-                                        <img src="assets/images/explore-image-02.jpg" alt="" />
+                                        <img src="assets/images/explore-backpacks.jpg" alt="" />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">

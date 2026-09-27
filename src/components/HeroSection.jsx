@@ -16,7 +16,7 @@ export default function HeroSection() {
                                         <a href="#">Purchase Now!</a>
                                     </div>
                                 </div>
-                                <img src="/assets/images/left-banner-image.jpg" alt="" />
+                                <img src="/assets/images/hero-main.jpg" alt="" />
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ export default function HeroSection() {
                                     activity="Hiking"
                                     activityBestItems="Best Items For Hiking"
                                     itemsText="Boots, packs and layers built for long days on the trail."
-                                    activityImage="/assets/images/baner-right-image-01.jpg"
+                                    activityImage="/assets/images/hero-hiking.jpg"
                                     
                                 />
 
@@ -36,21 +36,21 @@ export default function HeroSection() {
                                     activity="Running"
                                     activityBestItems="Best Items For Running"
                                     itemsText="Light shoes and breathable gear for road and trail miles."
-                                    activityImage="/assets/images/baner-right-image-03.jpg"
+                                    activityImage="/assets/images/hero-running.jpg"
                                 />
 
                                 <HeroCard 
                                     activity="Biking"
                                     activityBestItems="Best Items For Biking"
                                     itemsText="Helmets, gloves and apparel for every ride, from city streets to singletrack."
-                                    activityImage="/assets/images/baner-right-image-02.jpg"
+                                    activityImage="/assets/images/hero-biking.jpg"
                                 />
                                 
                                 <HeroCard 
                                     activity="Climbing"
                                     activityBestItems="Best Items For Climbing"
                                     itemsText="Harnesses, shoes and chalk bags for the crag and the gym."
-                                    activityImage="/assets/images/baner-right-image-03.jpg"
+                                    activityImage="/assets/images/hero-climbing.jpg"
                                 />
 
                             </div>
