@@ -329,6 +329,12 @@ header
   mask-image: var(--ridge-shape-front);
 }
 
+/* The compact sticky header is only 80px tall, so the ridge would cover the menu; the shadow separates it instead */
+.header-area.background-header::before,
+.header-area.background-header::after {
+  display: none;
+}
+
 .header-area .main-nav {
   min-height: 80px;
   background: transparent;

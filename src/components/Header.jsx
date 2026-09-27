@@ -1,8 +1,26 @@
+import { useEffect, useState } from "react";
 import logo from "../assets/logo.svg";
 
 export default function Header() {
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const banner = document.getElementById("top");
+            const header = document.querySelector("header");
+            const offset = (banner?.offsetHeight ?? 0) - (header?.offsetHeight ?? 0);
+
+            setIsSticky(window.scrollY >= offset);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className="header-area header-sticky">
+        <header className={`header-area header-sticky${isSticky ? " background-header" : ""}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-12">
@@ -75,7 +93,6 @@ export default function Header() {
                             <a className="menu-trigger">
                                 <span>Menu</span>
                             </a>
-                            {/* ***** Menu End ***** */}
                         </nav>
                     </div>
                 </div>
