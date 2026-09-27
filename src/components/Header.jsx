@@ -29,6 +29,10 @@ export default function Header() {
     const [activeSection, setActiveSection] = useState("top");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const handleSectionSelect = (id) => {
+        setActiveSection(id);
+        setIsMenuOpen(false);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -70,7 +74,8 @@ export default function Header() {
                                             key={link.id}
                                             {...link}
                                             activeSection={activeSection}
-                                            onSelect={setActiveSection}
+                                            onSelect={handleSectionSelect}
+
                                         />
                                     ))}
 
@@ -121,7 +126,7 @@ export default function Header() {
                                             key={link.id}
                                             {...link}
                                             activeSection={activeSection}
-                                            onSelect={setActiveSection}
+                                            onSelect={handleSectionSelect}
                                         />
                                     ))}
 
