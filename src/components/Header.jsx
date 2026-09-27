@@ -27,6 +27,8 @@ function SectionLink({ id, label, activeSection, onSelect }) {
 export default function Header() {
     const [isSticky, setIsSticky] = useState(false);
     const [activeSection, setActiveSection] = useState("top");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -60,7 +62,7 @@ export default function Header() {
                             <a href="index.html" className="logo">
                                 <img src={logo} alt="Tourashop" />
                             </a>
-                            <ul className="nav">
+                            <ul className={`nav${isMenuOpen ? " active" : ""}`}>
                                 {sectionLinks
                                     .filter((link) => !link.afterSubmenus)
                                     .map((link) => (
@@ -124,9 +126,16 @@ export default function Header() {
                                     ))}
 
                             </ul>
-                            <a className="menu-trigger">
+                            <button
+                                type="button"
+                                className={`menu-trigger${isMenuOpen ? " active" : ""}`}
+                                aria-label="Menu"
+                                aria-expanded={isMenuOpen}
+                                onClick={() => setIsMenuOpen((open) => !open)}
+                            >
                                 <span>Menu</span>
-                            </a>
+                            </button>
+
                         </nav>
                     </div>
                 </div>
