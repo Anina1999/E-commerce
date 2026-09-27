@@ -30,7 +30,7 @@ export default function Header() {
                             </a>
                             <ul className="nav">
                                 <li className="scroll-to-section">
-                                    <a href="#dashboard" className="active">
+                                    <a href="#top" className="active">
                                         Home
                                     </a>
                                 </li>

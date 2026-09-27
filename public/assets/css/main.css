@@ -138,6 +138,16 @@ body {
   color: var(--color-graphite);
 }
 
+/* Smooth scroll for the nav anchors, replacing the template's jQuery animate */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Stop anchored sections below the 80px sticky header instead of under it */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 ::selection {
   background: var(--color-teal);
   color: #fff;
