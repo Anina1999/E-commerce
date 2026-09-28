@@ -12,13 +12,19 @@ export default function Footer() {
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#">12 Trailhead Road, Boulder, CO 80302</a>
+                                    <a
+                                        href="https://www.google.com/maps/search/?api=1&query=12+Trailhead+Road,+Boulder,+CO+80302"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        12 Trailhead Road, Boulder, CO 80302
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="mailto:tourashop@gmail.com">tourashop@gmail.com</a>
                                 </li>
                                 <li>
-                                    <a href="#">010-020-0340</a>
+                                    <a href="tel:0100200340">010-020-0340</a>
                                 </li>
                             </ul>
                         </div>
@@ -44,33 +50,36 @@ export default function Footer() {
                         <h4>Useful Links</h4>
                         <ul>
                             <li>
-                                <a href="#">Homepage</a>
+                                <a href="#top">Homepage</a>
                             </li>
                             <li>
-                                <a href="#">About Us</a>
+                                <a href="/about">About Us</a>
                             </li>
                             <li>
-                                <a href="#">Help</a>
+                                <a href="/catalog">Catalog</a>
                             </li>
                             <li>
-                                <a href="#">Contact Us</a>
+                                <a href="/contact">Contact Us</a>
                             </li>
                         </ul>
                     </div>
                     <div className="col-lg-3">
-                        <h4>Help &amp; Information</h4>
+                        <h4>My Account</h4>
                         <ul>
                             <li>
-                                <a href="#">Help</a>
+                                <a href="/login">Login</a>
                             </li>
                             <li>
-                                <a href="#">FAQ's</a>
+                                <a href="/register">Register</a>
                             </li>
                             <li>
-                                <a href="#">Shipping</a>
+                                <a href="/favorites">Favorites</a>
                             </li>
                             <li>
-                                <a href="#">Tracking ID</a>
+                                <a href="/orders">My Orders</a>
+                            </li>
+                            <li>
+                                <a href="/cart">Cart</a>
                             </li>
                         </ul>
                     </div>

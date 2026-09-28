@@ -98,16 +98,13 @@ export default function Header() {
                                     </button>
                                     <ul className={openSubmenu === "pages" ? "active" : undefined}>
                                         <li>
-                                            <a href="about.html">About Us</a>
+                                            <a href="/about">About Us</a>
                                         </li>
                                         <li>
-                                            <a href="products.html">Products</a>
+                                            <a href="/catalog">Catalog</a>
                                         </li>
                                         <li>
-                                            <a href="single-product.html">Single Product</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contact Us</a>
+                                            <a href="/contact">Contact Us</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -115,29 +112,17 @@ export default function Header() {
                                     <button
                                         type="button"
                                         className="submenu-toggle"
-                                        aria-expanded={openSubmenu === "features"}
-                                        onClick={() => toggleSubmenu("features")}
+                                        aria-expanded={openSubmenu === "account"}
+                                        onClick={() => toggleSubmenu("account")}
                                     >
-                                        Features
+                                        Account
                                     </button>
-                                    <ul className={openSubmenu === "features" ? "active" : undefined}>
+                                    <ul className={openSubmenu === "account" ? "active" : undefined}>
                                         <li>
-                                            <a href="#">Features Page 1</a>
+                                            <a href="/login">Login</a>
                                         </li>
                                         <li>
-                                            <a href="#">Features Page 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Features Page 3</a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                rel="nofollow"
-                                                href="https://templatemo.com/page/4"
-                                                target="_blank"
-                                            >
-                                                Template Page 4
-                                            </a>
+                                            <a href="/register">Register</a>
                                         </li>
                                     </ul>
                                 </li>

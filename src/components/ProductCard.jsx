@@ -9,18 +9,18 @@ export default function ProductCard({
                 <div className="hover-content">
                     <ul>
                         <li>
-                            <a href="single-product.html">
-                                <i className="fa fa-eye" />
+                            <a href="single-product.html" aria-label={`View details: ${productName}`}>
+                                <i className="fa fa-eye" aria-hidden="true" />
                             </a>
                         </li>
                         <li>
-                            <a href="single-product.html">
-                                <i className="fa fa-star" />
+                            <a href="single-product.html" aria-label={`Add to favorites: ${productName}`}>
+                                <i className="fa fa-heart-o" aria-hidden="true" />
                             </a>
                         </li>
                         <li>
-                            <a href="single-product.html">
-                                <i className="fa fa-shopping-cart" />
+                            <a href="single-product.html" aria-label={`Add to cart: ${productName}`}>
+                                <i className="fa fa-shopping-cart" aria-hidden="true" />
                             </a>
                         </li>
                     </ul>
