@@ -49,6 +49,10 @@
     - [x] Turn Pages and Features into buttons
     - [x] Open the desktop submenus from the keyboard too
 
+## Steps to add routing with React Router
+    - [x] Install React Router "npm install react-router"
+    - [x] Move HomePage to pages and add a Layout
+
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project
     - [x] Install the Supabase client "npm install @supabase/supabase-js"

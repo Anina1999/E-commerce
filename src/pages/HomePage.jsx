@@ -1,8 +1,8 @@
-import CarouselSection from "./CarouselSection"
-import ExploreSection from "./ExploreSection"
-import CommunitySection from "./CommunitySection"
-import SubscribeSection from "./SubscribeSection"
-import HeroSection from "./HeroSection"
+import CarouselSection from "../components/CarouselSection"
+import ExploreSection from "../components/ExploreSection"
+import CommunitySection from "../components/CommunitySection"
+import SubscribeSection from "../components/SubscribeSection"
+import HeroSection from "../components/HeroSection"
 import { hikingProducts, runningProducts, bikingProducts, climbingProducts } from "../data/products"
 
 export default function HomePage() {
