@@ -1,4 +1,4 @@
-# React e-commerce project
+# Tourashop - React e-commerce project
 
 ## Steps to set up the project
     - [x] Install vite react project "npm create vite@latest"

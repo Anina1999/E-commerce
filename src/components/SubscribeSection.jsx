@@ -80,7 +80,7 @@ export default function SubscribeSection() {
                                     <li>
                                         Email:
                                         <br />
-                                        <span>hello@yourstore.com</span>
+                                        <span>tourashop@gmail.com</span>
                                     </li>
                                     <li>
                                         Social Media:

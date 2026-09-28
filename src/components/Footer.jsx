@@ -15,7 +15,7 @@ export default function Footer() {
                                     <a href="#">12 Trailhead Road, Boulder, CO 80302</a>
                                 </li>
                                 <li>
-                                    <a href="#">hello@yourstore.com</a>
+                                    <a href="mailto:tourashop@gmail.com">tourashop@gmail.com</a>
                                 </li>
                                 <li>
                                     <a href="#">010-020-0340</a>
