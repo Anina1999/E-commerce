@@ -54,3 +54,4 @@
     - [x] Install the Supabase client "npm install @supabase/supabase-js"
     - [x] Add .env.example, .env and add .env to .gitignore
     - [x] Add the Supabase client
+    - [x] Add the schema and seed data
