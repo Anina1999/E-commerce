@@ -118,6 +118,8 @@ global styles
   --color-muted: #3f4d54;
   --color-teal: #3d8b8f;
   --color-teal-dark: #2f6f73;
+  /* Readable teal for small text, even on the darkest section tiers */
+  --color-teal-deep: #22575a;
   --color-teal-light: #7cc4c7;
   --color-sky: #57c6e1;
   --color-bg: #f1f4f4;
@@ -244,8 +246,7 @@ section[id] {
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
-  /* Deep teal keeps the small label readable on the darkest section tiers */
-  color: #22575a;
+  color: var(--color-teal-deep);
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -254,8 +255,8 @@ section[id] {
 .main-teal-button a,
 #explore .left-content .main-border-button a,
 .main-banner .left-content .main-border-button a {
-  background-color: var(--color-teal);
-  border-color: var(--color-teal);
+  background-color: var(--color-teal-dark);
+  border-color: var(--color-teal-dark);
   color: #fff;
 }
 
@@ -292,11 +293,11 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: var(--color-teal)!important;
+  color: var(--color-teal-deep)!important;
 }
 
 .background-header .nav li a.active {
-  color: var(--color-teal)!important;
+  color: var(--color-teal-deep)!important;
 }
 
 /* Sunrise to mirror the subscribe sunset: pale sky at the top warming to alpenglow, with the hero rising into it as a ridge */
@@ -422,7 +423,7 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: var(--color-teal)!important;
+  color: var(--color-teal-deep)!important;
 }
 
 .header-area .main-nav .nav li .submenu-toggle {
@@ -442,7 +443,7 @@ header
 }
 
 .header-area .main-nav .nav li:hover .submenu-toggle {
-  color: var(--color-teal);
+  color: var(--color-teal-deep);
 }
 
 /* Bootstrap outlines every focused button, so a mouse click left a black box; show a ring only for keyboard focus */
@@ -469,7 +470,7 @@ header
     bottom: 4px;
     height: 2px;
     border-radius: 1px;
-    background-color: var(--color-teal);
+    background-color: var(--color-teal-deep);
     transform: scaleX(0);
     transition: transform 0.3s;
   }
@@ -482,7 +483,7 @@ header
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: var(--color-teal)!important;
+  color: var(--color-teal-deep)!important;
   opacity: 1;
 }
 
@@ -544,7 +545,7 @@ header
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: var(--color-mist);
-  color: var(--color-teal)!important;
+  color: var(--color-teal-deep)!important;
   padding-left: 25px;
 }
 
@@ -696,7 +697,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: var(--color-teal);
+  color: var(--color-teal-deep);
 }
 
 @media (max-width: 1200px) {
@@ -715,7 +716,7 @@ header
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: var(--color-teal)!important;
+    color: var(--color-teal-deep)!important;
     opacity: 1;
   }
 
@@ -779,7 +780,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: var(--color-border) !important;
-    color: var(--color-teal)!important;
+    color: var(--color-teal-deep)!important;
   }
  
   .header-area .main-nav .nav li .submenu-toggle {
@@ -1160,7 +1161,7 @@ Product Carousel
 
 .product-carousel .item .down-content span {
   font-size: 16px;
-  color: var(--color-teal);
+  color: var(--color-teal-deep);
   font-weight: 600;
   display: block;
 }
@@ -1174,7 +1175,7 @@ Product Carousel
 .product-carousel .item .down-content ul.stars li {
   display: inline;
   font-size: 12px;
-  color: var(--color-teal);
+  color: var(--color-teal-deep);
 }
 
 .product-carousel .item .thumb .hover-content {

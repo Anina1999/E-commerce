@@ -36,6 +36,7 @@
     - [x] Build a sunrise-to-sunset page background - each home section is a step darker (white, cream, sage, blue) with a pale ridge between sections, closing with the Subscribe sunset gradient and the footer ridge
     - [x] Style the header as a sunrise gradient with the hero rising into it as a ridge
     - [x] Replace photos with outdoor images that match each product, the hero banner and cards, and the Explore and Instagram sections
+    - [x] Darken the teal on buttons, prices, stars and menu links for better contrast
 
 ## Steps to add navigation behavior in React
     - [x] Make the header sticky - using useEffect scroll listener
