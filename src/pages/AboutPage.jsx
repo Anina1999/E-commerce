@@ -1,6 +1,7 @@
 import PageHeading from "../components/PageHeading";
 import SectionHeading from "../components/SectionHeading";
 import SubscribeSection from "../components/SubscribeSection";
+import { teamMembers } from "../data/team";
 
 export default function AboutPage() {
     return (
@@ -38,6 +39,41 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
+
+            <section className="our-team">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <SectionHeading
+                                title="Our Amazing Team"
+                                subtitle="The people who test our gear on the trail before it reaches you."
+                            />
+                        </div>
+                        {teamMembers.map((member) => (
+                            <div className="col-lg-4" key={member.id}>
+                                <div className="team-item">
+                                    <div className="thumb">
+                                        <div className="hover-effect">
+                                            <div className="inner-content">
+                                                <ul>
+                                                    <li><a href="https://www.instagram.com"><i className="fa fa-instagram" /></a></li>
+                                                    <li><a href="https://www.facebook.com"><i className="fa fa-facebook" /></a></li>
+                                                    <li><a href="https://www.youtube.com"><i className="fa fa-youtube-play" /></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <img src={member.image} alt={member.name} />
+                                    </div>
+                                    <div className="down-content">
+                                        <h4>{member.name}</h4>
+                                        <span>{member.role}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             <section className="our-services">
                 <div className="container">
