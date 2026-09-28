@@ -48,3 +48,9 @@
     - [x] Make Pages and Features submenus self closing on mobile version
     - [x] Turn Pages and Features into buttons
     - [x] Open the desktop submenus from the keyboard too
+
+## Steps to connect the Supabase backend
+    - [x] Create the Supabase project
+    - [x] Install the Supabase client "npm install @supabase/supabase-js"
+    - [x] Add .env.example, .env and add .env to .gitignore
+    - [x] Add the Supabase client
