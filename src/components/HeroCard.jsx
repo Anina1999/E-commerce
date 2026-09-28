@@ -14,7 +14,7 @@ export default function HeroCard({activity, activityBestItems, itemsText, activi
                                 {itemsText}
                             </p>
                             <div className="main-border-button">
-                                <a href="#">Discover More</a>
+                                <a href={`#${activity.toLowerCase()}`}>Discover More</a>
                             </div>
                         </div>
                     </div>
