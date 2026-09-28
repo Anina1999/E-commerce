@@ -1,5 +1,68 @@
+import PageHeading from "../components/PageHeading";
+import SectionHeading from "../components/SectionHeading";
+import SubscribeSection from "../components/SubscribeSection";
+
 export default function ContactPage() {
     return (
-        <h1 style={{ paddingTop: 200 }}>Contact</h1>
+        <>
+            <PageHeading
+                className="page-heading about-page-heading"
+                title="Contact Us"
+                subtitle="Questions about gear, orders or trips? Write to us."
+            />
+
+            <div className="contact-us">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <div id="map">
+                                <iframe
+                                    src="https://maps.google.com/maps?q=Boulder,CO&z=13&output=embed"
+                                    width="100%"
+                                    height="400px"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    title="Tourashop on the map"
+                                />
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <SectionHeading
+                                title="Say Hello. Don't Be Shy!"
+                                subtitle="We usually reply within one working day."
+                            />
+                            <form id="contact" action="" method="post">
+                                <div className="row">
+                                    <div className="col-lg-6">
+                                        <fieldset>
+                                            <input name="name" type="text" id="contact-name" placeholder="Your name" required />
+                                        </fieldset>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <fieldset>
+                                            <input name="email" type="email" id="contact-email" placeholder="Your email" required />
+                                        </fieldset>
+                                    </div>
+                                    <div className="col-lg-12">
+                                        <fieldset>
+                                            <textarea name="message" rows="6" id="message" placeholder="Your message" required />
+                                        </fieldset>
+                                    </div>
+                                    <div className="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" className="main-dark-button">
+                                                <i className="fa fa-paper-plane" />
+                                            </button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <SubscribeSection />
+        </>
     );
 }

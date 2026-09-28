@@ -53,6 +53,7 @@
     - [x] Install React Router "npm install react-router"
     - [x] Move HomePage to pages and add a Layout
     - [x] Wrap the app in BrowserRouter and add the first routes
+    - [x] Add the About, Contact and Not Found pages from the template
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project
