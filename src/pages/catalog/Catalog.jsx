@@ -1,10 +1,25 @@
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import ProductCard from "../../components/product-card/ProductCard";
+import { products } from "../../data/products";
 import styles from "./Catalog.module.css";
 
+const PRODUCTS_PER_PAGE = 9;
+
 export default function Catalog() {
+    const [searchParams] = useSearchParams();
+    const page = Number(searchParams.get("page")) || 1;
+
+    const start = (page - 1) * PRODUCTS_PER_PAGE;
+    const pageProducts = products.slice(start, start + PRODUCTS_PER_PAGE);
+
+    const pageCount = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+    const pageNumbers = [];
+    for (let number = 1; number <= pageCount; number++) {
+        pageNumbers.push(number);
+    }
+
     return (
         <>
             <PageHeading
@@ -21,105 +36,33 @@ export default function Catalog() {
                                 className={styles.heading}
                                 eyebrow="Catalog"
                                 title="All Our Gear"
-                                subtitle="Check out everything we stock."
+                                subtitle={`${products.length} products`}
                             />
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-1"
-                                productName="Trail Hiking Boots"
-                                productPrice={165.00}
-                                productImage="/assets/images/product-hiking-boots.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-2"
-                                productName="Trekking Poles"
-                                productPrice={60.00}
-                                productImage="/assets/images/product-trekking-poles.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-3"
-                                productName="Waterproof Shell Jacket"
-                                productPrice={210.00}
-                                productImage="/assets/images/product-shell-jacket.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-4"
-                                productName="Daypack 30L"
-                                productPrice={95.00}
-                                productImage="/assets/images/product-daypack.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-5"
-                                productName="LED Headlamp"
-                                productPrice={45.00}
-                                productImage="/assets/images/product-headlamp.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-6"
-                                productName="Navigation Compass"
-                                productPrice={35.00}
-                                productImage="/assets/images/product-compass.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-7"
-                                productName="Vacuum Flask 1L"
-                                productPrice={50.00}
-                                productImage="/assets/images/product-vacuum-flask.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="hiking-8"
-                                productName="Merino Beanie"
-                                productPrice={30.00}
-                                productImage="/assets/images/product-merino-beanie.jpg"
-                            />
-                        </div>
-                        <div className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                            <ProductCard
-                                productId="running-1"
-                                productName="Road Running Shoes"
-                                productPrice={135.00}
-                                productImage="/assets/images/product-running-shoes.jpg"
-                            />
-                        </div>
+                        {pageProducts.map((product) => (
+                            <div key={product.id} className={`col-lg-4 col-md-6 ${styles.cell}`}>
+                                <ProductCard
+                                    productId={product.id}
+                                    productName={product.name}
+                                    productPrice={product.price}
+                                    productImage={product.image}
+                                />
+                            </div>
+                        ))}
                     </div>
 
-                    <nav className={styles.pagination} aria-label="Pagination">
+                    <nav className={styles.pagination}>
                         <ul>
-                            <li>
-                                <Link to="?page=1" className={styles.active} aria-current="page">1</Link>
-                            </li>
-                            <li>
-                                <Link to="?page=2">2</Link>
-                            </li>
-                            <li>
-                                <Link to="?page=3">3</Link>
-                            </li>
-                            <li>
-                                <Link to="?page=4">4</Link>
-                            </li>
-                            <li>
-                                <Link to="?page=2" aria-label="Next page">
-                                    <i className="fa fa-angle-right" aria-hidden="true" />
-                                </Link>
-                            </li>
+                            {pageNumbers.map((number) => (
+                                <li key={number}>
+                                    <Link to={`?page=${number}`} className={number === page ? styles.active : ""}>
+                                        {number}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>

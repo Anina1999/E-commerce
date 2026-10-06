@@ -64,9 +64,8 @@
         - Product card eye -> /products/:productId, heart and cart become buttons for now
     - [x] Make the section links (#hiking, #explore...) work from the other pages - point them to /#hiking, scroll to the section with useRef on Home and run the scroll spy only on /
     - [ ] Add the Catalog page from the template
-        - [ ] Show the products, 9 per page
-        - [ ] Filter by category - /catalog/hiking
-
+        - [x] Show the products - 9 per page
+        - [ ] Filter by category
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project
