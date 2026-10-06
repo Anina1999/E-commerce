@@ -1,6 +1,7 @@
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import SubscribeSection from "../../components/subscribe-section/SubscribeSection";
+import styles from "./Contact.module.css";
 
 export default function Contact() {
     return (
@@ -11,11 +12,11 @@ export default function Contact() {
                 subtitle="Questions about gear, orders or trips? Write to us."
             />
 
-            <div className="contact-us">
+            <div className={styles.contactUs}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
-                            <div id="map">
+                            <div className={styles.map}>
                                 <iframe
                                     src="https://maps.google.com/maps?q=Boulder,CO&z=13&output=embed"
                                     width="100%"
@@ -50,7 +51,7 @@ export default function Contact() {
                                     </div>
                                     <div className="col-lg-12">
                                         <fieldset>
-                                            <button type="submit" className="main-dark-button">
+                                            <button type="submit">
                                                 <i className="fa fa-paper-plane" />
                                             </button>
                                         </fieldset>

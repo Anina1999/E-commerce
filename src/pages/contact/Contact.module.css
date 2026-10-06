@@ -1,0 +1,76 @@
+.contactUs {
+  margin-top: 90px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 90px;
+}
+
+.contactUs :global(.section-heading) {
+  margin-bottom: 40px;
+}
+
+.contactUs .map {
+  margin-right: 30px;
+}
+
+.contactUs form input {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  padding: 0px 15px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-muted);
+  border-radius: 0px;
+  border: 1px solid var(--color-muted);
+  box-shadow: none;
+}
+
+.contactUs form textarea {
+  width: 100%;
+  height: 140px;
+  min-height: 120px;
+  max-height: 200px;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  line-height: 44px;
+  padding: 0px 15px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-muted);
+  border-radius: 0px;
+  border: 1px solid var(--color-muted);
+  box-shadow: none;
+}
+
+.contactUs form input:focus,
+.contactUs form textarea:focus {
+  border-color: var(--color-graphite);
+}
+
+.contactUs form button {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  text-align: center;
+  line-height: 44px;
+  background-color: var(--color-graphite);
+  box-shadow: none;
+  border: 1px solid transparent;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.contactUs form button:hover {
+  background-color: #fff;
+  border: 1px solid var(--color-graphite);
+  color: var(--color-graphite);
+}
+
+@media (max-width: 992px) {
+  .contactUs .map {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+}
