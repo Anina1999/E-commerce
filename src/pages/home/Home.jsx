@@ -5,7 +5,7 @@ import ExploreSection from "../../components/explore-section/ExploreSection"
 import CommunitySection from "../../components/community-section/CommunitySection"
 import SubscribeSection from "../../components/subscribe-section/SubscribeSection"
 import HeroSection from "../../components/hero-section/HeroSection"
-import { hikingProducts, runningProducts, bikingProducts, climbingProducts } from "../../data/products"
+import { getProductsByCategory } from "../../data/products"
 
 export default function Home() {
     const { hash, key } = useLocation();
@@ -44,7 +44,7 @@ export default function Home() {
                 tier={1}
                 title="Hiking's Latest"
                 subtitle="Boots, poles and shells built for long days on the trail."
-                products={hikingProducts}
+                products={getProductsByCategory("hiking")}
             />
 
             <CarouselSection
@@ -54,7 +54,7 @@ export default function Home() {
                 mirrored
                 title="Running's Latest"
                 subtitle="Lightweight kit that keeps up, from morning miles to race day."
-                products={runningProducts}
+                products={getProductsByCategory("running")}
             />
 
             <CarouselSection
@@ -63,7 +63,7 @@ export default function Home() {
                 tier={3}
                 title="Biking's Latest"
                 subtitle="Helmets, bibs and bags for the commute and the climb."
-                products={bikingProducts}
+                products={getProductsByCategory("biking")}
             />
 
             <CarouselSection
@@ -73,7 +73,7 @@ export default function Home() {
                 mirrored
                 title="Climbing's Latest"
                 subtitle="Harnesses, shoes and chalk you can put your weight on."
-                products={climbingProducts}
+                products={getProductsByCategory("climbing")}
             />
 
             <ExploreSection ref={exploreRef} />
