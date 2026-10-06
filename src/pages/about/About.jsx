@@ -1,9 +1,9 @@
-import PageHeading from "../components/PageHeading";
-import SectionHeading from "../components/SectionHeading";
-import SubscribeSection from "../components/SubscribeSection";
-import { teamMembers } from "../data/team";
+import PageHeading from "../../components/page-heading/PageHeading";
+import SectionHeading from "../../components/section-heading/SectionHeading";
+import SubscribeSection from "../../components/subscribe-section/SubscribeSection";
+import { teamMembers } from "../../data/team";
 
-export default function AboutPage() {
+export default function About() {
     return (
         <>
             <PageHeading

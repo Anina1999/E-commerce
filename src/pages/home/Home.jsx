@@ -1,11 +1,11 @@
-import CarouselSection from "../components/CarouselSection"
-import ExploreSection from "../components/ExploreSection"
-import CommunitySection from "../components/CommunitySection"
-import SubscribeSection from "../components/SubscribeSection"
-import HeroSection from "../components/HeroSection"
-import { hikingProducts, runningProducts, bikingProducts, climbingProducts } from "../data/products"
+import CarouselSection from "../../components/carousel-section/CarouselSection"
+import ExploreSection from "../../components/explore-section/ExploreSection"
+import CommunitySection from "../../components/community-section/CommunitySection"
+import SubscribeSection from "../../components/subscribe-section/SubscribeSection"
+import HeroSection from "../../components/hero-section/HeroSection"
+import { hikingProducts, runningProducts, bikingProducts, climbingProducts } from "../../data/products"
 
-export default function HomePage() {
+export default function Home() {
     return (
         <>
             <HeroSection />

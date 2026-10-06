@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 
 const sectionLinks = [
     { id: "top", label: "Home" },

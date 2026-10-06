@@ -1,5 +1,5 @@
-import ProductCard from "./ProductCard";
-import SectionHeading from "./SectionHeading";
+import ProductCard from "../product-card/ProductCard";
+import SectionHeading from "../section-heading/SectionHeading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import "swiper/css";

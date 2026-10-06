@@ -1,4 +1,4 @@
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../section-heading/SectionHeading";
 
 export default function SubscribeSection() {
     return (

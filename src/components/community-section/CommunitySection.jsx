@@ -1,6 +1,6 @@
-import SectionHeading from "./SectionHeading";
-import InstagramCard from "./InstagramCard";
-import { instagramPosts } from "../data/instagramPosts";
+import SectionHeading from "../section-heading/SectionHeading";
+import InstagramCard from "../instagram-card/InstagramCard";
+import { instagramPosts } from "../../data/instagramPosts";
 
 export default function CommunitySection() {
     return (

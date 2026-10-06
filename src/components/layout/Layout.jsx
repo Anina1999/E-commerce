@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
-import Header from "./Header";
-import Preloader from "./Preloader";
-import Footer from "./Footer";
+import Header from "../header/Header";
+import Preloader from "../preloader/Preloader";
+import Footer from "../footer/Footer";
 
 export default function Layout() {
     return (

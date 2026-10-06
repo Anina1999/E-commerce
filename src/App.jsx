@@ -1,23 +1,23 @@
 import { Route, Routes } from "react-router"
-import Layout from "./components/Layout"
-import HomePage from "./pages/HomePage"
-import AboutPage from "./pages/AboutPage"
-import ContactPage from "./pages/ContactPage"
-import CatalogPage from "./pages/CatalogPage"
-import ProductDetailsPage from "./pages/ProductDetailsPage"
-import NotFoundPage from "./pages/NotFoundPage"
+import Layout from "./components/layout/Layout"
+import Home from "./pages/home/Home"
+import About from "./pages/about/About"
+import Contact from "./pages/contact/Contact"
+import Catalog from "./pages/catalog/Catalog"
+import ProductDetails from "./pages/product-details/ProductDetails"
+import NotFound from "./pages/not-found/NotFound"
 
 function App() {
     return (
         <Routes>
             <Route element={<Layout />}>
-                <Route index element={<HomePage />} />
-                <Route path="about" element={<AboutPage />} />
-                <Route path="contact" element={<ContactPage />} />
-                <Route path="catalog" element={<CatalogPage />} />
-                <Route path="catalog/:category" element={<CatalogPage />} />
-                <Route path="products/:productId" element={<ProductDetailsPage />} />
-                <Route path="*" element={<NotFoundPage />} />
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="catalog" element={<Catalog />} />
+                <Route path="catalog/:category" element={<Catalog />} />
+                <Route path="products/:productId" element={<ProductDetails />} />
+                <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
     )

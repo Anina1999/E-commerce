@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import PageHeading from "../components/PageHeading";
+import PageHeading from "../../components/page-heading/PageHeading";
 
 
-export default function NotFoundPage() {
+export default function NotFound() {
     return (
         <>
             <PageHeading

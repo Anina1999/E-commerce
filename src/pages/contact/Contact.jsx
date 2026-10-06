@@ -1,8 +1,8 @@
-import PageHeading from "../components/PageHeading";
-import SectionHeading from "../components/SectionHeading";
-import SubscribeSection from "../components/SubscribeSection";
+import PageHeading from "../../components/page-heading/PageHeading";
+import SectionHeading from "../../components/section-heading/SectionHeading";
+import SubscribeSection from "../../components/subscribe-section/SubscribeSection";
 
-export default function ContactPage() {
+export default function Contact() {
     return (
         <>
             <PageHeading
