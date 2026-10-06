@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import styles from "./Pagination.module.css";
 
-export default function Pagination({ page, pageCount, className = "" }) {
+export default function Pagination({ page, pageCount, hash = "", className = "" }) {
     if (pageCount <= 1) {
         return null;
     }
@@ -16,7 +16,7 @@ export default function Pagination({ page, pageCount, className = "" }) {
             <ul>
                 {pageNumbers.map((number) => (
                     <li key={number}>
-                        <Link to={`?page=${number}`} className={number === page ? styles.active : ""}>
+                        <Link to={`?page=${number}${hash}`} className={number === page ? styles.active : ""}>
                             {number}
                         </Link>
                     </li>

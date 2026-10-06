@@ -1,14 +1,11 @@
-/* Page numbers under a list: the template's square buttons, rounded like the other buttons.
-   Outer spacing comes from the parent through the className prop */
+/* Page numbers: the template's square buttons, rounded like the other buttons.
+   gap instead of side margins keeps the first and last button on the edges; outer spacing comes from the parent through the className prop */
 .pagination ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin: 0;
   padding: 0;
-  text-align: center;
-}
-
-.pagination li {
-  display: inline-block;
-  margin: 0px 5px;
 }
 
 .pagination a {
