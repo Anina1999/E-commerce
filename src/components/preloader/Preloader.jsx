@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./Preloader.module.css";
 
 export default function Preloader() {
     const [fading, setFading] = useState(false);
@@ -19,15 +20,8 @@ export default function Preloader() {
     if (!visible) return null;
 
     return (
-        <div id="preloader"
-            style={{
-                opacity: fading ? 0 : 1,
-                transition: "opacity 0.6s ease",
-                pointerEvents: fading ? "none" : "auto",
-            }}
-        >
-
-            <div className="jumper">
+        <div className={fading ? `${styles.preloader} ${styles.fading}` : styles.preloader}>
+            <div className={styles.jumper}>
                 <div />
                 <div />
                 <div />

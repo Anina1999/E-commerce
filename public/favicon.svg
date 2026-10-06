@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 1.5 59 59">
+  <!-- The mark from src/assets/logo.svg without the wordmark, cropped square for the browser tab -->
+  <style>
+    .peak { fill: #1f2a33; }
+    .gully { fill: #fff; }
+    /* Dark browser theme: same colors as logo-white.svg so the peak stays visible on a dark tab bar */
+    @media (prefers-color-scheme: dark) {
+      .peak { fill: #fff; }
+      .gully { fill: #1f2a33; }
+    }
+  </style>
+  <defs>
+    <mask id="gap">
+      <rect width="60" height="62" fill="#fff" />
+      <path d="M1 48 L22 13 L26 5.5 L29.2 12 L32 8.5 L37 18 L47 48 Z" fill="#000" stroke="#000" stroke-width="2.4" stroke-linejoin="round" />
+    </mask>
+  </defs>
+  <path d="M22 48 L41 15.5 Q43 12.5 45 15.5 L58 48 Z" fill="#3d8b8f" mask="url(#gap)" />
+  <path class="peak" d="M1 48 L22 13 L26 5.5 L29.2 12 L32 8.5 L37 18 L47 48 Z" />
+  <path class="gully" d="M29.2 12 L27.8 19 L23.5 30 L17.5 39 L23.8 34 L27.2 25 Z" />
+  <rect x="4" y="51.5" width="50" height="2" rx="1" fill="#3d8b8f" />
+  <rect x="15" y="55.5" width="28" height="2" rx="1" fill="#3d8b8f" />
+</svg>
