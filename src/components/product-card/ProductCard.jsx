@@ -1,8 +1,10 @@
+import { Link } from "react-router";
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ 
-    productName, 
-    productPrice, 
+export default function ProductCard({
+    productId,
+    productName,
+    productPrice,
     productImage
 }) {
     return (
@@ -11,19 +13,19 @@ export default function ProductCard({
                 <div className={styles.hoverContent}>
                     <ul>
                         <li>
-                            <a href="single-product.html" aria-label={`View details: ${productName}`}>
+                            <Link to={`/products/${productId}`} aria-label={`View details: ${productName}`}>
                                 <i className="fa fa-eye" aria-hidden="true" />
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="single-product.html" aria-label={`Add to favorites: ${productName}`}>
+                            <button type="button" aria-label={`Add to favorites: ${productName}`}>
                                 <i className="fa fa-heart-o" aria-hidden="true" />
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a href="single-product.html" aria-label={`Add to cart: ${productName}`}>
+                            <button type="button" aria-label={`Add to cart: ${productName}`}>
                                 <i className="fa fa-shopping-cart" aria-hidden="true" />
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </div>

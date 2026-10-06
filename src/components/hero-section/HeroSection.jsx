@@ -1,9 +1,10 @@
+import { Link } from "react-router";
 import HeroCard from "../hero-card/HeroCard";
 import styles from "./HeroSection.module.css";
 
-export default function HeroSection() {
+export default function HeroSection({ ref }) {
     return (
-        <div className={styles.mainBanner} id="top">
+        <div ref={ref} className={styles.mainBanner} id="top">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-6">
@@ -14,7 +15,7 @@ export default function HeroSection() {
                                     <h4>We Are Tourashop</h4>
                                     <span>Our products are chosen for the modern adventurer</span>
                                     <div className="main-border-button main-teal-button">
-                                        <a href="#">Purchase Now!</a>
+                                        <Link to="/catalog">Shop Now</Link>
                                     </div>
                                 </div>
                                 <img src="/assets/images/hero-main.jpg" alt="" />

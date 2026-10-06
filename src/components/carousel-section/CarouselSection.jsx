@@ -7,6 +7,7 @@ import styles from "./CarouselSection.module.css";
 
 // tier: 1-4 picks the section color (--tier-N); mirrored flips the ridge above the section
 export default function CarouselSection({
+    ref,
     id,
     title,
     subtitle,
@@ -20,7 +21,7 @@ export default function CarouselSection({
         .join(" ");
 
     return (
-        <section className={className} id={id}>
+        <section ref={ref} className={className} id={id}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
@@ -45,6 +46,7 @@ export default function CarouselSection({
                             {products.map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <ProductCard
+                                        productId={product.id}
                                         productName={product.name}
                                         productPrice={product.price}
                                         productImage={product.image}

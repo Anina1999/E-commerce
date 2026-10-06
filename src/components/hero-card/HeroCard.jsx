@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styles from "./HeroCard.module.css";
 
 export default function HeroCard({activity, activityBestItems, itemsText, activityImage}) {
@@ -16,7 +17,7 @@ export default function HeroCard({activity, activityBestItems, itemsText, activi
                                 {itemsText}
                             </p>
                             <div className="main-border-button">
-                                <a href={`#${activity.toLowerCase()}`}>Discover More</a>
+                                <Link to={`/#${activity.toLowerCase()}`}>Discover More</Link>
                             </div>
                         </div>
                     </div>

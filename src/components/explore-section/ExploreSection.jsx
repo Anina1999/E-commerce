@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styles from "./ExploreSection.module.css";
 
 const content = {
@@ -16,9 +17,9 @@ const content = {
     ],
 };
 
-export default function ExploreSection() {
+export default function ExploreSection({ ref }) {
     return (
-        <section className={`ridge-section ${styles.explore}`} id="explore">
+        <section ref={ref} className={`ridge-section ${styles.explore}`} id="explore">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
@@ -34,7 +35,7 @@ export default function ExploreSection() {
                                 <p key={text}>{text}</p>
                             ))}
                             <div className={`main-border-button main-teal-button ${styles.button}`}>
-                                <a href="#hiking">{content.buttonText}</a>
+                                <Link to="/#hiking">{content.buttonText}</Link>
                             </div>
                         </div>
                     </div>

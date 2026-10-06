@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import logo from "../../assets/logo-white.svg";
 import styles from "./Footer.module.css";
 
@@ -34,16 +35,16 @@ export default function Footer() {
                         <h4>Shop by Activity</h4>
                         <ul>
                             <li>
-                                <a href="#hiking">Hiking</a>
+                                <Link to="/#hiking">Hiking</Link>
                             </li>
                             <li>
-                                <a href="#running">Running</a>
+                                <Link to="/#running">Running</Link>
                             </li>
                             <li>
-                                <a href="#biking">Biking</a>
+                                <Link to="/#biking">Biking</Link>
                             </li>
                             <li>
-                                <a href="#climbing">Climbing</a>
+                                <Link to="/#climbing">Climbing</Link>
                             </li>
                         </ul>
                     </div>
@@ -51,16 +52,16 @@ export default function Footer() {
                         <h4>Useful Links</h4>
                         <ul>
                             <li>
-                                <a href="#top">Homepage</a>
+                                <Link to="/">Homepage</Link>
                             </li>
                             <li>
-                                <a href="/about">About Us</a>
+                                <Link to="/about">About Us</Link>
                             </li>
                             <li>
-                                <a href="/catalog">Catalog</a>
+                                <Link to="/catalog">Catalog</Link>
                             </li>
                             <li>
-                                <a href="/contact">Contact Us</a>
+                                <Link to="/contact">Contact Us</Link>
                             </li>
                         </ul>
                     </div>
@@ -68,19 +69,19 @@ export default function Footer() {
                         <h4>My Account</h4>
                         <ul>
                             <li>
-                                <a href="/login">Login</a>
+                                <Link to="/login">Login</Link>
                             </li>
                             <li>
-                                <a href="/register">Register</a>
+                                <Link to="/register">Register</Link>
                             </li>
                             <li>
-                                <a href="/favorites">Favorites</a>
+                                <Link to="/favorites">Favorites</Link>
                             </li>
                             <li>
-                                <a href="/orders">My Orders</a>
+                                <Link to="/orders">My Orders</Link>
                             </li>
                             <li>
-                                <a href="/cart">Cart</a>
+                                <Link to="/cart">Cart</Link>
                             </li>
                         </ul>
                     </div>

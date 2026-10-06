@@ -37,6 +37,7 @@
     - [x] Style the header as a sunrise gradient with the hero rising into it as a ridge
     - [x] Replace photos with outdoor images that match each product, the hero banner and cards, and the Explore and Instagram sections
     - [x] Darken the teal on buttons, prices, stars and menu links for better contrast
+    - [x] Move the template styles from main.css into CSS modules next to each component and page
 
 ## Steps to add navigation behavior in React
     - [x] Make the header sticky - using useEffect scroll listener
@@ -54,6 +55,10 @@
     - [x] Move HomePage to pages and add a Layout
     - [x] Wrap the app in BrowserRouter and add the first routes
     - [x] Add the About, Contact and Not Found pages from the template
+    - [x] Scroll to the top when the page changes
+    - [x] Replace the <a> links with Link, and with NavLink in the header menus to mark the open page
+    - [x] Make the section links work from every page - link to /#hiking and scroll to the section with useRef on Home
+
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project

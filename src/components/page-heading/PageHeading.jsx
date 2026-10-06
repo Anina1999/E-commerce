@@ -9,7 +9,7 @@ export default function PageHeading({
     const rootClassName = [styles.pageHeading, styles[variant], className].filter(Boolean).join(" ");
 
     return (
-        <div className={rootClassName} id="top">
+        <div className={rootClassName}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

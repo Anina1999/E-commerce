@@ -236,6 +236,12 @@
   padding-left: 25px;
 }
 
+/* The current page in the dropdown, and its Pages/Account button */
+.header .mainNav .nav li.submenu ul li a.active,
+.header .mainNav .nav li.submenu:has(a.active) .submenuToggle {
+  color: var(--color-teal-deep)!important;
+}
+
 .header .mainNav .nav li.submenu ul li a:focus-visible {
   outline-offset: -2px;
 }

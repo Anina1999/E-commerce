@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.css";
 
@@ -11,16 +12,18 @@ const sectionLinks = [
     { id: "explore", label: "Explore", afterSubmenus: true },
 ];
 
+const pageLinkClass = ({ isActive }) => (isActive ? styles.active : undefined);
+
 function SectionLink({ id, label, activeSection, onSelect }) {
     return (
         <li className={styles.sectionLink}>
-            <a
-                href={`#${id}`}
+            <Link
+                to={`/#${id}`}
                 className={activeSection === id ? styles.active : undefined}
                 onClick={() => onSelect(id)}
             >
                 {label}
-            </a>
+            </Link>
         </li>
     );
 }
@@ -30,11 +33,17 @@ export default function Header() {
     const [activeSection, setActiveSection] = useState("top");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(null);
-
+    const { pathname } = useLocation();
+    const isHome = pathname === "/";
 
     const handleSectionSelect = (id) => {
         setActiveSection(id);
         setIsMenuOpen(false);
+    };
+
+    const closeMenus = () => {
+        setIsMenuOpen(false);
+        setOpenSubmenu(null);
     };
 
     const toggleSubmenu = (name) => {
@@ -46,6 +55,11 @@ export default function Header() {
     useEffect(() => {
         const handleScroll = () => {
             setIsSticky(window.scrollY > 0);
+
+            if (!isHome) {
+                setActiveSection(null);
+                return;
+            }
 
             const current = sectionLinks.map((link) => link.id)
                 .findLast((id) => {
@@ -60,7 +74,7 @@ export default function Header() {
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [isHome]);
 
     return (
         <header className={isSticky ? `${styles.header} ${styles.sticky}` : styles.header}>
@@ -68,9 +82,9 @@ export default function Header() {
                 <div className="row">
                     <div className="col-12">
                         <nav className={styles.mainNav}>
-                            <a href="index.html" className={styles.logo}>
+                            <Link to="/" className={styles.logo}>
                                 <img src={logo} alt="Tourashop" />
-                            </a>
+                            </Link>
                             <ul className={isMenuOpen ? `nav ${styles.nav} ${styles.open}` : `nav ${styles.nav}`}>
                                 {sectionLinks
                                     .filter((link) => !link.afterSubmenus)
@@ -80,7 +94,6 @@ export default function Header() {
                                             {...link}
                                             activeSection={activeSection}
                                             onSelect={handleSectionSelect}
-
                                         />
                                     ))}
 
@@ -95,13 +108,13 @@ export default function Header() {
                                     </button>
                                     <ul className={openSubmenu === "pages" ? styles.open : undefined}>
                                         <li>
-                                            <a href="/about">About Us</a>
+                                            <NavLink to="/about" className={pageLinkClass} onClick={closeMenus}>About Us</NavLink>
                                         </li>
                                         <li>
-                                            <a href="/catalog">Catalog</a>
+                                            <NavLink to="/catalog" className={pageLinkClass} onClick={closeMenus}>Catalog</NavLink>
                                         </li>
                                         <li>
-                                            <a href="/contact">Contact Us</a>
+                                            <NavLink to="/contact" className={pageLinkClass} onClick={closeMenus}>Contact Us</NavLink>
                                         </li>
                                     </ul>
                                 </li>
@@ -116,10 +129,10 @@ export default function Header() {
                                     </button>
                                     <ul className={openSubmenu === "account" ? styles.open : undefined}>
                                         <li>
-                                            <a href="/login">Login</a>
+                                            <NavLink to="/login" className={pageLinkClass} onClick={closeMenus}>Login</NavLink>
                                         </li>
                                         <li>
-                                            <a href="/register">Register</a>
+                                            <NavLink to="/register" className={pageLinkClass} onClick={closeMenus}>Register</NavLink>
                                         </li>
                                     </ul>
                                 </li>

@@ -15,9 +15,9 @@ Table of contents
 03. header -> src/components/header/Header.module.css
 04. banner -> src/components/hero-section/HeroSection.module.css,
               src/components/hero-card/HeroCard.module.css
-05. product carousel -> src/components/carousel-section/CarouselSection.module.css,
-                        src/components/product-card/ProductCard.module.css
-    (the --tier colors and the shared .ridge-section stay here)
+05. ridge sections: the --tier colors and the shared .ridge-section
+    (product carousel -> src/components/carousel-section/CarouselSection.module.css,
+                         src/components/product-card/ProductCard.module.css)
 06. explore -> src/components/explore-section/ExploreSection.module.css
 07. social -> src/components/community-section/CommunitySection.module.css,
               src/components/instagram-card/InstagramCard.module.css
@@ -29,7 +29,6 @@ Table of contents
 13. contact us page -> src/pages/contact/Contact.module.css
 14. responsive -> emptied: each @media rule moved into the module of its section
     (preloader -> src/components/preloader/Preloader.module.css)
-15. shop by activity
 
 --------------------------------------------- */
 /* 
@@ -45,27 +44,6 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
-}
-
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-
-.clearfix {
-  display: inline-block;
-}
-
-html[xmlns] .clearfix {
-  display: block;
-}
-
-* html .clearfix {
-  height: 1%;
 }
 
 ul, li {
@@ -175,16 +153,6 @@ section[id] {
   html, body {
     overflow-x: hidden;
   }
-  .mobile-top-fix {
-    margin-top: 30px;
-    margin-bottom: 0px;
-  }
-  .mobile-bottom-fix {
-    margin-bottom: 30px;
-  }
-  .mobile-bottom-fix-big {
-    margin-bottom: 60px;
-  }
 }
 
 .main-border-button a {
@@ -219,17 +187,6 @@ section[id] {
   opacity: 0.9;
 }
 
-.main-text-button a {
-  font-size: 13px;
-  color: #fff;
-  font-weight: 600;
-  transition: all .3s;
-}
-
-.main-text-button a:hover {
-  opacity: 0.9;
-}
-
 /* Small uppercase label above headings, echoing "OUTDOOR GEAR" in the logo */
 .eyebrow {
   display: block;
@@ -259,7 +216,7 @@ section[id] {
 
 /*
 ---------------------------------------------
-Product Carousel
+Ridge sections
 ---------------------------------------------
 */
 
@@ -277,7 +234,7 @@ Product Carousel
   --tier-7: #a8cadc; /* sky, handing off to the subscribe gradient */
 }
 
-/* .ridge-section components set their own --tier-bg in their CSS module (CarouselSection: tier prop 1-4, ExploreSection: --tier-5, CommunitySection: --tier-6, SubscribeSection: --tier-7) */
+/* .ridge-section components set their own --tier-bg in their CSS module (CarouselSection: tier prop 1-4, ExploreSection: --tier-5, CommunitySection: --tier-6, SubscribeSection: --tier-7, About page sections: --tier-2/4/6, Contact page: --tier-4) */
 .ridge-section {
   position: relative;
   background-color: var(--tier-bg);
@@ -627,103 +584,3 @@ Single Product Page
   .quantity.buttons_added .minus:focus,
  .quantity.buttons_added .plus:focus {
   outline: none; }
-
-
-
-/*
----------------------------------------------
-Shop by Activity
----------------------------------------------
-*/
-
-.shop-by-activity .section-heading {
-  margin-bottom: 60px;
-}
-
-.shop-by-activity .activity-item {
-  margin-bottom: 30px;
-}
-
-/* Rounded photos with a graphite fade so white text always reads */
-.shop-by-activity .activity-item .thumb {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  text-align: center;
-}
-
-.shop-by-activity .activity-item .thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image: linear-gradient(0deg, rgba(31,42,51,0.8) 0%, rgba(31,42,51,0) 55%);
-}
-
-.shop-by-activity .activity-item .thumb img {
-  width: 100%;
-  overflow: hidden;
-}
-
-.shop-by-activity .activity-item .thumb .inner-content {
-  z-index: 2;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  text-align: center;
-}
-
-.shop-by-activity .activity-item .thumb .inner-content h4 {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.shop-by-activity .activity-item .thumb .inner-content span {
-  font-size: 16px;
-  color: #fff;
-  font-style: italic;
-}
-
-.shop-by-activity .activity-item .thumb .hover-content {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  left: 15px;
-  bottom: 15px;
-  text-align: center;
-  z-index: 3;
-  background-color: rgba(31,42,51,.92);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s;
-}
-
-.shop-by-activity .activity-item .thumb:hover .hover-content {
-  opacity: 1;
-  visibility: visible;
-}
-
-.shop-by-activity .activity-item .thumb .hover-content .inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-}
-
-.shop-by-activity .activity-item .thumb .hover-content h4 {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.shop-by-activity .activity-item .thumb .hover-content p {
-  color: #fff;
-  padding: 0px 20px;
-  margin-bottom: 20px;
-}
