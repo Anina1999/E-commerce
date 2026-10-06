@@ -7,7 +7,7 @@ export default function About() {
     return (
         <>
             <PageHeading
-                className="page-heading about-page-heading"
+                variant="about"
                 title="About Tourashop"
                 subtitle="Outdoor gear chosen by people who actually use it"
             />

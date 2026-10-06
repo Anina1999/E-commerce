@@ -19,7 +19,7 @@ Table of contents
 07. social
 08. subscribe -> src/components/subscribe-section/SubscribeSection.module.css
 09. footer -> src/components/footer/Footer.module.css
-10. products page
+10. products page (page heading -> src/components/page-heading/PageHeading.module.css)
 11. single product page
 12. about us page
 13. contact us page -> src/pages/contact/Contact.module.css
@@ -1451,34 +1451,6 @@ Products Page
 --------------------------------------------- 
 */
 
-.page-heading {
-  margin-top: 136px;
-  margin-bottom: 30px;
-  background-image: url(../images/products-page-heading.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.page-heading .inner-content {
-  padding: 150px 0px;
-  text-align: center;
-}
-
-.page-heading .inner-content h2 {
-  font-size: 52px;
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.page-heading .inner-content span {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  font-style: italic;
-}
-
 #products .section-heading {
   text-align: center;
   margin-bottom: 60px;
@@ -1789,20 +1761,6 @@ Single Product Page
 About Us Page
 --------------------------------------------- 
 */
-
-.about-page-heading {
-  margin-top: 136px;
-  margin-bottom: 30px;
-  background-image: url(../images/hero-main.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.not-found-page-heading {
-  background-image: url(../images/hero-hiking.jpg);
-}
-
 
 .about-us {
   margin-top: 80px;

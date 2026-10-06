@@ -1,0 +1,44 @@
+/* Image paths are absolute so they point to public/assets/images, not to this folder */
+.pageHeading {
+  margin-top: 136px;
+  margin-bottom: 30px;
+  background-image: url(/assets/images/products-page-heading.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Variants only swap the background photo */
+/* A group of hikers carrying their full kit: people who actually use the gear */
+.about {
+  background-image: url(/assets/images/page-heading-about.jpg);
+}
+
+/* The Flatirons above Boulder, where the store is */
+.contact {
+  background-image: url(/assets/images/page-heading-contact.jpg);
+}
+
+/* A path fading into the fog: the trail that doesn't exist */
+.notFound {
+  background-image: url(/assets/images/page-heading-not-found.jpg);
+}
+
+.innerContent {
+  padding: 150px 0px;
+  text-align: center;
+}
+
+.innerContent h2 {
+  font-size: 52px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.innerContent span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  font-style: italic;
+}

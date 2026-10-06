@@ -6,7 +6,7 @@ export default function NotFound() {
     return (
         <>
             <PageHeading
-                className="page-heading not-found-page-heading"
+                variant="notFound"
                 title="404 - Page Not Found"
                 subtitle="Looks like this trail doesn't exist."
             />

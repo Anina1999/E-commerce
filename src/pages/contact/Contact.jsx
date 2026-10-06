@@ -7,7 +7,7 @@ export default function Contact() {
     return (
         <>
             <PageHeading
-                className="page-heading about-page-heading"
+                variant="contact"
                 title="Contact Us"
                 subtitle="Questions about gear, orders or trips? Write to us."
             />
