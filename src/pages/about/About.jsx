@@ -46,6 +46,8 @@ export default function About() {
                     <div className="row">
                         <div className="col-lg-12">
                             <SectionHeading
+                                variant="about"
+                                className={styles.heading}
                                 title="Our Amazing Team"
                                 subtitle="The people who test our gear on the trail before it reaches you."
                             />
@@ -81,6 +83,8 @@ export default function About() {
                     <div className="row">
                         <div className="col-lg-12">
                             <SectionHeading
+                                variant="about"
+                                className={styles.heading}
                                 title="Our Services"
                                 subtitle="More than a store - we help you get out there."
                             />

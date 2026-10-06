@@ -24,7 +24,7 @@ export default function CarouselSection({
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
+                        <SectionHeading className={styles.heading} eyebrow={eyebrow} title={title} subtitle={subtitle} />
                     </div>
                 </div>
             </div>

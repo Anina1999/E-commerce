@@ -8,6 +8,8 @@ export default function SubscribeSection() {
                 <div className="row">
                     <div className="col-lg-8">
                         <SectionHeading
+                            variant="subscribe"
+                            className={styles.heading}
                             eyebrow="Newsletter"
                             title="Subscribe To Our Newsletter And Get 30% Off Your First Order"
                             subtitle="New gear drops, trail tips and member-only deals, straight to your inbox."

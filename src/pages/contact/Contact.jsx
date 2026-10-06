@@ -29,6 +29,7 @@ export default function Contact() {
                         </div>
                         <div className="col-lg-6">
                             <SectionHeading
+                                className={styles.heading}
                                 title="Say Hello. Don't Be Shy!"
                                 subtitle="We usually reply within one working day."
                             />

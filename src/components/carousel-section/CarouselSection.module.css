@@ -16,7 +16,8 @@
   transform: scaleX(-1);
 }
 
-.productCarousel :global(.section-heading) {
+/* Spacing for SectionHeading, passed through its className prop */
+.heading {
   margin-bottom: 60px;
 }
 

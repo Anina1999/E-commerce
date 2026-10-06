@@ -11,7 +11,7 @@ https://templatemo.com/tm-571-hexashop
 Table of contents
 ------------------------------------------------
 01. reset
-02. global styles
+02. global styles (section heading -> src/components/section-heading/SectionHeading.module.css)
 03. header
 04. banner -> src/components/hero-section/HeroSection.module.css,
               src/components/hero-card/HeroCard.module.css
@@ -229,21 +229,8 @@ section[id] {
   opacity: 0.9;
 }
 
-.section-heading h2 {
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--color-graphite);
-}
-
-.section-heading span {
-  font-size: 16px;
-  color: var(--color-muted);
-  font-weight: 400;
-}
-
 /* Small uppercase label above headings, echoing "OUTDOOR GEAR" in the logo */
-.eyebrow,
-.section-heading .eyebrow {
+.eyebrow {
   display: block;
   font-size: 12px;
   font-weight: 600;

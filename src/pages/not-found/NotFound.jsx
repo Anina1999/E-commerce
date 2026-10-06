@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
+import styles from "./NotFound.module.css";
 
 
 export default function NotFound() {
@@ -11,7 +12,7 @@ export default function NotFound() {
                 subtitle="Looks like this trail doesn't exist."
             />
 
-            <div className="container text-center" style={{ marginBottom: 80 }}>
+            <div className={`container text-center ${styles.actions}`}>
                 <div className="main-border-button main-teal-button">
                     <Link to="/">Back to Homepage</Link>
                 </div>

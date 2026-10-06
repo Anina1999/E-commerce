@@ -7,17 +7,9 @@
   background-image: linear-gradient(0deg, var(--color-alpenglow) 0%, #bbc1bf 19%, var(--color-sky) 45%, rgba(87,198,225,0.45) 75%, rgba(87,198,225,0) 100%);
 }
 
-.subscribe :global(.section-heading) span,
-.subscribe :global(.section-heading) :global(.eyebrow) {
-  color: var(--color-graphite-soft);
-}
-
-.subscribe :global(.section-heading) {
+/* Spacing for SectionHeading, passed through its className prop; its look is the "subscribe" variant */
+.heading {
   margin-bottom: 30px;
-}
-
-.subscribe :global(.section-heading) h2 {
-  line-height: 55px;
 }
 
 .subscribe form input {

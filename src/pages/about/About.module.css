@@ -90,15 +90,9 @@
   border-top: 1px solid var(--color-border);
 }
 
-.ourTeam :global(.section-heading),
-.ourServices :global(.section-heading) {
+/* Spacing for both SectionHeadings (team and services), passed through their className prop; centering is the "about" variant */
+.heading {
   margin-bottom: 60px;
-  text-align: center;
-}
-
-.ourTeam :global(.section-heading) h2,
-.ourServices :global(.section-heading) h2 {
-  margin-bottom: 10px;
 }
 
 .thumb {

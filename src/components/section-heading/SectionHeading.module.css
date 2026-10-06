@@ -1,0 +1,32 @@
+/* Outer spacing comes from the parent through the className prop; the eyebrow look is the global .eyebrow */
+.sectionHeading h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--color-graphite);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+/* Variants change only how the heading looks */
+/* About page sections (team, services): centered over the cards */
+.about {
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 10px;
+}
+
+/* Newsletter: darker text on the sky gradient and a taller line for the two-line title */
+.subscribe h2 {
+  line-height: 55px;
+}
+
+.subscribe .subtitle,
+.subscribe :global(.eyebrow) {
+  color: var(--color-graphite-soft);
+}
