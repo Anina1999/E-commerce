@@ -16,7 +16,8 @@ Table of contents
 04. banner
 05. product carousel
 06. explore
-07. social
+07. social -> src/components/community-section/CommunitySection.module.css,
+              src/components/instagram-card/InstagramCard.module.css
 08. subscribe -> src/components/subscribe-section/SubscribeSection.module.css
 09. footer -> src/components/footer/Footer.module.css
 10. products page (page heading -> src/components/page-heading/PageHeading.module.css)
@@ -1030,15 +1031,13 @@ Product Carousel
 #biking { --tier-bg: var(--tier-3); }
 #climbing { --tier-bg: var(--tier-4); }
 #explore { --tier-bg: var(--tier-5); }
-#social { --tier-bg: var(--tier-6); }
-/* .ridge-section components set their own --tier-bg in their CSS module (SubscribeSection: --tier-7) */
+/* .ridge-section components set their own --tier-bg in their CSS module (CommunitySection: --tier-6, SubscribeSection: --tier-7) */
 
 #hiking,
 #running,
 #biking,
 #climbing,
 #explore,
-#social,
 .ridge-section {
   position: relative;
   background-color: var(--tier-bg);
@@ -1050,14 +1049,12 @@ Product Carousel
 #biking::before,
 #climbing::before,
 #explore::before,
-#social::before,
 .ridge-section::before,
 #hiking::after,
 #running::after,
 #biking::after,
 #climbing::after,
 #explore::after,
-#social::after,
 .ridge-section::after {
   content: "";
   position: absolute;
@@ -1077,7 +1074,6 @@ Product Carousel
 #biking::before,
 #climbing::before,
 #explore::before,
-#social::before,
 .ridge-section::before {
   /* Half-transparent section color over the section above lands between the two tones */
   background-color: var(--tier-bg);
@@ -1091,7 +1087,6 @@ Product Carousel
 #biking::after,
 #climbing::after,
 #explore::after,
-#social::after,
 .ridge-section::after {
   background-color: var(--tier-bg);
   -webkit-mask-image: var(--ridge-shape-front);
@@ -1102,9 +1097,7 @@ Product Carousel
 #running::before,
 #running::after,
 #climbing::before,
-#climbing::after,
-#social::before,
-#social::after {
+#climbing::after {
   transform: scaleX(-1);
 }
 
@@ -1378,72 +1371,6 @@ Explore
   color: var(--color-muted);
   font-weight: 500;
 }
-
-/* 
----------------------------------------------
-Social
---------------------------------------------- 
-*/
-
-#social {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-
-#social .col-3 {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#social .images {
-  margin-top: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-#social .thumb {
-  position: relative;
-}
-
-#social .thumb .icon {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  background-color: rgba(31,42,51,0.85);
-  opacity: 0;
-  visibility: hidden;
-  transition: all .3s;
-}
-
-#social .thumb:hover .icon {
-  opacity: 1;
-  visibility: visible;
-}
-
-#social .thumb .icon h6 {
-  color: #fff;
-  position: absolute;
-  font-size: 14px;
-  bottom: 40px;
-  font-weight: 400;
-  left: 15px;
-}
-
-#social .thumb .icon i {
-  color: #fff;
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-}
-
-#social .thumb img {
-  width: 100%;
-  overflow: hidden;
-}
-
 
 /* 
 ---------------------------------------------

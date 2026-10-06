@@ -1,0 +1,19 @@
+/* The ridge above the section and the solid background come from the global .ridge-section class in main.css */
+.social {
+  --tier-bg: var(--tier-6);
+
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* Mirror the ridge so it doesn't repeat the one above (explore) */
+.social::before,
+.social::after {
+  transform: scaleX(-1);
+}
+
+.images {
+  margin-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}

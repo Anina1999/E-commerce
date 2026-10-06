@@ -1,10 +1,11 @@
 import SectionHeading from "../section-heading/SectionHeading";
 import InstagramCard from "../instagram-card/InstagramCard";
 import { instagramPosts } from "../../data/instagramPosts";
+import styles from "./CommunitySection.module.css";
 
 export default function CommunitySection() {
     return (
-        <section className="section" id="social">
+        <section className={`ridge-section ${styles.social}`} id="social">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -17,7 +18,7 @@ export default function CommunitySection() {
                 </div>
             </div>
             <div className="container">
-                <div className="row images">
+                <div className={`row ${styles.images}`}>
                     {instagramPosts.map((post) => (
                         <InstagramCard
                             key={post.id}
