@@ -1,18 +1,19 @@
 import HeroCard from "../hero-card/HeroCard";
+import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
     return (
-        <div className="main-banner" id="top">
+        <div className={styles.mainBanner} id="top">
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-6">
-                        <div className="left-content">
-                            <div className="thumb">
-                                <div className="inner-content">
+                        <div className={styles.leftContent}>
+                            <div className={styles.thumb}>
+                                <div className={styles.innerContent}>
                                     <span className="eyebrow">Outdoor Gear</span>
                                     <h4>We Are Tourashop</h4>
                                     <span>Our products are chosen for the modern adventurer</span>
-                                    <div className="main-border-button">
+                                    <div className="main-border-button main-teal-button">
                                         <a href="#">Purchase Now!</a>
                                     </div>
                                 </div>
@@ -21,7 +22,7 @@ export default function HeroSection() {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <div className="right-content">
+                        <div>
                             <div className="row">
                                 
                                 <HeroCard 

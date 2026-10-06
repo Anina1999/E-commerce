@@ -13,7 +13,8 @@ Table of contents
 01. reset
 02. global styles
 03. header
-04. banner
+04. banner -> src/components/hero-section/HeroSection.module.css,
+              src/components/hero-card/HeroCard.module.css
 05. product carousel -> src/components/carousel-section/CarouselSection.module.css,
                         src/components/product-card/ProductCard.module.css
     (the --tier colors and the shared .ridge-section stay here)
@@ -254,15 +255,13 @@ section[id] {
 }
 
 /* Filled accent button */
-.main-teal-button a,
-.main-banner .left-content .main-border-button a {
+.main-teal-button a {
   background-color: var(--color-teal-dark);
   border-color: var(--color-teal-dark);
   color: #fff;
 }
 
-.main-teal-button a:hover,
-.main-banner .left-content .main-border-button a:hover {
+.main-teal-button a:hover {
   background-color: var(--color-graphite);
   border-color: var(--color-graphite);
   color: #fff;
@@ -832,172 +831,6 @@ header
 }
 
 
-/* 
----------------------------------------------
-banner
---------------------------------------------- 
-*/
-
-.main-banner {
-  /* Clears the 136px header and its ridge */
-  padding-top: 166px;
-  /* Room for the first ridge rising out of the hiking section */
-  padding-bottom: 90px;
-}
-
-/* Rounded photos with a graphite fade so white text always reads */
-.main-banner .left-content .thumb,
-.main-banner .right-content .right-first-image .thumb,
-.shop-by-activity .activity-item .thumb {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.main-banner .left-content .thumb::before,
-.main-banner .right-content .right-first-image .thumb::before,
-.shop-by-activity .activity-item .thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.main-banner .left-content .thumb::before {
-  background-image: linear-gradient(90deg, rgba(31,42,51,0.85) 0%, rgba(31,42,51,0.4) 55%, rgba(31,42,51,0) 100%);
-}
-
-.shop-by-activity .activity-item .thumb::before {
-  background-image: linear-gradient(0deg, rgba(31,42,51,0.8) 0%, rgba(31,42,51,0) 55%);
-}
-
-/* Captions sit in the middle, so the tint covers the whole photo evenly */
-.main-banner .right-content .right-first-image .thumb::before {
-  background-color: rgba(31,42,51,0.45);
-}
-
-.main-banner .left-content .inner-content {
-  z-index: 2;
-}
-
-.main-banner .left-content .inner-content .eyebrow {
-  color: var(--color-teal-light);
-  font-style: normal;
-  font-size: 12px;
-  margin-bottom: 12px;
-}
-
-.main-banner .left-content .thumb img {
-  width: 100%;
-  overflow: hidden;
-}
-
-.main-banner .left-content .inner-content {
-  position: absolute;
-  left: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.main-banner .left-content .inner-content h4 {
-  color: #fff;
-  margin-top: -10px;
-  font-size: 52px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.main-banner .left-content .inner-content span {
-  font-size: 16px;
-  color: rgba(255,255,255,0.85);
-  font-weight: 400;
-  display: block;
-  margin-bottom: 30px;
-}
-
-.main-banner .right-content .right-first-image {
-  margin-bottom: 28.5px;
-}
-
-.main-banner .right-content .right-first-image .thumb {
-  position: relative;
-  text-align: center;
-}
-
-.main-banner .right-content .right-first-image .thumb img {
-  width: 100%;
-  overflow: hidden;
-}
-
-.main-banner .right-content .right-first-image .thumb .inner-content {
-  position: absolute;
-  top: 50%;
-  left: 24px;
-  right: 24px;
-  transform: translateY(-50%);
-  z-index: 2;
-  text-align: center;
-}
-
-.main-banner .right-content .right-first-image .thumb .inner-content h4 {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.main-banner .right-content .right-first-image .thumb .inner-content span {
-  font-size: 13px;
-  color: var(--color-teal-light);
-}
-
-.main-banner .right-content .right-first-image .thumb .hover-content {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  left: 15px;
-  bottom: 15px;
-  text-align: center;
-  z-index: 3;
-  border-radius: var(--radius);
-  background-color: rgba(31,42,51,.92);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s;
-}
-
-.main-banner .right-content .right-first-image .thumb:hover .hover-content {
-  opacity: 1;
-  visibility: visible;
-}
-
-.main-banner .right-content .right-first-image .thumb .hover-content .inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-}
-
-.main-banner .right-content .right-first-image .thumb .hover-content h4 {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.main-banner .right-content .right-first-image .thumb .hover-content p {
-  font-size: 14px;
-  color: #fff;
-  padding: 0px 20px;
-  margin-bottom: 20px;
-}
-
-
-
 /*
 ---------------------------------------------
 Product Carousel
@@ -1017,8 +850,6 @@ Product Carousel
   --tier-6: #c8ccd6; /* blue-grey dusk, leading into the subscribe sky */
   --tier-7: #a8cadc; /* sky, handing off to the subscribe gradient */
 }
-
-.main-banner { background-color: var(--tier-0); }
 
 /* .ridge-section components set their own --tier-bg in their CSS module (CarouselSection: tier prop 1-4, ExploreSection: --tier-5, CommunitySection: --tier-6, SubscribeSection: --tier-7) */
 .ridge-section {
@@ -1605,16 +1436,7 @@ responsive
 --------------------------------------------- 
 */
 
-@media (max-width: 1200px) {
-  .main-banner .right-content .right-first-image .thumb .hover-content p {
-    display: none;
-  }
-}
-
 @media (max-width: 992px) {
-  .main-banner .right-content .right-first-image .thumb .hover-content p {
-    display: block;
-  }
   .header-area .main-nav .nav li.submenu:after {
     right: 3px;
   }
@@ -1630,9 +1452,6 @@ responsive
     font-size: 14px;
     letter-spacing: 0px;
   }
-  .main-banner .left-content {
-    margin-bottom: 30px;
-  }
   .about-us .right-content {
     margin-left: 0px;
     margin-top: 30px;
@@ -1643,35 +1462,6 @@ responsive
   .our-services .service-item {
     margin-bottom: 30px;
   }
-}
-
-@media (max-width: 767px) {
-  .main-banner .left-content .thumb .inner-content {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    padding: 50px 20px;
-    text-align: center;
-  }
-
-  .main-banner .left-content .thumb img {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    object-fit: cover;
-  }
-  .main-banner .left-content .inner-content h4 {
-    font-size: 36px;
-    line-height: 1.2;
-    margin-top: 0;
-  }
-  
-  .main-banner .left-content .thumb::before {
-    background-image: none;
-    background-color: rgba(31,42,51,0.6);
-  }
-
 }
 
 /*
@@ -1688,9 +1478,21 @@ Shop by Activity
   margin-bottom: 30px;
 }
 
+/* Rounded photos with a graphite fade so white text always reads */
 .shop-by-activity .activity-item .thumb {
   position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
   text-align: center;
+}
+
+.shop-by-activity .activity-item .thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: linear-gradient(0deg, rgba(31,42,51,0.8) 0%, rgba(31,42,51,0) 55%);
 }
 
 .shop-by-activity .activity-item .thumb img {

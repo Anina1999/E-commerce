@@ -1,0 +1,105 @@
+.card {
+  margin-bottom: 28.5px;
+}
+
+/* Rounded photo with a graphite tint so white text always reads */
+.thumb {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Captions sit in the middle, so the tint covers the whole photo evenly */
+.thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: rgba(31,42,51,0.45);
+}
+
+.thumb img {
+  width: 100%;
+}
+
+.innerContent {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  right: 24px;
+  transform: translateY(-50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.innerContent h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.innerContent span {
+  font-size: 13px;
+  color: var(--color-teal-light);
+}
+
+/* Dark panel with the description and the button, shown on hover */
+.hoverContent {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  left: 15px;
+  bottom: 15px;
+  text-align: center;
+  z-index: 3;
+  border-radius: var(--radius);
+  background-color: rgba(31,42,51,.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.thumb:hover .hoverContent {
+  opacity: 1;
+  visibility: visible;
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.hoverContent h4 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hoverContent p {
+  font-size: 14px;
+  color: #fff;
+  padding: 0px 20px;
+  margin-bottom: 20px;
+}
+
+/* Between 993px and 1200px the cards are too small for the description */
+@media (max-width: 1200px) {
+  .hoverContent p {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .hoverContent p {
+    display: block;
+  }
+}
