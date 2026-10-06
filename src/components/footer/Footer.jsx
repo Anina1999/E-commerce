@@ -1,13 +1,14 @@
 import logo from "../../assets/logo-white.svg";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className={styles.footer}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3">
-                        <div className="first-item">
-                            <div className="logo">
+                        <div>
+                            <div className={styles.logo}>
                                 <img src={logo} alt="Tourashop" />
                             </div>
                             <ul>
@@ -84,7 +85,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="col-lg-12">
-                        <div className="under-footer">
+                        <div className={styles.underFooter}>
                             <p>
                                 Copyright © 2026 Tourashop. All Rights Reserved.
                                 <br />

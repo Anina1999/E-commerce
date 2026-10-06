@@ -18,7 +18,7 @@ Table of contents
 06. explore
 07. social
 08. subscribe
-09. footer
+09. footer -> src/components/footer/Footer.module.css
 10. products page
 11. single product page
 12. about us page
@@ -1531,118 +1531,6 @@ Subscribe
 
 /* 
 ---------------------------------------------
-footer
---------------------------------------------- 
-*/
-
-footer {
-  position: relative;
-  margin-top: 0;
-  padding: 60px 0px 30px 0px;
-  background-color: var(--color-graphite);
-}
-
-/* Mountain ridge rising out of the footer, same two tones as the logo */
-footer::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: 70px;
-  background-image: var(--ridge-front), var(--ridge-back);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-:root {
-  --ridge-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 44 L160 20 L260 36 L420 6 L560 34 L700 22 L860 44 L1010 8 L1150 30 L1300 16 L1440 34 L1440 70 Z' fill='%233d8b8f'/%3E%3C/svg%3E");
-  --ridge-front: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 52 L110 40 L230 54 L340 28 L400 38 L470 22 L600 52 L740 36 L820 46 L940 20 L1000 30 L1060 26 L1210 52 L1330 40 L1440 50 L1440 70 Z' fill='%231f2a33'/%3E%3C/svg%3E");
-}
-
-footer .logo {
-  margin-bottom: 20px;
-}
-
-footer ul li {
-  display: block;
-  margin-bottom: 10px;
-}
-
-footer .logo img {
-  max-width: 195px;
-}
-
-footer ul li a {
-  font-size: 14px;
-  color: rgba(255,255,255,0.75);
-  transition: all .3s;
-}
-
-footer ul li a:hover {
-  color: var(--color-teal-light);
-}
-
-footer h4 {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: var(--color-teal-light);
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-footer .under-footer {
-  margin-top: 30px;
-  padding-top: 30px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
-
-footer .under-footer ul {
-  margin-top: 20px;
-}
-
-footer .under-footer ul li {
-  display: inline-block;
-  margin: 0px 10px;
-}
-
-footer .under-footer ul li a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.25);
-  font-size: 16px;
-  color: #fff;
-}
-
-footer .under-footer ul li a:hover {
-  background-color: var(--color-teal);
-  border-color: var(--color-teal);
-  color: #fff;
-}
-
-footer .under-footer p {
-  color: rgba(255,255,255,0.6);
-  font-size: 14px;
-  font-weight: 300;
-}
-
-footer .under-footer p a {
-  color: var(--color-teal-light);
-}
-
-footer .under-footer p a:hover {
-  color: #fff;
-}
-
-
-/* 
----------------------------------------------
 Products Page
 --------------------------------------------- 
 */
@@ -2394,12 +2282,6 @@ responsive
 
   .subscribe form button {
     width: 100%;
-  }
-  footer {
-    text-align: center;
-  }
-  footer h4 {
-    margin-top: 30px;
   }
 }
 
