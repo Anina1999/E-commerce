@@ -1,0 +1,456 @@
+/* Sunrise to mirror the subscribe sunset: pale sky at the top warming to alpenglow, with the hero rising into it as a ridge */
+.header {
+  border-bottom: none;
+  box-shadow: none;
+  background-color: var(--tier-0);
+  background-image: linear-gradient(180deg, #bfe3ec 0%, #dcecf0 45%, #f2d4d4 100%);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 100;
+  height: 136px;
+  min-height: 80px;
+  transition: all .5s ease 0s;
+}
+
+/* Compact header fixed to the top once the page scrolls past the banner (isSticky in Header.jsx) */
+.sticky {
+  border-bottom: none !important;
+  height: 80px!important;
+  position: fixed!important;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
+}
+
+.sticky .logo {
+  color: var(--color-graphite)!important;
+}
+
+/* Same ridge as between the sections, in the hero color, so the page starts with mountains at dawn */
+.header::before,
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  background-color: var(--tier-0);
+  pointer-events: none;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.header::before {
+  opacity: 0.5;
+  -webkit-mask-image: var(--ridge-shape-back);
+  mask-image: var(--ridge-shape-back);
+}
+
+.header::after {
+  -webkit-mask-image: var(--ridge-shape-front);
+  mask-image: var(--ridge-shape-front);
+}
+
+/* The compact sticky header is only 80px tall, so the ridge would cover the menu; the shadow separates it instead */
+.header.sticky::before,
+.header.sticky::after {
+  display: none;
+}
+
+.header .mainNav {
+  min-height: 80px;
+  background: transparent;
+}
+
+.header .mainNav .logo {
+  line-height: 100px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  float: left;
+  transition: all 0.3s ease 0s;
+}
+
+.sticky .mainNav .logo {
+  line-height: 75px;
+}
+
+.sticky .nav {
+  margin-top: 20px !important;
+}
+
+/* The ul also keeps Bootstrap's global .nav (flex row that wraps) */
+.header .mainNav .nav {
+  float: right;
+  margin-top: 30px;
+  margin-right: 0px;
+  background-color: transparent;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  z-index: 999;
+}
+
+.header .mainNav .nav li {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header .mainNav .nav li:last-child {
+  padding-right: 0px;
+}
+
+.header .mainNav .nav li a {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-graphite);
+  text-transform: capitalize;
+  transition: all 0.3s ease 0s;
+  height: 40px;
+  line-height: 40px;
+  border: transparent;
+  letter-spacing: 1px;
+}
+
+.header .mainNav .nav li:hover a,
+.header .mainNav .nav li a.active {
+  color: var(--color-teal-deep)!important;
+}
+
+.header .mainNav .nav li .submenuToggle {
+  display: block;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-graphite);
+  height: 40px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.header .mainNav .nav li:hover .submenuToggle {
+  color: var(--color-teal-deep);
+}
+
+/* Bootstrap outlines every focused button, so a mouse click left a black box; show a ring only for keyboard focus */
+.header .mainNav .nav li .submenuToggle:focus {
+  outline: none;
+}
+
+.header .mainNav .nav li .submenuToggle:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: -2px;
+  border-radius: var(--radius);
+}
+
+/* Underline under the section links: the current section and on hover */
+@media (min-width: 768px) {
+  .header .mainNav .nav li.sectionLink a {
+    position: relative;
+  }
+
+  .header .mainNav .nav li.sectionLink a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-teal-deep);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .header .mainNav .nav li.sectionLink a.active::after,
+  .header .mainNav .nav li.sectionLink a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Pages and Account: a button with a dropdown */
+.header .mainNav .nav li.submenu {
+  position: relative;
+  padding-right: 30px;
+}
+
+/* Down arrow (Font Awesome angle-down) */
+.header .mainNav .nav li.submenu:after {
+  font-family: FontAwesome;
+  content: "\f107";
+  font-size: 12px;
+  color: var(--color-graphite);
+  position: absolute;
+  right: 18px;
+  top: 12px;
+}
+
+.header .mainNav .nav li.submenu ul {
+  position: absolute;
+  width: 200px;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  top: 50px;
+  opacity: 0;
+  transform: translateY(+2em);
+  visibility: hidden;
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.header .mainNav .nav li.submenu ul li {
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.header .mainNav .nav li.submenu ul li a {
+  opacity: 1;
+  display: block;
+  background: #fff;
+  color: var(--color-graphite)!important;
+  padding-left: 20px;
+  height: 40px;
+  line-height: 40px;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  font-size: 13px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header .mainNav .nav li.submenu ul li a:hover {
+  background: var(--color-mist);
+  color: var(--color-teal-deep)!important;
+  padding-left: 25px;
+}
+
+.header .mainNav .nav li.submenu ul li a:focus-visible {
+  outline-offset: -2px;
+}
+
+.header .mainNav .nav li.submenu:hover ul,
+.header .mainNav .nav li.submenu:has(:focus-visible) ul {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
+}
+
+/* Hamburger button, shown only on phones; the span is the middle bar, ::before and ::after the outer ones */
+.header .mainNav .menuTrigger {
+  cursor: pointer;
+  position: absolute;
+  top: 33px;
+  width: 32px;
+  height: 40px;
+  text-indent: -9999em;
+  z-index: 99;
+  right: 40px;
+  display: none;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.sticky .mainNav .menuTrigger {
+  top: 23px;
+}
+
+.header .mainNav .menuTrigger span,
+.header .mainNav .menuTrigger span:before,
+.header .mainNav .menuTrigger span:after {
+  transition: all 0.4s;
+  background-color: var(--color-graphite);
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+}
+
+.header .mainNav .menuTrigger span:before,
+.header .mainNav .menuTrigger span:after {
+  content: "";
+  width: 75%;
+}
+
+.header .mainNav .menuTrigger span {
+  top: 16px;
+}
+
+.header .mainNav .menuTrigger span:before {
+  transform-origin: 33% 100%;
+  top: -10px;
+  z-index: 10;
+}
+
+.header .mainNav .menuTrigger span:after {
+  transform-origin: 33% 0;
+  top: 10px;
+}
+
+/* Open menu: the middle bar fades and the outer bars turn into an X */
+.header .mainNav .menuTrigger.open span,
+.header .mainNav .menuTrigger.open span:before,
+.header .mainNav .menuTrigger.open span:after {
+  background-color: transparent;
+  width: 100%;
+}
+
+.header .mainNav .menuTrigger.open span:before {
+  transform: translateY(6px) translateX(1px) rotate(45deg);
+  background-color: var(--color-graphite);
+}
+
+.header .mainNav .menuTrigger.open span:after {
+  transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  background-color: var(--color-graphite);
+}
+
+@media (max-width: 1200px) {
+  .header .mainNav .nav li {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header .mainNav .nav li.submenu:after {
+    right: 3px;
+  }
+  .header .mainNav .nav li.submenu {
+    padding-right: 15px;
+  }
+  .header .mainNav .nav li {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .header .mainNav .nav li a,
+  .header .mainNav .nav li .submenuToggle {
+    font-size: 14px;
+    letter-spacing: 0px;
+  }
+}
+
+/* Phones: the menu folds into a full-width list under the hamburger button */
+@media (max-width: 767px) {
+  .header .mainNav .logo {
+    color: var(--color-graphite);
+  }
+
+  .header .mainNav .nav.open {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .header {
+    background-color: var(--color-bg);
+    padding: 0px 15px;
+    height: 136px;
+    box-shadow: none;
+    text-align: center;
+  }
+  .header :global(.container) {
+    padding: 0px;
+  }
+  .header .logo {
+    margin-left: 30px;
+  }
+  .header .menuTrigger {
+    display: block !important;
+  }
+  .header .mainNav {
+    overflow: hidden;
+  }
+  .header .mainNav .nav {
+    float: none;
+    width: 100%;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-left: 0px;
+  }
+
+  .header .mainNav .nav li:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+  .header .nav {
+    margin-top: 100px !important;
+  }
+  .header .mainNav .nav li {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .header .mainNav .nav li a {
+    height: 50px !important;
+    line-height: 50px !important;
+    padding: 0px !important;
+    border: none !important;
+    background: var(--color-mist) !important;
+    color: var(--color-graphite) !important;
+  }
+  .header .mainNav .nav li a:hover {
+    background: var(--color-border) !important;
+    color: var(--color-teal-deep)!important;
+  }
+
+  .header .mainNav .nav li .submenuToggle {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: var(--color-mist);
+  }
+  .header .mainNav .nav li .submenuToggle:hover {
+    background: var(--color-border);
+  }
+  .header .mainNav .nav li.submenu ul {
+    position: relative;
+    visibility: inherit;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    transition-delay: 0s, 0s, 0.3s;
+    top: 0px;
+    width: 100%;
+    box-shadow: none;
+    height: 0px;
+  }
+  .header .mainNav .nav li.submenu ul li a {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .header .mainNav .nav li.submenu ul.open {
+    height: auto !important;
+  }
+  .header .mainNav .nav li.submenu:after {
+    color: var(--color-graphite);
+    right: 25px;
+    font-size: 14px;
+    top: 15px;
+  }
+  .header .mainNav .nav li.submenu:hover ul {
+    height: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header .mainNav .nav {
+    display: flex !important;
+  }
+}
