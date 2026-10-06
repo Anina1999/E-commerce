@@ -1,0 +1,54 @@
+/* The ridge above the section and the solid background come from the global .ridge-section class in main.css.
+   It rises into the page heading photo; tier 2 is the same step the About page starts on (see --tier-0..7 in main.css) */
+.products {
+  --tier-bg: var(--tier-2);
+
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* Spacing for SectionHeading, passed through its className prop */
+.heading {
+  margin-bottom: 50px;
+}
+
+/* Space between the rows of product cards; the card look comes from ProductCard.module.css */
+.cell {
+  margin-bottom: 40px;
+}
+
+/* Page numbers under the grid: the template's square buttons, rounded like the other buttons */
+.pagination {
+  margin-top: 10px;
+}
+
+.pagination ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.pagination li {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.pagination a {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-graphite);
+  border-radius: var(--radius);
+  display: inline-block;
+  text-align: center;
+  line-height: 42px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-graphite);
+  transition: all .3s;
+}
+
+.pagination a:hover,
+.pagination a.active {
+  background-color: var(--color-graphite);
+  color: #fff;
+}

@@ -2,13 +2,19 @@
    No bottom margin: each page sets its own through the className prop (About lets its first ridge rise straight into the photo) */
 .pageHeading {
   margin-top: 136px;
-  background-image: url(/assets/images/products-page-heading.jpg);
+  background-color: var(--color-graphite);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-/* Variants only swap the background photo */
+/* Variants only swap the background photo; without one the heading stays graphite */
+/* Boots, map, compass and a pack laid out before a trip: the gear itself.
+   The photo is bright, so a graphite veil keeps the white title readable */
+.catalog {
+  background-image: linear-gradient(rgba(31, 42, 51, 0.45), rgba(31, 42, 51, 0.45)), url(/assets/images/page-heading-catalog.jpg);
+}
+
 /* A group of hikers carrying their full kit: people who actually use the gear */
 .about {
   background-image: url(/assets/images/page-heading-about.jpg);
