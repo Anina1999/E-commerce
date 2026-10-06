@@ -35,16 +35,16 @@ export default function Footer() {
                         <h4>Shop by Activity</h4>
                         <ul>
                             <li>
-                                <Link to="/#hiking">Hiking</Link>
+                                <Link to="/catalog/hiking">Hiking</Link>
                             </li>
                             <li>
-                                <Link to="/#running">Running</Link>
+                                <Link to="/catalog/running">Running</Link>
                             </li>
                             <li>
-                                <Link to="/#biking">Biking</Link>
+                                <Link to="/catalog/biking">Biking</Link>
                             </li>
                             <li>
-                                <Link to="/#climbing">Climbing</Link>
+                                <Link to="/catalog/climbing">Climbing</Link>
                             </li>
                         </ul>
                     </div>

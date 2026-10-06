@@ -35,7 +35,7 @@ export default function ExploreSection({ ref }) {
                                 <p key={text}>{text}</p>
                             ))}
                             <div className={`main-border-button main-teal-button ${styles.button}`}>
-                                <Link to="/#hiking">{content.buttonText}</Link>
+                                <Link to="/catalog">{content.buttonText}</Link>
                             </div>
                         </div>
                     </div>

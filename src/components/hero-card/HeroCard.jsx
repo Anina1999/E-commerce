@@ -17,7 +17,7 @@ export default function HeroCard({activity, activityBestItems, itemsText, activi
                                 {itemsText}
                             </p>
                             <div className="main-border-button">
-                                <Link to={`/#${activity.toLowerCase()}`}>Discover More</Link>
+                                <Link to={`/catalog/${activity.toLowerCase()}`}>Discover More</Link>
                             </div>
                         </div>
                     </div>
