@@ -7,9 +7,40 @@
   padding-bottom: 90px;
 }
 
-/* Spacing for SectionHeading, passed through its className prop */
-.heading {
+/* Heading on the left, category filters on the right; they stack below 992px */
+.toolbar {
   margin-bottom: 50px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.filters a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--color-graphite);
+  border: 1px solid var(--color-graphite);
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  transition: all .3s;
+}
+
+.filters a:hover,
+.filters a.active {
+  background-color: var(--color-graphite);
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  .filters {
+    justify-content: flex-end;
+    margin-top: 0;
+  }
 }
 
 /* Space between the rows of product cards; the card look comes from ProductCard.module.css */

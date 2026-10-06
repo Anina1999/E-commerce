@@ -1,20 +1,30 @@
-import { Link, useSearchParams } from "react-router";
+import { Link, NavLink, useParams, useSearchParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import ProductCard from "../../components/product-card/ProductCard";
-import { products } from "../../data/products";
+import NotFound from "../not-found/NotFound";
+import { getProductsByCategory, products } from "../../data/products";
 import styles from "./Catalog.module.css";
 
 const PRODUCTS_PER_PAGE = 9;
 
+const filterLinkClass = ({ isActive }) => (isActive ? styles.active : "");
+
 export default function Catalog() {
+    const { category } = useParams();
     const [searchParams] = useSearchParams();
     const page = Number(searchParams.get("page")) || 1;
 
-    const start = (page - 1) * PRODUCTS_PER_PAGE;
-    const pageProducts = products.slice(start, start + PRODUCTS_PER_PAGE);
+    const catalogProducts = category ? getProductsByCategory(category) : products;
 
-    const pageCount = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+    if (catalogProducts.length === 0) {
+        return <NotFound />;
+    }
+
+    const start = (page - 1) * PRODUCTS_PER_PAGE;
+    const pageProducts = catalogProducts.slice(start, start + PRODUCTS_PER_PAGE);
+
+    const pageCount = Math.ceil(catalogProducts.length / PRODUCTS_PER_PAGE);
     const pageNumbers = [];
     for (let number = 1; number <= pageCount; number++) {
         pageNumbers.push(number);
@@ -30,14 +40,22 @@ export default function Catalog() {
 
             <section className={`ridge-section ${styles.products}`}>
                 <div className="container">
-                    <div className="row">
+                    <div className={`row align-items-end ${styles.toolbar}`}>
                         <div className="col-lg-6">
                             <SectionHeading
-                                className={styles.heading}
                                 eyebrow="Catalog"
-                                title="All Our Gear"
-                                subtitle={`${products.length} products`}
+                                title={category ? `Gear for ${category}` : "All Our Gear"}
+                                subtitle={`${catalogProducts.length} products`}
                             />
+                        </div>
+                        <div className="col-lg-6">
+                            <nav className={styles.filters}>
+                                <NavLink to="/catalog" end className={filterLinkClass}>All</NavLink>
+                                <NavLink to="/catalog/hiking" className={filterLinkClass}>Hiking</NavLink>
+                                <NavLink to="/catalog/running" className={filterLinkClass}>Running</NavLink>
+                                <NavLink to="/catalog/biking" className={filterLinkClass}>Biking</NavLink>
+                                <NavLink to="/catalog/climbing" className={filterLinkClass}>Climbing</NavLink>
+                            </nav>
                         </div>
                     </div>
 
@@ -54,17 +72,19 @@ export default function Catalog() {
                         ))}
                     </div>
 
-                    <nav className={styles.pagination}>
-                        <ul>
-                            {pageNumbers.map((number) => (
-                                <li key={number}>
-                                    <Link to={`?page=${number}`} className={number === page ? styles.active : ""}>
-                                        {number}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
+                    {pageCount > 1 && (
+                        <nav className={styles.pagination}>
+                            <ul>
+                                {pageNumbers.map((number) => (
+                                    <li key={number}>
+                                        <Link to={`?page=${number}`} className={number === page ? styles.active : ""}>
+                                            {number}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    )}
                 </div>
             </section>
         </>

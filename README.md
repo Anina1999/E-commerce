@@ -56,16 +56,11 @@
     - [x] Wrap the app in BrowserRouter and add the first routes
     - [x] Add the About, Contact and Not Found pages from the template
     - [x] Scroll to the top when the page changes
-    - [x] Replace the <a> links with Link and NavLink:
-        - Logo and footer "Homepage" -> /
-        - "Purchase Now!" -> renamed to "Shop Now" and points to /catalog
-        - Header "Pages" and footer "Useful Links" -> /about, /catalog, /contact (NavLink marks the current page and its Pages/Account button)
-        - Header "Account" and footer "My Account" -> /login, /register, /favorites, /orders, /cart
-        - Product card eye -> /products/:productId, heart and cart become buttons for now
-    - [x] Make the section links (#hiking, #explore...) work from the other pages - point them to /#hiking, scroll to the section with useRef on Home and run the scroll spy only on /
-    - [ ] Add the Catalog page from the template
+    - [x] Replace the <a> links with Link, and with NavLink in the header menus to mark the open page
+    - [x] Make the section links work from every page - link to /#hiking and scroll to the section with useRef on Home
+    - [x] Add the Catalog page from the template
         - [x] Show the products - 9 per page
-        - [ ] Filter by category
+        - [x] Filter by category
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project
