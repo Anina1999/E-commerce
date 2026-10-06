@@ -17,7 +17,7 @@ Table of contents
 05. product carousel
 06. explore
 07. social
-08. subscribe
+08. subscribe -> src/components/subscribe-section/SubscribeSection.module.css
 09. footer -> src/components/footer/Footer.module.css
 10. products page
 11. single product page
@@ -1031,7 +1031,7 @@ Product Carousel
 #climbing { --tier-bg: var(--tier-4); }
 #explore { --tier-bg: var(--tier-5); }
 #social { --tier-bg: var(--tier-6); }
-.subscribe { --tier-bg: var(--tier-7); }
+/* .ridge-section components set their own --tier-bg in their CSS module (SubscribeSection: --tier-7) */
 
 #hiking,
 #running,
@@ -1039,7 +1039,7 @@ Product Carousel
 #climbing,
 #explore,
 #social,
-.subscribe {
+.ridge-section {
   position: relative;
   background-color: var(--tier-bg);
 }
@@ -1051,14 +1051,14 @@ Product Carousel
 #climbing::before,
 #explore::before,
 #social::before,
-.subscribe::before,
+.ridge-section::before,
 #hiking::after,
 #running::after,
 #biking::after,
 #climbing::after,
 #explore::after,
 #social::after,
-.subscribe::after {
+.ridge-section::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1078,7 +1078,7 @@ Product Carousel
 #climbing::before,
 #explore::before,
 #social::before,
-.subscribe::before {
+.ridge-section::before {
   /* Half-transparent section color over the section above lands between the two tones */
   background-color: var(--tier-bg);
   opacity: 0.5;
@@ -1092,7 +1092,7 @@ Product Carousel
 #climbing::after,
 #explore::after,
 #social::after,
-.subscribe::after {
+.ridge-section::after {
   background-color: var(--tier-bg);
   -webkit-mask-image: var(--ridge-shape-front);
   mask-image: var(--ridge-shape-front);
@@ -1442,90 +1442,6 @@ Social
 #social .thumb img {
   width: 100%;
   overflow: hidden;
-}
-
-
-/* 
----------------------------------------------
-Subscribe
---------------------------------------------- 
-*/
-
-.subscribe {
-  padding: 80px 0 130px 0;
-  /* Transparent top blends into the section color (--tier-7); sunset at the bottom meets the footer ridge */
-  background-image: linear-gradient(0deg, var(--color-alpenglow) 0%, #bbc1bf 19%, var(--color-sky) 45%, rgba(87,198,225,0.45) 75%, rgba(87,198,225,0) 100%);
-}
-
-.subscribe .section-heading span,
-.subscribe .section-heading .eyebrow {
-  color: var(--color-graphite-soft);
-}
-
-.subscribe .section-heading {
-  margin-bottom: 30px;
-}
-
-.subscribe .section-heading h2 {
-  line-height: 55px;
-}
-
-.subscribe form input {
-  width: 100%;
-  height: 44px;
-  line-height: 44px;
-  padding: 0px 15px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-graphite);
-  border-radius: var(--radius);
-  border: 1px solid transparent;
-  box-shadow: 0 2px 8px rgba(31,42,51,0.08);
-  outline: none;
-}
-
-.subscribe form input:focus {
-  border-color: var(--color-teal);
-}
-
-.subscribe form button {
-  width: 44px;
-  height: 44px;
-  display: inline-block;
-  text-align: center;
-  line-height: 44px;
-  background-color: var(--color-graphite);
-  border-radius: var(--radius);
-  box-shadow: none;
-  border: 1px solid transparent;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-.subscribe form button:hover {
-  background-color: var(--color-teal);
-}
-
-.subscribe ul li {
-  margin-bottom: 30px;
-  display: block;
-}
-
-.subscribe ul li {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-graphite);
-}
-
-.subscribe ul li span,
-.subscribe ul li span a {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--color-graphite-soft);
-}
-
-.subscribe ul li span a:hover {
-  color: #fff;
 }
 
 
@@ -2230,13 +2146,6 @@ responsive
   #explore .right-content .types {
     margin-top: 30px;
   }
-  .subscribe input {
-    margin-bottom: 15px;
-  }
-  .subscribe form {
-    text-align: center;
-    margin-bottom: 30px;
-  }
   .about-us .right-content {
     margin-left: 0px;
     margin-top: 30px;
@@ -2280,9 +2189,6 @@ responsive
     background-color: rgba(31,42,51,0.6);
   }
 
-  .subscribe form button {
-    width: 100%;
-  }
 }
 
 #preloader {

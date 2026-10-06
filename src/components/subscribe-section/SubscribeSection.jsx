@@ -1,8 +1,9 @@
 import SectionHeading from "../section-heading/SectionHeading";
+import styles from "./SubscribeSection.module.css";
 
 export default function SubscribeSection() {
     return (
-        <div className="subscribe">
+        <div className={`ridge-section ${styles.subscribe}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8">
@@ -37,11 +38,7 @@ export default function SubscribeSection() {
                                 </div>
                                 <div className="col-lg-2">
                                     <fieldset>
-                                        <button
-                                            type="submit"
-                                            id="form-submit"
-                                            className="main-dark-button"
-                                        >
+                                        <button type="submit" id="form-submit">
                                             <i className="fa fa-paper-plane" />
                                         </button>
                                     </fieldset>
