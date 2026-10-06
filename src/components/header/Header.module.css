@@ -4,7 +4,8 @@
   box-shadow: none;
   background-color: var(--tier-0);
   background-image: linear-gradient(180deg, #bfe3ec 0%, #dcecf0 45%, #f2d4d4 100%);
-  position: absolute;
+  /* Always fixed, so it never scrolls away; only the height changes, and that is animated */
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -14,11 +15,10 @@
   transition: all .5s ease 0s;
 }
 
-/* Compact header fixed to the top once the page scrolls past the banner (isSticky in Header.jsx) */
+/* Compact header once the page leaves the very top (isSticky in Header.jsx) */
 .sticky {
   border-bottom: none !important;
   height: 80px!important;
-  position: fixed!important;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
 }
 
@@ -41,6 +41,7 @@
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+  transition: opacity 0.2s;
 }
 
 .header::before {
@@ -54,10 +55,10 @@
   mask-image: var(--ridge-shape-front);
 }
 
-/* The compact sticky header is only 80px tall, so the ridge would cover the menu; the shadow separates it instead */
+/* The compact sticky header is only 80px tall, so the ridge would cover the menu; it fades out and the shadow separates it instead */
 .header.sticky::before,
 .header.sticky::after {
-  display: none;
+  opacity: 0;
 }
 
 .header .mainNav {

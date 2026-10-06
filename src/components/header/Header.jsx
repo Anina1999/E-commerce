@@ -45,11 +45,7 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const banner = document.getElementById("top");
-            const header = document.querySelector("header");
-            const offset = (banner?.offsetHeight ?? 0) - (header?.offsetHeight ?? 0);
-
-            setIsSticky(window.scrollY >= offset);
+            setIsSticky(window.scrollY > 0);
 
             const current = sectionLinks.map((link) => link.id)
                 .findLast((id) => {
