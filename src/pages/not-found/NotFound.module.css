@@ -1,3 +1,8 @@
+/* Spacing for PageHeading, passed through its className prop */
+.pageHeading {
+  margin-bottom: 30px;
+}
+
 /* Space between the button and the footer ridge; the button look comes from the global .main-border-button and .main-teal-button */
 .actions {
   margin-bottom: 80px;

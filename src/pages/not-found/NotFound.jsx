@@ -8,6 +8,7 @@ export default function NotFound() {
         <>
             <PageHeading
                 variant="notFound"
+                className={styles.pageHeading}
                 title="404 - Page Not Found"
                 subtitle="Looks like this trail doesn't exist."
             />

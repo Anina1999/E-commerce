@@ -1,6 +1,12 @@
-/* About us: photo of the store and the story next to it */
+/* The ridge above each section and the solid background come from the global .ridge-section class in main.css.
+   Same sunrise path as the home page (see --tier-0..7 in main.css): tier 2, 4 and 6, then subscribe closes it with tier 7 */
+
+/* About us: photo of the store and the story next to it; its ridge rises into the page heading photo */
 .aboutUs {
-  margin-top: 80px;
+  --tier-bg: var(--tier-2);
+
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .leftImage img {
@@ -84,10 +90,16 @@
 
 /* Our team */
 .ourTeam {
-  margin-top: 100px;
+  --tier-bg: var(--tier-4);
+
   padding-top: 90px;
   padding-bottom: 90px;
-  border-top: 1px solid var(--color-border);
+}
+
+/* Mirror the ridge so it doesn't repeat the one above (about us) */
+.ourTeam::before,
+.ourTeam::after {
+  transform: scaleX(-1);
 }
 
 /* Spacing for both SectionHeadings (team and services), passed through their className prop; centering is the "about" variant */
@@ -175,14 +187,17 @@
 
 /* Our services */
 .ourServices {
+  --tier-bg: var(--tier-6);
+
   padding-top: 90px;
   padding-bottom: 90px;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
 }
 
+/* White card so it stands out on the section color */
 .serviceItem {
   padding: 30px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
   box-shadow: 0px 0px 15px rgba(0,0,0,0.10);
   text-align: center;
   height: 100%;

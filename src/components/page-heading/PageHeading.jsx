@@ -1,15 +1,15 @@
 import styles from "./PageHeading.module.css";
 
-// variant: "about", "contact" or "notFound" swaps the background photo; leave it out for the default one
 export default function PageHeading({
     title,
     subtitle,
-    variant
+    variant,
+    className
 }) {
-    const className = [styles.pageHeading, styles[variant]].filter(Boolean).join(" ");
+    const rootClassName = [styles.pageHeading, styles[variant], className].filter(Boolean).join(" ");
 
     return (
-        <div className={className} id="top">
+        <div className={rootClassName} id="top">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

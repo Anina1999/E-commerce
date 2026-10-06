@@ -13,7 +13,7 @@ export default function About() {
                 subtitle="Outdoor gear chosen by people who actually use it"
             />
 
-            <div className={styles.aboutUs}>
+            <div className={`ridge-section ${styles.aboutUs}`}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
@@ -41,7 +41,7 @@ export default function About() {
                 </div>
             </div>
 
-            <section className={styles.ourTeam}>
+            <section className={`ridge-section ${styles.ourTeam}`}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -78,7 +78,7 @@ export default function About() {
                 </div>
             </section>
 
-            <section className={styles.ourServices}>
+            <section className={`ridge-section ${styles.ourServices}`}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">

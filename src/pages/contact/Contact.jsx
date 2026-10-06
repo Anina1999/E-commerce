@@ -12,7 +12,7 @@ export default function Contact() {
                 subtitle="Questions about gear, orders or trips? Write to us."
             />
 
-            <div className={styles.contactUs}>
+            <div className={`ridge-section ${styles.contactUs}`}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
