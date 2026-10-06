@@ -1,7 +1,8 @@
-import { Link, NavLink, useParams, useSearchParams } from "react-router";
+import { NavLink, useParams, useSearchParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import ProductCard from "../../components/product-card/ProductCard";
+import Pagination from "../../components/pagination/Pagination";
 import NotFound from "../not-found/NotFound";
 import { getProductsByCategory, products } from "../../data/products";
 import styles from "./Catalog.module.css";
@@ -25,10 +26,6 @@ export default function Catalog() {
     const pageProducts = catalogProducts.slice(start, start + PRODUCTS_PER_PAGE);
 
     const pageCount = Math.ceil(catalogProducts.length / PRODUCTS_PER_PAGE);
-    const pageNumbers = [];
-    for (let number = 1; number <= pageCount; number++) {
-        pageNumbers.push(number);
-    }
 
     return (
         <>
@@ -72,19 +69,7 @@ export default function Catalog() {
                         ))}
                     </div>
 
-                    {pageCount > 1 && (
-                        <nav className={styles.pagination}>
-                            <ul>
-                                {pageNumbers.map((number) => (
-                                    <li key={number}>
-                                        <Link to={`?page=${number}`} className={number === page ? styles.active : ""}>
-                                            {number}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-                    )}
+                    <Pagination className={styles.pagination} page={page} pageCount={pageCount} />
                 </div>
             </section>
         </>

@@ -61,6 +61,7 @@
     - [x] Add the Catalog page from the template
         - [x] Show the products - 9 per page
         - [x] Filter by category
+    - [x] Move the pagination into its own component
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project

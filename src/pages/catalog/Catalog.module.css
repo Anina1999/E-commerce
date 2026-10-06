@@ -48,38 +48,7 @@
   margin-bottom: 40px;
 }
 
-/* Page numbers under the grid: the template's square buttons, rounded like the other buttons */
+/* Spacing for Pagination, passed through its className prop */
 .pagination {
   margin-top: 10px;
-}
-
-.pagination ul {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.pagination li {
-  display: inline-block;
-  margin: 0px 5px;
-}
-
-.pagination a {
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--color-graphite);
-  border-radius: var(--radius);
-  display: inline-block;
-  text-align: center;
-  line-height: 42px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-graphite);
-  transition: all .3s;
-}
-
-.pagination a:hover,
-.pagination a.active {
-  background-color: var(--color-graphite);
-  color: #fff;
 }

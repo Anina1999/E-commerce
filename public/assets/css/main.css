@@ -23,7 +23,8 @@ Table of contents
               src/components/instagram-card/InstagramCard.module.css
 08. subscribe -> src/components/subscribe-section/SubscribeSection.module.css
 09. footer -> src/components/footer/Footer.module.css
-10. products page -> src/pages/catalog/Catalog.module.css
+10. products page -> src/pages/catalog/Catalog.module.css,
+                     src/components/pagination/Pagination.module.css
     (page heading -> src/components/page-heading/PageHeading.module.css)
 11. single product page
 12. about us page -> src/pages/about/About.module.css
