@@ -1,0 +1,99 @@
+/* The card lifts on hover */
+.item {
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: translateY(-4px);
+}
+
+.thumb {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.item:hover .thumb {
+  box-shadow: 0 12px 28px rgba(31,42,51,0.15);
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+}
+
+/* Round action buttons that slide up over the photo on hover */
+.hoverContent {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  bottom: -60px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s;
+}
+
+.thumb:hover .hoverContent {
+  bottom: 30px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hoverContent ul li {
+  display: inline;
+  margin: 0px 10px;
+}
+
+.hoverContent ul li a {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  color: var(--color-graphite);
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(31,42,51,0.15);
+  transition: all 0.3s;
+}
+
+.hoverContent ul li a:hover {
+  background-color: var(--color-teal);
+  color: #fff;
+}
+
+.downContent {
+  padding-top: 20px;
+  position: relative;
+  z-index: 3;
+  background-color: transparent;
+}
+
+.downContent h4 {
+  font-size: 18px;
+  color: var(--color-graphite);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.downContent span {
+  font-size: 16px;
+  color: var(--color-teal-deep);
+  font-weight: 600;
+  display: block;
+}
+
+/* Rating, on the right of the name */
+.stars {
+  position: absolute;
+  right: 0;
+  top: 22px;
+}
+
+.stars li {
+  display: inline;
+  font-size: 12px;
+  color: var(--color-teal-deep);
+}

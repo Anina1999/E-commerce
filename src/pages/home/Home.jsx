@@ -11,28 +11,34 @@ export default function Home() {
             <HeroSection />
 
             <CarouselSection 
-                id="hiking" 
+                id="hiking"
+                tier={1}
                 title="Hiking's Latest" 
                 subtitle="Boots, poles and shells built for long days on the trail."
                 products={hikingProducts}
             />
 
             <CarouselSection 
-                id="running" 
+                id="running"
+                tier={2}
+                mirrored
                 title="Running's Latest"
                 subtitle="Lightweight kit that keeps up, from morning miles to race day." 
                 products={runningProducts}
             />
 
             <CarouselSection 
-                id="biking" 
+                id="biking"
+                tier={3}
                 title="Biking's Latest" 
                 subtitle="Helmets, bibs and bags for the commute and the climb."
                 products={bikingProducts}
             />
 
             <CarouselSection 
-                id="climbing" 
+                id="climbing"
+                tier={4}
+                mirrored
                 title="Climbing's Latest" 
                 subtitle="Harnesses, shoes and chalk you can put your weight on."
                 products={climbingProducts}  

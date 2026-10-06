@@ -14,7 +14,9 @@ Table of contents
 02. global styles
 03. header
 04. banner
-05. product carousel
+05. product carousel -> src/components/carousel-section/CarouselSection.module.css,
+                        src/components/product-card/ProductCard.module.css
+    (the --tier colors and the shared .ridge-section stay here)
 06. explore -> src/components/explore-section/ExploreSection.module.css
 07. social -> src/components/community-section/CommunitySection.module.css,
               src/components/instagram-card/InstagramCard.module.css
@@ -1002,11 +1004,6 @@ Product Carousel
 ---------------------------------------------
 */
 
-.product-carousel {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-
 /* Sunrise path down the page: white, cream, sage, morning blue, blue-grey dusk, sky, then the subscribe sunset closes it over the footer ridge.
    The top half stays near neutral and colour builds toward the end, so subscribe and the footer remain the high point.
    The hue shifts but every tier is a step darker than the one above, so each ridge reads against the section it rises into. */
@@ -1023,31 +1020,14 @@ Product Carousel
 
 .main-banner { background-color: var(--tier-0); }
 
-#hiking { --tier-bg: var(--tier-1); }
-#running { --tier-bg: var(--tier-2); }
-#biking { --tier-bg: var(--tier-3); }
-#climbing { --tier-bg: var(--tier-4); }
-/* .ridge-section components set their own --tier-bg in their CSS module (ExploreSection: --tier-5, CommunitySection: --tier-6, SubscribeSection: --tier-7) */
-
-#hiking,
-#running,
-#biking,
-#climbing,
+/* .ridge-section components set their own --tier-bg in their CSS module (CarouselSection: tier prop 1-4, ExploreSection: --tier-5, CommunitySection: --tier-6, SubscribeSection: --tier-7) */
 .ridge-section {
   position: relative;
   background-color: var(--tier-bg);
 }
 
 /* The footer ridge in pale tones: a front range in the next section's color rising into the one above, and a back range halfway between the two */
-#hiking::before,
-#running::before,
-#biking::before,
-#climbing::before,
 .ridge-section::before,
-#hiking::after,
-#running::after,
-#biking::after,
-#climbing::after,
 .ridge-section::after {
   content: "";
   position: absolute;
@@ -1062,10 +1042,6 @@ Product Carousel
   mask-repeat: no-repeat;
 }
 
-#hiking::before,
-#running::before,
-#biking::before,
-#climbing::before,
 .ridge-section::before {
   /* Half-transparent section color over the section above lands between the two tones */
   background-color: var(--tier-bg);
@@ -1074,191 +1050,16 @@ Product Carousel
   mask-image: var(--ridge-shape-back);
 }
 
-#hiking::after,
-#running::after,
-#biking::after,
-#climbing::after,
 .ridge-section::after {
   background-color: var(--tier-bg);
   -webkit-mask-image: var(--ridge-shape-front);
   mask-image: var(--ridge-shape-front);
 }
 
-/* Mirror every other ridge so the skyline doesn't repeat */
-#running::before,
-#running::after,
-#climbing::before,
-#climbing::after {
-  transform: scaleX(-1);
-}
-
 /* Same outlines as the footer ridge, used as masks so each section can paint them in its own color */
 :root {
   --ridge-shape-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 44 L160 20 L260 36 L420 6 L560 34 L700 22 L860 44 L1010 8 L1150 30 L1300 16 L1440 34 L1440 70 Z'/%3E%3C/svg%3E");
   --ridge-shape-front: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70 L0 52 L110 40 L230 54 L340 28 L400 38 L470 22 L600 52 L740 36 L820 46 L940 20 L1000 30 L1060 26 L1210 52 L1330 40 L1440 50 L1440 70 Z'/%3E%3C/svg%3E");
-}
-
-/* Room for the card lift and shadow inside Swiper's overflow */
-.product-carousel .swiper {
-  padding: 8px 4px 16px;
-}
-
-.product-carousel .item {
-  transition: transform 0.3s;
-}
-
-.product-carousel .item:hover {
-  transform: translateY(-4px);
-}
-
-.product-carousel .item .thumb {
-  border-radius: 8px;
-  overflow: hidden;
-  transition: box-shadow 0.3s;
-}
-
-.product-carousel .item:hover .thumb {
-  box-shadow: 0 12px 28px rgba(31,42,51,0.15);
-}
-
-.product-carousel .item .thumb img {
-  display: block;
-  width: 100%;
-}
-
-.product-carousel .section-heading {
-  margin-bottom: 60px;
-}
-
-.product-carousel .item .down-content {
-  padding-top: 20px;
-  position: relative;
-  z-index: 3;
-  background-color: transparent;
-}
-
-.product-carousel .item .down-content h4 {
-  font-size: 18px;
-  color: var(--color-graphite);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.product-carousel .item .down-content span {
-  font-size: 16px;
-  color: var(--color-teal-deep);
-  font-weight: 600;
-  display: block;
-}
-
-.product-carousel .item .down-content ul.stars {
-  position: absolute;
-  right: 0;
-  top: 22px;
-}
-
-.product-carousel .item .down-content ul.stars li {
-  display: inline;
-  font-size: 12px;
-  color: var(--color-teal-deep);
-}
-
-.product-carousel .item .thumb .hover-content {
-  position: absolute;
-  z-index: 2;
-  text-align: center;
-  bottom: -60px;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: all .5s;
-}
-
-.product-carousel .item .thumb:hover .hover-content {
-  bottom: 30px;
-  opacity: 1;
-  visibility: visible;
-}
-
-.product-carousel .item .thumb {
-  position: relative;
-}
-
-.product-carousel .item .thumb .hover-content ul li {
-  display: inline;
-  margin: 0px 10px;
-}
-
-.product-carousel .item .thumb .hover-content ul li a {
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  display: inline-block;
-  border-radius: 50%;
-  color: var(--color-graphite);
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(31,42,51,0.15);
-  transition: all 0.3s;
-}
-
-.product-carousel .item .thumb .hover-content ul li a:hover {
-  background-color: var(--color-teal);
-  color: #fff;
-}
-
-
-.product-carousel .carousel-prev,
-.product-carousel .carousel-next {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-25px);
-  z-index: 10;
-  width: 50px;
-  height: 50px;
-  padding: 0;
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  background-color: #fff;
-  color: var(--color-graphite);
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 48px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  box-shadow: 0 4px 12px rgba(31,42,51,0.08);
-  transition: all .3s;
-}
-
-.product-carousel .carousel-prev:hover,
-.product-carousel .carousel-next:hover {
-  background-color: var(--color-teal);
-  border-color: var(--color-teal);
-  color: #fff;
-}
-
-.product-carousel .carousel-prev {
-  left: -80px;
-}
-
-.product-carousel .carousel-next {
-  right: -85px;
-}
-
-@media (max-width: 1340px) {
-  .product-carousel .carousel-prev,
-  .product-carousel .carousel-next {
-    background-color: #fff;
-  }
-
-  .product-carousel .carousel-prev {
-    left: 15px;
-  }
-
-  .product-carousel .carousel-next {
-    right: 15px;
-  }
 }
 
 /* 

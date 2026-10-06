@@ -1,12 +1,14 @@
+import styles from "./ProductCard.module.css";
+
 export default function ProductCard({ 
     productName, 
     productPrice, 
     productImage
 }) {
     return (
-        <div className="item">
-            <div className="thumb">
-                <div className="hover-content">
+        <div className={styles.item}>
+            <div className={styles.thumb}>
+                <div className={styles.hoverContent}>
                     <ul>
                         <li>
                             <a href="single-product.html" aria-label={`View details: ${productName}`}>
@@ -27,10 +29,10 @@ export default function ProductCard({
                 </div>
                 <img src={productImage} alt={productName} />
             </div>
-            <div className="down-content">
+            <div className={styles.downContent}>
                 <h4>{productName}</h4>
                 <span>${productPrice.toFixed(2)}</span>
-                <ul className="stars">
+                <ul className={styles.stars}>
                     <li>
                         <i className="fa fa-star" />
                     </li>
