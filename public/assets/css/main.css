@@ -15,7 +15,7 @@ Table of contents
 03. header
 04. banner
 05. product carousel
-06. explore
+06. explore -> src/components/explore-section/ExploreSection.module.css
 07. social -> src/components/community-section/CommunitySection.module.css,
               src/components/instagram-card/InstagramCard.module.css
 08. subscribe -> src/components/subscribe-section/SubscribeSection.module.css
@@ -240,8 +240,7 @@ section[id] {
 
 /* Small uppercase label above headings, echoing "OUTDOOR GEAR" in the logo */
 .eyebrow,
-.section-heading .eyebrow,
-#explore .left-content .eyebrow {
+.section-heading .eyebrow {
   display: block;
   font-size: 12px;
   font-weight: 600;
@@ -254,7 +253,6 @@ section[id] {
 
 /* Filled accent button */
 .main-teal-button a,
-#explore .left-content .main-border-button a,
 .main-banner .left-content .main-border-button a {
   background-color: var(--color-teal-dark);
   border-color: var(--color-teal-dark);
@@ -262,7 +260,6 @@ section[id] {
 }
 
 .main-teal-button a:hover,
-#explore .left-content .main-border-button a:hover,
 .main-banner .left-content .main-border-button a:hover {
   background-color: var(--color-graphite);
   border-color: var(--color-graphite);
@@ -1030,14 +1027,12 @@ Product Carousel
 #running { --tier-bg: var(--tier-2); }
 #biking { --tier-bg: var(--tier-3); }
 #climbing { --tier-bg: var(--tier-4); }
-#explore { --tier-bg: var(--tier-5); }
-/* .ridge-section components set their own --tier-bg in their CSS module (CommunitySection: --tier-6, SubscribeSection: --tier-7) */
+/* .ridge-section components set their own --tier-bg in their CSS module (ExploreSection: --tier-5, CommunitySection: --tier-6, SubscribeSection: --tier-7) */
 
 #hiking,
 #running,
 #biking,
 #climbing,
-#explore,
 .ridge-section {
   position: relative;
   background-color: var(--tier-bg);
@@ -1048,13 +1043,11 @@ Product Carousel
 #running::before,
 #biking::before,
 #climbing::before,
-#explore::before,
 .ridge-section::before,
 #hiking::after,
 #running::after,
 #biking::after,
 #climbing::after,
-#explore::after,
 .ridge-section::after {
   content: "";
   position: absolute;
@@ -1073,7 +1066,6 @@ Product Carousel
 #running::before,
 #biking::before,
 #climbing::before,
-#explore::before,
 .ridge-section::before {
   /* Half-transparent section color over the section above lands between the two tones */
   background-color: var(--tier-bg);
@@ -1086,7 +1078,6 @@ Product Carousel
 #running::after,
 #biking::after,
 #climbing::after,
-#explore::after,
 .ridge-section::after {
   background-color: var(--tier-bg);
   -webkit-mask-image: var(--ridge-shape-front);
@@ -1268,108 +1259,6 @@ Product Carousel
   .product-carousel .carousel-next {
     right: 15px;
   }
-}
-
-/*
----------------------------------------------
-Explore
----------------------------------------------
-*/
-
-#explore {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-
-#explore img {
-  border-radius: var(--radius);
-}
-
-#explore .left-content {
-  margin-right: 30px;
-}
-
-#explore .left-content h2 {
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--color-graphite);
-}
-
-#explore .left-content span {
-  font-size: 16px;
-  color: var(--color-muted);
-  font-weight: 500;
-  display: block;
-  margin-top: 25px;
-}
-
-#explore .left-content .quote {
-  margin-top: 25px;
-}
-
-#explore .left-content .quote i {
-  color: var(--color-teal);
-  float: left;
-  font-size: 32px;
-  margin-right: 15px;
-  margin-top: 10px;
-}
-
-#explore .left-content .quote p {
-  font-style: italic;
-  color: var(--color-graphite);
-  font-weight: 500;
-}
-
-#explore .left-content p {
-  font-size: 16px;
-  color: var(--color-muted);
-  font-weight: 500;
-  display: block;
-  margin-top: 25px;
-}
-
-#explore .left-content .main-border-button a {
-  margin-top: 35px;
-}
-
-#explore img {
-  width: 100%;
-  overflow: hidden;
-}
-
-#explore .leather {
-  margin-bottom: 30px;
-}
-
-#explore .first-image {
-  margin-bottom: 30px;
-}
-
-#explore .leather,
-#explore .types {
-  min-height: 255px;
-  background-color: var(--color-surface);
-  border-radius: var(--radius);
-  border-top: 3px solid var(--color-teal);
-  text-align: center;
-  width: 100%;
-}
-
-#explore .leather h4,
-#explore .types h4 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--color-graphite);
-  padding-top: 90px;
-  margin-bottom: 5px;
-}
-
-#explore .leather span,
-#explore .types span {
-  font-size: 14px;
-  color: var(--color-muted);
-  font-weight: 500;
 }
 
 /* 
@@ -1942,12 +1831,6 @@ responsive
   }
   .main-banner .left-content {
     margin-bottom: 30px;
-  }
-  #explore .left-content {
-    margin-bottom: 30px;
-  }
-  #explore .right-content .types {
-    margin-top: 30px;
   }
   .about-us .right-content {
     margin-left: 0px;
