@@ -1,8 +1,11 @@
 /* Image paths are absolute so they point to public/assets/images, not to this folder.
    No bottom margin: each page sets its own through the className prop (About lets its first ridge rise straight into the photo).
    The photo starts at the very top, behind the fixed header, whose see-through ridge lets it rise into the sky as the front mountain.
-   Starting lower would show its straight top edge while the header grows back from sticky (80px) to full (136px) */
+   Starting lower would show its straight top edge while the header grows back from sticky (80px) to full (136px).
+   --veil is a graphite layer the variants put over their photo so the white title stays readable */
 .pageHeading {
+  --veil: linear-gradient(rgba(31, 42, 51, 0.45), rgba(31, 42, 51, 0.45));
+
   background-color: var(--color-graphite);
   background-position: center center;
   background-size: cover;
@@ -10,38 +13,40 @@
 }
 
 /* Variants only swap the background photo; without one the heading stays graphite */
-/* Boots, map, compass and a pack laid out before a trip: the gear itself.
-   The photo is bright, so a graphite veil keeps the white title readable */
+/* Boots, map, compass and a pack laid out before a trip: the gear itself */
 .catalog {
-  background-image: linear-gradient(rgba(31, 42, 51, 0.45), rgba(31, 42, 51, 0.45)), url(/assets/images/page-heading-catalog.jpg);
+  background-image: var(--veil), url(/assets/images/page-heading-catalog.jpg);
+}
+
+/* A hiker in a red shell jacket tying her boot on the trail: checking the gear before setting off */
+.product {
+  background-image: var(--veil), url(/assets/images/page-heading-product.jpg);
 }
 
 /* A group of hikers carrying their full kit: people who actually use the gear */
 .about {
-  background-image: url(/assets/images/page-heading-about.jpg);
+  background-image: var(--veil), url(/assets/images/page-heading-about.jpg);
 }
 
 /* The Flatirons above Boulder, where the store is */
 .contact {
-  background-image: url(/assets/images/page-heading-contact.jpg);
+  background-image: var(--veil), url(/assets/images/page-heading-contact.jpg);
 }
 
-/* A path fading into the fog: the trail that doesn't exist */
+/* A path fading into the fog: the trail that doesn't exist.
+   The photo is dark enough on its own, so no veil */
 .notFound {
   background-image: url(/assets/images/page-heading-not-found.jpg);
 }
 
 /* Login and Register: sunlight breaking through palm leaves.
-   The photo is dark enough on its own, so no veil; it's shifted up to keep the sun in view
-   while the title sits below the brightest glare, and the soft shadow covers the light rays behind it */
+   Shifted up to keep the sun in view while the title sits below the brightest glare.
+   The photo is already dark, so its veil is lighter to keep the sun rays bright */
 .auth {
-  background-image: url(/assets/images/page-heading-auth.jpg);
-  background-position: center 20%;
-}
+  --veil: linear-gradient(rgba(31, 42, 51, 0.25), rgba(31, 42, 51, 0.25));
 
-.auth .innerContent h2,
-.auth .innerContent span {
-  text-shadow: 0px 2px 12px rgba(31, 42, 51, 0.35);
+  background-image: var(--veil), url(/assets/images/page-heading-auth.jpg);
+  background-position: center 20%;
 }
 
 .innerContent {
