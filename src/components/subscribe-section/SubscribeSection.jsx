@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useForm from "../../hooks/useForm";
 import SectionHeading from "../section-heading/SectionHeading";
 import styles from "./SubscribeSection.module.css";
 
@@ -8,21 +9,8 @@ const initialValues = {
 };
 
 export default function SubscribeSection() {
-    const [values, setValues] = useState(initialValues);
     const [sent, setSent] = useState(false);
-
-    function changeHandler(e) {
-        setValues(values => ({ 
-            ...values, 
-            [e.target.name]: e.target.value })
-        );
-    }
-
-    function submitHandler(e) {
-        e.preventDefault();
-        setValues(initialValues);
-        setSent(true);
-    }
+    const { values, changeHandler, submitHandler } = useForm(initialValues, () => setSent(true));
 
     return (
         <div className={`ridge-section ${styles.subscribe}`}>
