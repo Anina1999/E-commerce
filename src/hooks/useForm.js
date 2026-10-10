@@ -13,6 +13,9 @@ export default function useForm(initialValues, onSubmit) {
     function submitHandler(e) {
         e.preventDefault();
         onSubmit(values);
+    }
+
+    function resetForm() {
         setValues(initialValues);
     }
 
@@ -20,5 +23,6 @@ export default function useForm(initialValues, onSubmit) {
         values,
         changeHandler,
         submitHandler,
+        resetForm,
     };
 }

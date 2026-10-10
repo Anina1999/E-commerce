@@ -13,7 +13,12 @@ const initialValues = {
 
 export default function Contact() {
     const [sent, setSent] = useState(false);
-    const { values, changeHandler, submitHandler } = useForm(initialValues, () => setSent(true));
+    const { values, changeHandler, submitHandler, resetForm } = useForm(initialValues, contactSubmitHandler);
+
+    function contactSubmitHandler() {
+        setSent(true);
+        resetForm();
+    }
 
     return (
         <>

@@ -10,7 +10,12 @@ const initialValues = {
 
 export default function SubscribeSection() {
     const [sent, setSent] = useState(false);
-    const { values, changeHandler, submitHandler } = useForm(initialValues, () => setSent(true));
+    const { values, changeHandler, submitHandler, resetForm } = useForm(initialValues, subscribeSubmitHandler);
+
+    function subscribeSubmitHandler() {
+        setSent(true);
+        resetForm();
+    }
 
     return (
         <div className={`ridge-section ${styles.subscribe}`}>
