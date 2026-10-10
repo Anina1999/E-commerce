@@ -80,3 +80,11 @@
     margin-bottom: 30px;
   }
 }
+
+/* Thank-you note shown under the form after submit */
+.success {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-teal-dark);
+}

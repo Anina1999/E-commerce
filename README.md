@@ -17,6 +17,7 @@
     - [x] Rename NewArrivalsProducts to ProductCard as reusable for all carousels
     - [x] Add subtitle as a prop into CarouselSection component to replace the hardcoded data
     - [x] Extract Section heading as reusable component (CarouselSection, SubscribeSection,CommunitySection)
+    - [x] Extract Pagination as reusable component
 
 ## Steps to add the Swiper carousel
     - [x] Install swiper for carousel "npm install swiper"
@@ -54,14 +55,15 @@
     - [x] Install React Router "npm install react-router"
     - [x] Move HomePage to pages and add a Layout
     - [x] Wrap the app in BrowserRouter and add the first routes
-    - [x] Add the About, Contact and Not Found pages from the template
     - [x] Scroll to the top when the page changes
     - [x] Replace the <a> links with Link, and with NavLink in the header menus to mark the open page
     - [x] Make the section links work from every page - link to /#hiking and scroll to the section with useRef on Home
-    - [x] Add the Catalog page from the template
+
+## Steps to add the pages from the template
+    - [x] Add the About, Contact and Not Found pages
+    - [x] Add the Catalog page
         - [x] Show the products - 9 per page
         - [x] Filter by category
-    - [x] Move the pagination into its own component
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project
@@ -69,3 +71,6 @@
     - [x] Add .env.example, .env and add .env to .gitignore
     - [x] Add the Supabase client
     - [x] Add the schema and seed data
+
+## Steps to manage the forms
+    - [x] Make the Contact and Subscribe forms controlled

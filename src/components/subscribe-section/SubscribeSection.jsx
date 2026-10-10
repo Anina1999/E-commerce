@@ -1,7 +1,29 @@
+import { useState } from "react";
 import SectionHeading from "../section-heading/SectionHeading";
 import styles from "./SubscribeSection.module.css";
 
+const initialValues = {
+    name: '',
+    email: '',
+};
+
 export default function SubscribeSection() {
+    const [values, setValues] = useState(initialValues);
+    const [sent, setSent] = useState(false);
+
+    function changeHandler(e) {
+        setValues(values => ({ 
+            ...values, 
+            [e.target.name]: e.target.value })
+        );
+    }
+
+    function submitHandler(e) {
+        e.preventDefault();
+        setValues(initialValues);
+        setSent(true);
+    }
+
     return (
         <div className={`ridge-section ${styles.subscribe}`}>
             <div className="container">
@@ -14,7 +36,7 @@ export default function SubscribeSection() {
                             title="Subscribe To Our Newsletter And Get 30% Off Your First Order"
                             subtitle="New gear drops, trail tips and member-only deals, straight to your inbox."
                         />
-                        <form id="subscribe" action="" method="get">
+                        <form id="subscribe" onSubmit={submitHandler}>
                             <div className="row">
                                 <div className="col-lg-5">
                                     <fieldset>
@@ -23,6 +45,8 @@ export default function SubscribeSection() {
                                             type="text"
                                             id="name"
                                             placeholder="Your Name"
+                                            value={values.name}
+                                            onChange={changeHandler}
                                             required
                                         />
                                     </fieldset>
@@ -34,6 +58,8 @@ export default function SubscribeSection() {
                                             type="email"
                                             id="email"
                                             placeholder="Your Email Address"
+                                            value={values.email}
+                                            onChange={changeHandler}
                                             required
                                         />
                                     </fieldset>
@@ -46,6 +72,7 @@ export default function SubscribeSection() {
                                     </fieldset>
                                 </div>
                             </div>
+                            {sent && <p className={styles.success}>Thank you for subscribing! Check your inbox for the 30% code.</p>}
                         </form>
                     </div>
                     <div className="col-lg-4">
