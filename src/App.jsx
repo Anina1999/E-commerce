@@ -5,6 +5,8 @@ import About from "./pages/about/About"
 import Contact from "./pages/contact/Contact"
 import Catalog from "./pages/catalog/Catalog"
 import ProductDetails from "./pages/product-details/ProductDetails"
+import Login from "./pages/auth/Login"
+import Register from "./pages/auth/Register"
 import NotFound from "./pages/not-found/NotFound"
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
                 <Route path="catalog" element={<Catalog />} />
                 <Route path="catalog/:category" element={<Catalog />} />
                 <Route path="products/:productId" element={<ProductDetails />} />
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>

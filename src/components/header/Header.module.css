@@ -1,9 +1,8 @@
-/* Sunrise to mirror the subscribe sunset: pale sky at the top warming to alpenglow, with the hero rising into it as a ridge */
+/* Sunrise to mirror the subscribe sunset: pale sky at the top warming to alpenglow, with the page rising into it as a ridge.
+   No background here: the sky is painted by ::after, so the ridge can stay see-through */
 .header {
   border-bottom: none;
   box-shadow: none;
-  background-color: var(--tier-0);
-  background-image: linear-gradient(180deg, #bfe3ec 0%, #dcecf0 45%, #f2d4d4 100%);
   /* Always fixed, so it never scrolls away; only the height changes, and that is animated */
   position: fixed;
   top: 0px;
@@ -26,9 +25,9 @@
   color: var(--color-graphite)!important;
 }
 
-/* Same ridge as between the sections, in the hero color, so the page starts with mountains at dawn */
-.header::before,
-.header::after {
+/* Same back ridge as between the sections, half-transparent cream, but only where it shows against the sky:
+   intersecting it with the sky shape keeps it from washing out the top of the page heading photo */
+.header::before {
   content: "";
   position: absolute;
   left: 0;
@@ -36,7 +35,12 @@
   bottom: 0;
   height: 36px;
   background-color: var(--tier-0);
+  opacity: 0.5;
   pointer-events: none;
+  -webkit-mask-image: var(--ridge-shape-back), var(--ridge-shape-sky);
+  mask-image: var(--ridge-shape-back), var(--ridge-shape-sky);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -44,21 +48,34 @@
   transition: opacity 0.2s;
 }
 
-.header::before {
-  opacity: 0.5;
-  -webkit-mask-image: var(--ridge-shape-back);
-  mask-image: var(--ridge-shape-back);
-}
-
+/* The sky, cut along the front ridge outline: below it the header is see-through,
+   so the hero's cream on Home and the page heading photo elsewhere become the front mountain.
+   z-index -1 keeps it behind the logo and the menu (the fixed header is its own stacking context) */
 .header::after {
-  -webkit-mask-image: var(--ridge-shape-front);
-  mask-image: var(--ridge-shape-front);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(180deg, #bfe3ec 0%, #dcecf0 45%, #f2d4d4 100%);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(#000, #000), var(--ridge-shape-sky);
+  mask-image: linear-gradient(#000, #000), var(--ridge-shape-sky);
+  -webkit-mask-size: 100% calc(100% - 36px), 100% 36px;
+  mask-size: 100% calc(100% - 36px), 100% 36px;
+  -webkit-mask-position: top, bottom;
+  mask-position: top, bottom;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-/* The compact sticky header is only 80px tall, so the ridge would cover the menu; it fades out and the shadow separates it instead */
-.header.sticky::before,
-.header.sticky::after {
+/* The compact sticky header is only 80px tall, so the ridge would cover the menu; it fades out, the sky fills the whole header and the shadow separates it instead */
+.header.sticky::before {
   opacity: 0;
+}
+
+.header.sticky::after {
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .header .mainNav {
@@ -363,7 +380,6 @@
   }
 
   .header {
-    background-color: var(--color-bg);
     padding: 0px 15px;
     height: 136px;
     box-shadow: none;

@@ -75,4 +75,4 @@
 ## Steps to manage the forms
     - [x] Make the Contact and Subscribe forms controlled
     - [x] Extract the form logic into a useForm hook
-
+    - [x] Add Login and Register pages and routes
