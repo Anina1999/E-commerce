@@ -7,6 +7,7 @@ import Pagination from "../../components/pagination/Pagination";
 import NotFound from "../not-found/NotFound";
 import { getProducts } from "../../services/productService";
 import useAsync from "../../hooks/useAsync";
+import { paginate } from "../../utils/pagination";
 import styles from "./Catalog.module.css";
 
 const PRODUCTS_PER_PAGE = 9;
@@ -34,9 +35,7 @@ export default function Catalog() {
     }
 
     const page = Number(searchParams.get("page")) || 1;
-    const pageCount = Math.ceil(catalogProducts.length / PRODUCTS_PER_PAGE);
-    const start = (page - 1) * PRODUCTS_PER_PAGE;
-    const pageProducts = catalogProducts.slice(start, start + PRODUCTS_PER_PAGE);
+    const { pageItems: pageProducts, pageCount } = paginate(catalogProducts, page, PRODUCTS_PER_PAGE);
 
     const handleCategoryChange = (event) => {
         navigate(`${event.target.value}#products`);
