@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
+import ErrorMessage from "../error-message/ErrorMessage";
+import useAuth from "../../hooks/useAuth";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.css";
 
@@ -34,6 +36,7 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(null);
     const { pathname } = useLocation();
+    const { profileError } = useAuth();
     const isHome = pathname === "/";
 
     const handleSectionSelect = (id) => {
@@ -78,6 +81,13 @@ export default function Header() {
 
     return (
         <header className={isSticky ? `${styles.header} ${styles.sticky}` : styles.header}>
+            {profileError && (
+                <ErrorMessage
+                    variant="banner"
+                    className={styles.alert}
+                    message="We couldn't load your account. Please refresh the page."
+                />
+            )}
             <div className="container">
                 <div className="row">
                     <div className="col-12">

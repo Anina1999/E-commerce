@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router"
+import AuthProvider from "./contexts/AuthProvider"
 import Layout from "./components/layout/Layout"
 import Home from "./pages/home/Home"
 import About from "./pages/about/About"
@@ -11,19 +12,21 @@ import NotFound from "./pages/not-found/NotFound"
 
 function App() {
     return (
-        <Routes>
-            <Route element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="about" element={<About />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="catalog" element={<Catalog />} />
-                <Route path="catalog/:category" element={<Catalog />} />
-                <Route path="products/:productId/details" element={<ProductDetails />} />
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-                <Route path="*" element={<NotFound />} />
-            </Route>
-        </Routes>
+        <AuthProvider>
+            <Routes>
+                <Route element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="catalog" element={<Catalog />} />
+                    <Route path="catalog/:category" element={<Catalog />} />
+                    <Route path="products/:productId/details" element={<ProductDetails />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+            </Routes>
+        </AuthProvider>
     )
 }
 

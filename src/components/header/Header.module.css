@@ -78,6 +78,14 @@
   mask-image: none;
 }
 
+/* Account error strip (ErrorMessage banner) hangs right under the fixed header, so it follows the height animation */
+.alert {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
 .header .mainNav {
   min-height: 80px;
   background: transparent;

@@ -14,3 +14,24 @@
   font-size: 16px;
   color: var(--color-muted);
 }
+
+/* A thin strip in one line, for errors that must not hide the page (the account error under the header) */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background-color: var(--color-danger);
+}
+
+.banner i {
+  font-size: 18px;
+  color: var(--color-surface);
+}
+
+.banner p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-surface);
+}
