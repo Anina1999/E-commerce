@@ -18,7 +18,7 @@ function App() {
                 <Route path="contact" element={<Contact />} />
                 <Route path="catalog" element={<Catalog />} />
                 <Route path="catalog/:category" element={<Catalog />} />
-                <Route path="products/:productId" element={<ProductDetails />} />
+                <Route path="products/:productId/details" element={<ProductDetails />} />
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
                 <Route path="*" element={<NotFound />} />

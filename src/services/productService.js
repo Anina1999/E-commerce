@@ -15,3 +15,19 @@ export async function getProducts(category, signal) {
 
     return data;
 }
+
+export async function getProductById(productId, signal) {
+    if (!Number.isInteger(Number(productId))) {
+        return null;
+    }
+
+    const { data, error } = await supabase.from("products")
+        .select("*")
+        .eq("id", productId)
+        .abortSignal(signal)
+        .maybeSingle();
+
+    if (error) throw error;
+
+    return data;
+}

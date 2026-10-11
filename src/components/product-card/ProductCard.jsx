@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { formatPrice } from "../../utils/formatPrice";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({
@@ -13,7 +14,7 @@ export default function ProductCard({
                 <div className={styles.hoverContent}>
                     <ul>
                         <li>
-                            <Link to={`/products/${productId}`} aria-label={`View details: ${productName}`}>
+                            <Link to={`/products/${productId}/details`} aria-label={`View details: ${productName}`}>
                                 <i className="fa fa-eye" aria-hidden="true" />
                             </Link>
                         </li>
@@ -33,7 +34,7 @@ export default function ProductCard({
             </div>
             <div className={styles.downContent}>
                 <h4>{productName}</h4>
-                <span>${productPrice.toFixed(2)}</span>
+                <span>{formatPrice(productPrice)}</span>
                 <ul className={styles.stars}>
                     <li>
                         <i className="fa fa-star" />
