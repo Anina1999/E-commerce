@@ -12,6 +12,9 @@
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.3s;
+  /* Keeps the photo's place (all product photos are 740x780) with a mist placeholder, so the card doesn't jump when the photo arrives after the data */
+  aspect-ratio: 740 / 780;
+  background-color: var(--color-mist);
 }
 
 .item:hover .thumb {
@@ -21,6 +24,8 @@
 .thumb img {
   display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Round action buttons that slide up over the photo on hover */
