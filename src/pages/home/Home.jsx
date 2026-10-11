@@ -16,9 +16,11 @@ export default function Home() {
     const bikingRef = useRef(null);
     const climbingRef = useRef(null);
     const exploreRef = useRef(null);
-    const { data: products = [], loading } = useAsync((signal) => 
-        getProducts(signal)
-    );
+    const hiking = useAsync((signal) => getProducts("hiking", signal));
+    const running = useAsync((signal) => getProducts("running", signal));
+    const biking = useAsync((signal) => getProducts("biking", signal));
+    const climbing = useAsync((signal) => getProducts("climbing", signal));
+    const loading = hiking.loading || running.loading || biking.loading || climbing.loading;
 
     useEffect(() => {
         if (loading) {
@@ -43,12 +45,6 @@ export default function Home() {
             .then(() => section.scrollIntoView({ behavior: "smooth" }));
     }, [hash, key, loading]);
 
-    const getCategoryProducts = (category) => {
-        return products.filter((product) =>
-            product.category === category
-        );
-    }
-
     return (
         <>
             <HeroSection ref={topRef} />
@@ -59,7 +55,7 @@ export default function Home() {
                 tier={1}
                 title="Hiking's Latest"
                 subtitle="Boots, poles and shells built for long days on the trail."
-                products={getCategoryProducts("hiking")}
+                products={hiking.data}
             />
 
             <CarouselSection
@@ -69,7 +65,7 @@ export default function Home() {
                 mirrored
                 title="Running's Latest"
                 subtitle="Lightweight kit that keeps up, from morning miles to race day."
-                products={getCategoryProducts("running")}
+                products={running.data}
             />
 
             <CarouselSection
@@ -78,7 +74,7 @@ export default function Home() {
                 tier={3}
                 title="Biking's Latest"
                 subtitle="Helmets, bibs and bags for the commute and the climb."
-                products={getCategoryProducts("biking")}
+                products={biking.data}
             />
 
             <CarouselSection
@@ -88,7 +84,7 @@ export default function Home() {
                 mirrored
                 title="Climbing's Latest"
                 subtitle="Harnesses, shoes and chalk you can put your weight on."
-                products={getCategoryProducts("climbing")}
+                products={climbing.data}
             />
 
             <ExploreSection ref={exploreRef} />

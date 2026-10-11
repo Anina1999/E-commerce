@@ -13,7 +13,7 @@ export default function CarouselSection({
     eyebrow = "New Arrivals",
     tier,
     mirrored = false,
-    products
+    products = []
 }) {
     const className = ["ridge-section", styles.productCarousel, styles[`tier${tier}`], mirrored && styles.mirrored]
         .filter(Boolean)

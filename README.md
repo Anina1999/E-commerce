@@ -73,6 +73,7 @@
     - [x] Add the Supabase client
     - [x] Add the schema and seed data
     - [x] Read the products from Supabase in Home and Catalog
+    - [x] Filter products by category in Supabase
 
 ## Steps to manage the forms
     - [x] Make the Contact and Subscribe forms controlled

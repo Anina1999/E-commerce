@@ -11,6 +11,7 @@ import { paginate } from "../../utils/pagination";
 import styles from "./Catalog.module.css";
 
 const PRODUCTS_PER_PAGE = 9;
+const CATEGORIES = ["hiking", "running", "biking", "climbing"];
 
 export default function Catalog() {
     const { category } = useParams();
@@ -18,7 +19,12 @@ export default function Catalog() {
     const { pathname, hash, key } = useLocation();
     const navigate = useNavigate();
     const productsRef = useRef(null);
-    const { data: products = [], loading } = useAsync((signal) => getProducts(signal));
+
+    
+    const { data: products = [] } = useAsync((signal) =>
+        getProducts(category, signal),
+        [category]
+    );
 
     useEffect(() => {
         if (hash === "#products") {
@@ -26,16 +32,12 @@ export default function Catalog() {
         }
     }, [hash, key]);
 
-    const catalogProducts = category
-        ? products.filter((product) => product.category === category)
-        : products;
-
-    if (!loading && catalogProducts.length === 0) {
+    if (category && !CATEGORIES.includes(category)) {
         return <NotFound />;
     }
 
     const page = Number(searchParams.get("page")) || 1;
-    const { pageItems: pageProducts, pageCount } = paginate(catalogProducts, page, PRODUCTS_PER_PAGE);
+    const { pageItems: pageProducts, pageCount } = paginate(products, page, PRODUCTS_PER_PAGE);
 
     const handleCategoryChange = (event) => {
         navigate(`${event.target.value}#products`);
@@ -56,7 +58,7 @@ export default function Catalog() {
                             <SectionHeading
                                 eyebrow="Catalog"
                                 title={category ? `Gear for ${category}` : "All Our Gear"}
-                                subtitle={`${catalogProducts.length} products`}
+                                subtitle={`${products.length} products`}
                             />
                         </div>
                         <div className="col-lg-4">
