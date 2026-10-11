@@ -5,7 +5,8 @@ import SectionHeading from "../../components/section-heading/SectionHeading";
 import ProductCard from "../../components/product-card/ProductCard";
 import Pagination from "../../components/pagination/Pagination";
 import NotFound from "../not-found/NotFound";
-import { getProductsByCategory, products } from "../../data/products";
+import { getProducts } from "../../services/productService";
+import useAsync from "../../hooks/useAsync";
 import styles from "./Catalog.module.css";
 
 const PRODUCTS_PER_PAGE = 9;
@@ -16,6 +17,7 @@ export default function Catalog() {
     const { pathname, hash, key } = useLocation();
     const navigate = useNavigate();
     const productsRef = useRef(null);
+    const { data: products = [], loading } = useAsync((signal) => getProducts(signal));
 
     useEffect(() => {
         if (hash === "#products") {
@@ -23,9 +25,11 @@ export default function Catalog() {
         }
     }, [hash, key]);
 
-    const catalogProducts = category ? getProductsByCategory(category) : products;
+    const catalogProducts = category
+        ? products.filter((product) => product.category === category)
+        : products;
 
-    if (catalogProducts.length === 0) {
+    if (!loading && catalogProducts.length === 0) {
         return <NotFound />;
     }
 
@@ -77,7 +81,7 @@ export default function Catalog() {
                                     productId={product.id}
                                     productName={product.name}
                                     productPrice={product.price}
-                                    productImage={product.image}
+                                    productImage={product.image_url}
                                 />
                             </div>
                         ))}

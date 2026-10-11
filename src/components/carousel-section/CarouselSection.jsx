@@ -5,7 +5,6 @@ import { Navigation } from 'swiper/modules';
 import "swiper/css";
 import styles from "./CarouselSection.module.css";
 
-// tier: 1-4 picks the section color (--tier-N); mirrored flips the ridge above the section
 export default function CarouselSection({
     ref,
     id,
@@ -35,7 +34,7 @@ export default function CarouselSection({
                         <button type="button" className={styles.carouselPrev} aria-label="Previous" >
                             <i className="fa fa-angle-left" />
                         </button>
-                        <Swiper
+                        {products.length > 0 && <Swiper
                             modules={[Navigation]}
                             navigation={{
                                 prevEl: `#${id} .${styles.carouselPrev}`,
@@ -49,11 +48,11 @@ export default function CarouselSection({
                                         productId={product.id}
                                         productName={product.name}
                                         productPrice={product.price}
-                                        productImage={product.image}
+                                        productImage={product.image_url}
                                     />
                                 </SwiperSlide>
                             ))}
-                        </Swiper>
+                        </Swiper>}
                         <button type="button" className={styles.carouselNext} aria-label="Next" >
                             <i className="fa fa-angle-right" />
                         </button>
