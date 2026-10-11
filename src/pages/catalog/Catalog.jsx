@@ -4,6 +4,9 @@ import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import ProductCard from "../../components/product-card/ProductCard";
 import Pagination from "../../components/pagination/Pagination";
+import Loader from "../../components/loader/Loader";
+import ErrorMessage from "../../components/error-message/ErrorMessage";
+import EmptyState from "../../components/empty-state/EmptyState";
 import NotFound from "../not-found/NotFound";
 import { getProducts } from "../../services/productService";
 import useAsync from "../../hooks/useAsync";
@@ -21,7 +24,7 @@ export default function Catalog() {
     const productsRef = useRef(null);
 
     
-    const { data: products = [] } = useAsync((signal) =>
+    const { data: products = [], loading, error } = useAsync((signal) =>
         getProducts(category, signal),
         [category]
     );
@@ -38,6 +41,8 @@ export default function Catalog() {
 
     const page = Number(searchParams.get("page")) || 1;
     const { pageItems: pageProducts, pageCount } = paginate(products, page, PRODUCTS_PER_PAGE);
+
+    const isReady = !loading && !error;
 
     const handleCategoryChange = (event) => {
         navigate(`${event.target.value}#products`);
@@ -58,11 +63,11 @@ export default function Catalog() {
                             <SectionHeading
                                 eyebrow="Catalog"
                                 title={category ? `Gear for ${category}` : "All Our Gear"}
-                                subtitle={`${products.length} products`}
+                                subtitle={isReady && `${products.length} products`}
                             />
                         </div>
                         <div className="col-lg-4">
-                            <Pagination className={styles.paginationTop} page={page} pageCount={pageCount} hash="#products" />
+                            {isReady && <Pagination className={styles.paginationTop} page={page} pageCount={pageCount} hash="#products" />}
                         </div>
                         <div className={`col-lg-4 ${styles.category}`}>
                             <select value={pathname} onChange={handleCategoryChange} aria-label="Category">
@@ -75,20 +80,27 @@ export default function Catalog() {
                         </div>
                     </div>
 
-                    <div className="row">
-                        {pageProducts.map((product) => (
-                            <div key={product.id} className={`col-lg-4 col-md-6 ${styles.cell}`}>
-                                <ProductCard
-                                    productId={product.id}
-                                    productName={product.name}
-                                    productPrice={product.price}
-                                    productImage={product.image_url}
-                                />
+                    {loading && <Loader />}
+                    {!loading && error && <ErrorMessage />}
+                    {isReady && products.length === 0 && <EmptyState />}
+                    {isReady && products.length > 0 && (
+                        <>
+                            <div className="row">
+                                {pageProducts.map((product) => (
+                                    <div key={product.id} className={`col-lg-4 col-md-6 ${styles.cell}`}>
+                                        <ProductCard
+                                            productId={product.id}
+                                            productName={product.name}
+                                            productPrice={product.price}
+                                            productImage={product.image_url}
+                                        />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
 
-                    <Pagination className={styles.pagination} page={page} pageCount={pageCount} hash="#products" />
+                            <Pagination className={styles.pagination} page={page} pageCount={pageCount} hash="#products" />
+                        </>
+                    )}
                 </div>
             </section>
         </>

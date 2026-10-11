@@ -56,6 +56,8 @@ export default function Home() {
                 title="Hiking's Latest"
                 subtitle="Boots, poles and shells built for long days on the trail."
                 products={hiking.data}
+                loading={hiking.loading}
+                error={hiking.error}
             />
 
             <CarouselSection
@@ -66,6 +68,8 @@ export default function Home() {
                 title="Running's Latest"
                 subtitle="Lightweight kit that keeps up, from morning miles to race day."
                 products={running.data}
+                loading={running.loading}
+                error={running.error}
             />
 
             <CarouselSection
@@ -75,6 +79,8 @@ export default function Home() {
                 title="Biking's Latest"
                 subtitle="Helmets, bibs and bags for the commute and the climb."
                 products={biking.data}
+                loading={biking.loading}
+                error={biking.error}
             />
 
             <CarouselSection
@@ -85,6 +91,8 @@ export default function Home() {
                 title="Climbing's Latest"
                 subtitle="Harnesses, shoes and chalk you can put your weight on."
                 products={climbing.data}
+                loading={climbing.loading}
+                error={climbing.error}
             />
 
             <ExploreSection ref={exploreRef} />

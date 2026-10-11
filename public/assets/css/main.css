@@ -115,6 +115,8 @@ global styles
   --gradient-page: linear-gradient(180deg, #f1f4f4 0%, #f7eeee 12%, #eef3f4 35%, #dcedf1 65%, var(--color-sky-pale) 85%, var(--color-sky-pale) 100%);
   --color-border: #c3d8dd;
   --color-alpenglow: #eea2a2;
+  /* Error icons (ErrorMessage) */
+  --color-danger: #b3474a;
   --radius: 6px;
 }
 

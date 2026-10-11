@@ -74,6 +74,7 @@
     - [x] Add the schema and seed data
     - [x] Read the products from Supabase in Home and Catalog
     - [x] Filter products by category in Supabase
+    - [x] Show loader, error when loading and an empty message
 
 ## Steps to manage the forms
     - [x] Make the Contact and Subscribe forms controlled

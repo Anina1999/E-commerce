@@ -1,0 +1,16 @@
+/* Shown in place of the content when its request fails */
+.errorMessage {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.errorMessage i {
+  font-size: 40px;
+  color: var(--color-danger);
+}
+
+.errorMessage p {
+  margin: 15px 0 0;
+  font-size: 16px;
+  color: var(--color-muted);
+}

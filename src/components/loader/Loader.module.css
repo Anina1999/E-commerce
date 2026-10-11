@@ -1,0 +1,46 @@
+/* Inline loader for a block of content while its request runs; same three circles as the page Preloader, in teal */
+.loader {
+  padding: 60px 0;
+}
+
+.jumper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+/* Three circles that grow and fade one after another */
+.jumper > div {
+  background-color: var(--color-teal);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0;
+  animation: jumper 1s 0s linear infinite;
+  animation-fill-mode: both;
+}
+
+.jumper > div:nth-child(2) {
+  animation-delay: 0.33333s;
+}
+
+.jumper > div:nth-child(3) {
+  animation-delay: 0.66666s;
+}
+
+/* Copied from Preloader.module.css: keyframes names are hashed per module, so each module needs its own */
+@keyframes jumper {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
