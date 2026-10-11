@@ -122,6 +122,13 @@
   background-color: var(--color-border);
 }
 
+/* "-" is off at quantity 1, so the count never goes below one */
+.counter button:disabled {
+  color: var(--color-border);
+  background-color: var(--color-surface);
+  cursor: default;
+}
+
 .counter button:first-child {
   border-right: 0;
 }

@@ -64,8 +64,9 @@
     - [x] Add the Catalog page
         - [x] Show the products - 9 per page
         - [x] Filter by category
-    - [ ] Add the Product Details page
+    - [x] Add the Product Details page
         - [x] Show product details dynamically
+        - [x] Change quantity and see total price 
 
 ## Steps to connect the Supabase backend
     - [x] Create the Supabase project

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
 import Loader from "../../components/loader/Loader";
@@ -14,6 +15,7 @@ export default function ProductDetails() {
         getProductById(productId, signal),
         [productId]
     );
+    const [quantity, setQuantity] = useState(1);
 
     const isReady = !loading && !error;
 
@@ -59,13 +61,13 @@ export default function ProductDetails() {
                                     <div className={styles.quantity}>
                                         <h6>Quantity</h6>
                                         <div className={styles.counter}>
-                                            <button type="button" aria-label="Decrease quantity">-</button>
-                                            <input type="number" name="quantity" defaultValue={1} min="1" aria-label="Quantity" />
-                                            <button type="button" aria-label="Increase quantity">+</button>
+                                            <button type="button" onClick={() => setQuantity(quantity - 1)} disabled={quantity === 1} aria-label="Decrease quantity">-</button>
+                                            <input type="number" name="quantity" value={quantity} readOnly aria-label="Quantity" />
+                                            <button type="button" onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button>
                                         </div>
                                     </div>
                                     <div className={styles.total}>
-                                        <h4>Total: {formatPrice(product.price)}</h4>
+                                        <h4>Total: {formatPrice(product.price * quantity)}</h4>
                                         <button type="button" className={styles.addToCart}>Add To Cart</button>
                                     </div>
                                 </div>
