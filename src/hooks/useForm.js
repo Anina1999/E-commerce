@@ -3,21 +3,21 @@ import { useState } from "react";
 export default function useForm(initialValues, onSubmit) {
     const [values, setValues] = useState(initialValues);
 
-    function changeHandler(e) {
+    const changeHandler = (e) => {
         setValues(values => ({
             ...values,
             [e.target.name]: e.target.value })
         );
-    }
+    };
 
-    function submitHandler(e) {
+    const submitHandler = (e) => {
         e.preventDefault();
-        onSubmit(values);
-    }
+        onSubmit(values, resetForm);
+    };
 
-    function resetForm() {
+    const resetForm = () => {
         setValues(initialValues);
-    }
+    };
 
     return {
         values,
