@@ -35,3 +35,22 @@
   font-size: 15px;
   color: var(--color-surface);
 }
+
+/* Small red line inside a form, for a failed submit (wrong password, email taken) */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  text-align: left;
+}
+
+.form i {
+  font-size: 16px;
+}
+
+.form p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-danger);
+}

@@ -1,7 +1,11 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import useForm from "../../hooks/useForm";
+import useAuth from "../../hooks/useAuth";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
+import ErrorMessage from "../../components/error-message/ErrorMessage";
+import { getAuthErrorMessage } from "../../utils/authErrorMessage";
 import styles from "./Auth.module.css";
 
 const initialValues = {
@@ -10,7 +14,26 @@ const initialValues = {
 };
 
 export default function Login() {
-    const { values, changeHandler, submitHandler } = useForm(initialValues, (values) => console.log(values));
+    const { login } = useAuth();
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const [pending, setPending] = useState(false);
+
+    const loginSubmitHandler = async (values) => {
+        setError("");
+        setPending(true);
+
+        try {
+            await login(values.email, values.password);
+            navigate("/");
+        } catch (err) {
+            setError(getAuthErrorMessage(err));
+        } finally {
+            setPending(false);
+        }
+    };
+
+    const { values, changeHandler, submitHandler } = useForm(initialValues, loginSubmitHandler);
 
     return (
         <>
@@ -36,8 +59,9 @@ export default function Login() {
                                 <fieldset>
                                     <input name="password" type="password" id="password" placeholder="Your password" value={values.password} onChange={changeHandler} required />
                                 </fieldset>
+                                {error && <ErrorMessage variant="form" className={styles.error} message={error} />}
                                 <fieldset>
-                                    <button type="submit">Login</button>
+                                    <button type="submit" disabled={pending}>{pending ? "Please wait..." : "Login"}</button>
                                 </fieldset>
                                 <p className={styles.switch}>
                                     Don't have an account? <Link to="/register">Register</Link>

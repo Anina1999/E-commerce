@@ -45,10 +45,21 @@
   transition: all 0.3s;
 }
 
-.auth form button:hover {
+.auth form button:not(:disabled):hover {
   background-color: #fff;
   border: 1px solid var(--color-graphite);
   color: var(--color-graphite);
+}
+
+/* While the request is running the button can't be clicked again */
+.auth form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Spacing for the ErrorMessage form variant, passed through its className prop */
+.error {
+  margin-bottom: 20px;
 }
 
 /* "Don't have an account? Register" under the button */

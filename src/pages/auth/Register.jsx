@@ -1,7 +1,11 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import useForm from "../../hooks/useForm";
+import useAuth from "../../hooks/useAuth";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
+import ErrorMessage from "../../components/error-message/ErrorMessage";
+import { getAuthErrorMessage } from "../../utils/authErrorMessage";
 import styles from "./Auth.module.css";
 
 const initialValues = {
@@ -12,7 +16,31 @@ const initialValues = {
 };
 
 export default function Register() {
-    const { values, changeHandler, submitHandler } = useForm(initialValues, (values) => console.log(values));
+    const { register } = useAuth();
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const [pending, setPending] = useState(false);
+
+    const registerSubmitHandler = async (values) => {
+        if (values.password !== values.rePassword) {
+            setError("Passwords don't match.");
+            return;
+        }
+
+        setError("");
+        setPending(true);
+
+        try {
+            await register(values.username, values.email, values.password);
+            navigate("/");
+        } catch (err) {
+            setError(getAuthErrorMessage(err));
+        } finally {
+            setPending(false);
+        }
+    };
+
+    const { values, changeHandler, submitHandler } = useForm(initialValues, registerSubmitHandler);
 
     return (
         <>
@@ -39,13 +67,14 @@ export default function Register() {
                                     <input name="email" type="email" id="email" placeholder="Your email" value={values.email} onChange={changeHandler} required />
                                 </fieldset>
                                 <fieldset>
-                                    <input name="password" type="password" id="password" placeholder="Your password" value={values.password} onChange={changeHandler} required />
+                                    <input name="password" type="password" id="password" placeholder="Your password" minLength={6} value={values.password} onChange={changeHandler} required />
                                 </fieldset>
                                 <fieldset>
                                     <input name="rePassword" type="password" id="rePassword" placeholder="Repeat your password" value={values.rePassword} onChange={changeHandler} required />
                                 </fieldset>
+                                {error && <ErrorMessage variant="form" className={styles.error} message={error} />}
                                 <fieldset>
-                                    <button type="submit">Register</button>
+                                    <button type="submit" disabled={pending}>{pending ? "Please wait..." : "Register"}</button>
                                 </fieldset>
                                 <p className={styles.switch}>
                                     Already have an account? <Link to="/login">Login</Link>
