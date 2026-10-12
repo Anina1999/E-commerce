@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
+import SectionHeading from "../../components/section-heading/SectionHeading";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/error-message/ErrorMessage";
+import EmptyState from "../../components/empty-state/EmptyState";
+import ReviewItem from "../../components/review-item/ReviewItem";
 import NotFound from "../not-found/NotFound";
 import { getProductById } from "../../services/productService";
+import { getReviews } from "../../services/reviewService";
 import useAsync from "../../hooks/useAsync";
 import { formatPrice } from "../../utils/formatPrice";
 import styles from "./ProductDetails.module.css";
@@ -15,9 +19,14 @@ export default function ProductDetails() {
         getProductById(productId, signal),
         [productId]
     );
+    const { data: reviews, loading: reviewsLoading, error: reviewsError } = useAsync((signal) =>
+        getReviews(productId, signal),
+        [productId]
+    );
     const [quantity, setQuantity] = useState(1);
 
     const isReady = !loading && !error;
+    const reviewsReady = !reviewsLoading && !reviewsError;
 
     if (isReady && !product) {
         return <NotFound />;
@@ -72,6 +81,24 @@ export default function ProductDetails() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    )}
+                    {isReady && (
+                        <div className={styles.reviews}>
+                            <SectionHeading
+                                title="Reviews"
+                                subtitle="What other hikers, bicyclist, runners and climbers think of it"
+                            />
+                            {reviewsLoading && <Loader />}
+                            {!reviewsLoading && reviewsError && <ErrorMessage />}
+                            {reviewsReady && reviews.length === 0 && <EmptyState message="No reviews yet" />}
+                            {reviewsReady && reviews.length > 0 && (
+                                <ul>
+                                    {reviews.map((review) => (
+                                        <ReviewItem key={review.id} review={review} />
+                                    ))}
+                                </ul>
+                            )}
                         </div>
                     )}
                 </div>

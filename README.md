@@ -87,4 +87,9 @@
     - [x] Add Login and Register pages and routes
     - [x] Add register and login functionalities
     - [x] Show the Account menu by role and log out
+
+## Steps to protect the routes
     - [x] Hide Login and Register routes from logged-in users
+
+## Steps to add reviews
+    - [x] Show reviews under each product

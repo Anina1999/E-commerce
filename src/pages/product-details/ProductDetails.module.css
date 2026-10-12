@@ -185,6 +185,12 @@
   background-color: var(--color-graphite);
 }
 
+.reviews {
+  margin-top: 70px;
+  padding-top: 50px;
+  border-top: 1px solid var(--color-border);
+}
+
 @media (max-width: 991px) {
   .content {
     margin-left: 0;

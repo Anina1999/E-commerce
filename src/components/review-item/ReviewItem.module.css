@@ -1,0 +1,36 @@
+.reviewItem {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-graphite);
+}
+
+.stars li {
+  display: inline;
+  font-size: 13px;
+  color: var(--color-teal-deep);
+}
+
+.date {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.reviewItem p {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: var(--color-muted);
+}
