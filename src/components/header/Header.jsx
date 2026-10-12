@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router";
+import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import ErrorMessage from "../error-message/ErrorMessage";
 import useAuth from "../../hooks/useAuth";
 import logo from "../../assets/logo.svg";
@@ -36,7 +36,8 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(null);
     const { pathname } = useLocation();
-    const { profileError } = useAuth();
+    const navigate = useNavigate();
+    const { isAuthenticated, isAdmin, profileError, logout } = useAuth();
     const isHome = pathname === "/";
 
     const handleSectionSelect = (id) => {
@@ -53,6 +54,16 @@ export default function Header() {
         setOpenSubmenu((current) => (
             current === name ? null : name
         ));
+    };
+
+    const logoutHandler = async () => {
+        closeMenus();
+
+        try {
+            await logout();
+        } finally {
+            navigate("/");
+        }
     };
 
     useEffect(() => {
@@ -139,11 +150,32 @@ export default function Header() {
                                     </button>
                                     <ul className={openSubmenu === "account" ? styles.open : undefined}>
                                         <li>
-                                            <NavLink to="/login" className={pageLinkClass} onClick={closeMenus}>Login</NavLink>
+                                            <NavLink to="/favorites" className={pageLinkClass} onClick={closeMenus}>Favorites</NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink to="/register" className={pageLinkClass} onClick={closeMenus}>Register</NavLink>
-                                        </li>
+                                        {isAuthenticated && (
+                                            <li>
+                                                <NavLink to="/orders" className={pageLinkClass} onClick={closeMenus}>My Orders</NavLink>
+                                            </li>
+                                        )}
+                                        {isAdmin && (
+                                            <li>
+                                                <NavLink to="/admin/products" className={pageLinkClass} onClick={closeMenus}>Admin Panel</NavLink>
+                                            </li>
+                                        )}
+                                        {isAuthenticated ? (
+                                            <li>
+                                                <button type="button" className={styles.logout} onClick={logoutHandler}>Logout</button>
+                                            </li>
+                                        ) : (
+                                            <>
+                                                <li>
+                                                    <NavLink to="/login" className={pageLinkClass} onClick={closeMenus}>Login</NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to="/register" className={pageLinkClass} onClick={closeMenus}>Register</NavLink>
+                                                </li>
+                                            </>
+                                        )}
                                     </ul>
                                 </li>
                                 {sectionLinks
@@ -156,6 +188,11 @@ export default function Header() {
                                             onSelect={handleSectionSelect}
                                         />
                                     ))}
+                                <li className={styles.cartLink}>
+                                    <NavLink to="/cart" className={pageLinkClass} aria-label="Cart" onClick={closeMenus}>
+                                        <i className="fa fa-shopping-cart" aria-hidden="true" />
+                                    </NavLink>
+                                </li>
 
                             </ul>
                             <button

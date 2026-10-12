@@ -86,6 +86,11 @@
   right: 0;
 }
 
+/* Cart icon after Explore, shown to everyone */
+.header .mainNav .nav li.cartLink a {
+  font-size: 18px;
+}
+
 .header .mainNav {
   min-height: 80px;
   background: transparent;
@@ -240,7 +245,8 @@
   padding-right: 0px;
 }
 
-.header .mainNav .nav li.submenu ul li a {
+.header .mainNav .nav li.submenu ul li a,
+.header .mainNav .nav li.submenu ul li .logout {
   opacity: 1;
   display: block;
   background: #fff;
@@ -255,10 +261,21 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.header .mainNav .nav li.submenu ul li a:hover {
+.header .mainNav .nav li.submenu ul li a:hover,
+.header .mainNav .nav li.submenu ul li .logout:hover {
   background: var(--color-mist);
   color: var(--color-teal-deep)!important;
   padding-left: 25px;
+}
+
+/* Logout is a button (it runs an action, not a page), reset so it looks like the links around it */
+.header .mainNav .nav li .logout {
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  letter-spacing: 1px;
+  text-align: inherit;
+  cursor: pointer;
 }
 
 /* The current page in the dropdown, and its Pages/Account button */
@@ -370,7 +387,8 @@
     padding-left: 5px;
   }
   .header .mainNav .nav li a,
-  .header .mainNav .nav li .submenuToggle {
+  .header .mainNav .nav li .submenuToggle,
+  .header .mainNav .nav li .logout {
     font-size: 14px;
     letter-spacing: 0px;
   }
@@ -428,7 +446,8 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-  .header .mainNav .nav li a {
+  .header .mainNav .nav li a,
+  .header .mainNav .nav li .logout {
     height: 50px !important;
     line-height: 50px !important;
     padding: 0px !important;
@@ -436,7 +455,8 @@
     background: var(--color-mist) !important;
     color: var(--color-graphite) !important;
   }
-  .header .mainNav .nav li a:hover {
+  .header .mainNav .nav li a:hover,
+  .header .mainNav .nav li .logout:hover {
     background: var(--color-border) !important;
     color: var(--color-teal-deep)!important;
   }
@@ -462,7 +482,8 @@
     box-shadow: none;
     height: 0px;
   }
-  .header .mainNav .nav li.submenu ul li a {
+  .header .mainNav .nav li.submenu ul li a,
+  .header .mainNav .nav li.submenu ul li .logout {
     font-size: 12px;
     font-weight: 400;
   }

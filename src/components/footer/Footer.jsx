@@ -1,8 +1,11 @@
 import { Link } from "react-router";
+import useAuth from "../../hooks/useAuth";
 import logo from "../../assets/logo-white.svg";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+    const { isAuthenticated, isAdmin } = useAuth();
+
     return (
         <footer className={styles.footer}>
             <div className="container">
@@ -68,18 +71,29 @@ export default function Footer() {
                     <div className="col-lg-3">
                         <h4>My Account</h4>
                         <ul>
-                            <li>
-                                <Link to="/login">Login</Link>
-                            </li>
-                            <li>
-                                <Link to="/register">Register</Link>
-                            </li>
+                            {!isAuthenticated && (
+                                <>
+                                    <li>
+                                        <Link to="/login">Login</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/register">Register</Link>
+                                    </li>
+                                </>
+                            )}
                             <li>
                                 <Link to="/favorites">Favorites</Link>
                             </li>
-                            <li>
-                                <Link to="/orders">My Orders</Link>
-                            </li>
+                            {isAuthenticated && (
+                                <li>
+                                    <Link to="/orders">My Orders</Link>
+                                </li>
+                            )}
+                            {isAdmin && (
+                                <li>
+                                    <Link to="/admin/products">Admin Panel</Link>
+                                </li>
+                            )}
                             <li>
                                 <Link to="/cart">Cart</Link>
                             </li>
