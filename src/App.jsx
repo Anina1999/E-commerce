@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router"
 import AuthProvider from "./contexts/AuthProvider"
 import Layout from "./components/layout/Layout"
+import GuestGuard from "./components/guards/GuestGuard"
 import Home from "./pages/home/Home"
 import About from "./pages/about/About"
 import Contact from "./pages/contact/Contact"
@@ -21,8 +22,10 @@ function App() {
                     <Route path="catalog" element={<Catalog />} />
                     <Route path="catalog/:category" element={<Catalog />} />
                     <Route path="products/:productId/details" element={<ProductDetails />} />
-                    <Route path="login" element={<Login />} />
-                    <Route path="register" element={<Register />} />
+                    <Route element={<GuestGuard />}>
+                        <Route path="login" element={<Login />} />
+                        <Route path="register" element={<Register />} />
+                    </Route>
                     <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>

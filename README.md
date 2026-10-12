@@ -87,3 +87,4 @@
     - [x] Add Login and Register pages and routes
     - [x] Add register and login functionalities
     - [x] Show the Account menu by role and log out
+    - [x] Hide Login and Register routes from logged-in users
