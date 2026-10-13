@@ -11,10 +11,10 @@ import NotFound from "../not-found/NotFound";
 import { getProducts } from "../../services/productService";
 import useAsync from "../../hooks/useAsync";
 import { paginate } from "../../utils/pagination";
+import { categories } from "../../data/categories";
 import styles from "./Catalog.module.css";
 
 const PRODUCTS_PER_PAGE = 9;
-const CATEGORIES = ["hiking", "running", "biking", "climbing"];
 
 export default function Catalog() {
     const { category } = useParams();
@@ -35,7 +35,7 @@ export default function Catalog() {
         }
     }, [hash, key]);
 
-    if (category && !CATEGORIES.includes(category)) {
+    if (category && !categories.some((item) => item.id === category)) {
         return <NotFound />;
     }
 
@@ -72,10 +72,9 @@ export default function Catalog() {
                         <div className={`col-lg-4 ${styles.category}`}>
                             <select value={pathname} onChange={handleCategoryChange} aria-label="Category">
                                 <option value="/catalog">All categories</option>
-                                <option value="/catalog/hiking">Hiking</option>
-                                <option value="/catalog/running">Running</option>
-                                <option value="/catalog/biking">Biking</option>
-                                <option value="/catalog/climbing">Climbing</option>
+                                {categories.map((item) => (
+                                    <option key={item.id} value={`/catalog/${item.id}`}>{item.label}</option>
+                                ))}
                             </select>
                         </div>
                     </div>

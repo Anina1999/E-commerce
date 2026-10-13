@@ -17,6 +17,12 @@ const sectionLinks = [
 
 const sectionIds = sectionLinks.map((link) => link.id);
 
+const pageLinks = [
+    { to: "/about", label: "About Us" },
+    { to: "/catalog", label: "Catalog" },
+    { to: "/contact", label: "Contact Us" },
+];
+
 const pageLinkClass = ({ isActive }) => (isActive ? styles.active : undefined);
 
 function SectionLink({ id, label, activeSection, onSelect }) {
@@ -106,15 +112,11 @@ export default function Header() {
                                         Pages
                                     </button>
                                     <ul className={openSubmenu === "pages" ? styles.open : undefined}>
-                                        <li>
-                                            <NavLink to="/about" className={pageLinkClass} onClick={closeMenus}>About Us</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to="/catalog" className={pageLinkClass} onClick={closeMenus}>Catalog</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to="/contact" className={pageLinkClass} onClick={closeMenus}>Contact Us</NavLink>
-                                        </li>
+                                        {pageLinks.map((link) => (
+                                            <li key={link.to}>
+                                                <NavLink to={link.to} className={pageLinkClass} onClick={closeMenus}>{link.label}</NavLink>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </li>
                                 <li className={styles.submenu}>

@@ -2,6 +2,7 @@ import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import SubscribeSection from "../../components/subscribe-section/SubscribeSection";
 import { teamMembers } from "../../data/team";
+import { socialLinks } from "../../data/socialLinks";
 import styles from "./About.module.css";
 
 export default function About() {
@@ -31,9 +32,11 @@ export default function About() {
                                 </div>
                                 <p>From hiking boots to climbing harnesses, we pick gear for hikers, runners, bikers and climbers of every level.</p>
                                 <ul>
-                                    <li><a href="https://www.instagram.com"><i className="fa fa-instagram" /></a></li>
-                                    <li><a href="https://www.facebook.com"><i className="fa fa-facebook" /></a></li>
-                                    <li><a href="https://www.youtube.com"><i className="fa fa-youtube-play" /></a></li>
+                                    {socialLinks.map((link) => (
+                                        <li key={link.name}>
+                                            <a href={link.url} aria-label={link.name}><i className={link.icon} /></a>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -59,9 +62,11 @@ export default function About() {
                                         <div className={styles.hoverEffect}>
                                             <div className={styles.innerContent}>
                                                 <ul>
-                                                    <li><a href="https://www.instagram.com"><i className="fa fa-instagram" /></a></li>
-                                                    <li><a href="https://www.facebook.com"><i className="fa fa-facebook" /></a></li>
-                                                    <li><a href="https://www.youtube.com"><i className="fa fa-youtube-play" /></a></li>
+                                                    {socialLinks.map((link) => (
+                                                        <li key={link.name}>
+                                                            <a href={link.url} aria-label={link.name}><i className={link.icon} /></a>
+                                                        </li>
+                                                    ))}
                                                 </ul>
                                             </div>
                                         </div>

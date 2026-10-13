@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import { categories } from "../../data/categories";
+import { socialLinks } from "../../data/socialLinks";
 import logo from "../../assets/logo-white.svg";
 import styles from "./Footer.module.css";
 
@@ -37,18 +39,11 @@ export default function Footer() {
                     <div className="col-lg-3">
                         <h4>Shop by Activity</h4>
                         <ul>
-                            <li>
-                                <Link to="/catalog/hiking">Hiking</Link>
-                            </li>
-                            <li>
-                                <Link to="/catalog/running">Running</Link>
-                            </li>
-                            <li>
-                                <Link to="/catalog/biking">Biking</Link>
-                            </li>
-                            <li>
-                                <Link to="/catalog/climbing">Climbing</Link>
-                            </li>
+                            {categories.map((item) => (
+                                <li key={item.id}>
+                                    <Link to={`/catalog/${item.id}`}>{item.label}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className="col-lg-3">
@@ -123,21 +118,13 @@ export default function Footer() {
                                 </a>
                             </p>
                             <ul>
-                                <li>
-                                    <a href="https://www.instagram.com" aria-label="Instagram">
-                                        <i className="fa fa-instagram" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.facebook.com" aria-label="Facebook">
-                                        <i className="fa fa-facebook" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.youtube.com" aria-label="YouTube">
-                                        <i className="fa fa-youtube-play" />
-                                    </a>
-                                </li>
+                                {socialLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <a href={link.url} aria-label={link.name}>
+                                            <i className={link.icon} />
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
