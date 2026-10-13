@@ -7,6 +7,7 @@ import ErrorMessage from "../../components/error-message/ErrorMessage";
 import EmptyState from "../../components/empty-state/EmptyState";
 import ReviewItem from "../../components/review-item/ReviewItem";
 import ReviewForm from "../../components/review-form/ReviewForm";
+import StarRating from "../../components/star-rating/StarRating";
 import NotFound from "../not-found/NotFound";
 import { getProductById } from "../../services/productService";
 import { getReviews } from "../../services/reviewService";
@@ -65,13 +66,7 @@ export default function ProductDetails() {
                                 <div className={styles.content}>
                                     <h4>{product.name}</h4>
                                     <span className={styles.price}>{formatPrice(product.price)}</span>
-                                    <ul className={styles.stars}>
-                                        <li><i className="fa fa-star" /></li>
-                                        <li><i className="fa fa-star" /></li>
-                                        <li><i className="fa fa-star" /></li>
-                                        <li><i className="fa fa-star" /></li>
-                                        <li><i className="fa fa-star" /></li>
-                                    </ul>
+                                    <StarRating rating={5} className={styles.stars} />
                                     <p className={styles.description}>{product.description}</p>
                                     <div className={styles.quote}>
                                         <i className="fa fa-quote-left" />

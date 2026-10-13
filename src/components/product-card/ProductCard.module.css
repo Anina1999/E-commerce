@@ -98,14 +98,8 @@
   display: block;
 }
 
-.stars {
-  position: absolute;
-  right: 0;
-  top: 22px;
-}
-
-.stars li {
-  display: inline;
-  font-size: 12px;
-  color: var(--color-teal-deep);
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

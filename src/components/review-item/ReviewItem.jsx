@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ConfirmModal from "../confirm-modal/ConfirmModal";
+import StarRating from "../star-rating/StarRating";
 import { deleteReview } from "../../services/reviewService";
 import { formatDate } from "../../utils/formatDate";
 import { getDeleteErrorMessage } from "../../utils/reviewErrorMessage";
@@ -34,13 +35,7 @@ export default function ReviewItem({ review, isOwn, onEdit, refreshReviews }) {
         <li className={styles.reviewItem}>
             <div className={styles.header}>
                 <h6>{review.profiles.username}</h6>
-                <ul className={styles.stars} aria-label={`${review.rating} out of 5 stars`}>
-                    {[1, 2, 3, 4, 5].map((star) => (
-                        <li key={star}>
-                            <i className={star <= review.rating ? "fa fa-star" : "fa fa-star-o"} aria-hidden="true" />
-                        </li>
-                    ))}
-                </ul>
+                <StarRating rating={review.rating} />
             </div>
             <span className={styles.date}>
                 {formatDate(review.created_at)}

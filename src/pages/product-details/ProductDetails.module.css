@@ -20,7 +20,7 @@
 
 /* Room on the right so a long name doesn't run under the stars */
 .content h4 {
-  padding-right: 80px;
+  padding-right: 110px;
   font-size: 22px;
   color: var(--color-graphite);
   font-weight: 700;
@@ -41,12 +41,6 @@
   position: absolute;
   right: 0;
   top: 0;
-}
-
-.stars li {
-  display: inline;
-  font-size: 13px;
-  color: var(--color-teal-deep);
 }
 
 .description {

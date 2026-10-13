@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import StarRating from "../star-rating/StarRating";
 import { formatPrice } from "../../utils/formatPrice";
 import styles from "./ProductCard.module.css";
 
@@ -34,24 +35,10 @@ export default function ProductCard({
             </div>
             <div className={styles.downContent}>
                 <h4>{productName}</h4>
-                <span>{formatPrice(productPrice)}</span>
-                <ul className={styles.stars}>
-                    <li>
-                        <i className="fa fa-star" />
-                    </li>
-                    <li>
-                        <i className="fa fa-star" />
-                    </li>
-                    <li>
-                        <i className="fa fa-star" />
-                    </li>
-                    <li>
-                        <i className="fa fa-star" />
-                    </li>
-                    <li>
-                        <i className="fa fa-star" />
-                    </li>
-                </ul>
+                <div className={styles.priceRow}>
+                    <span>{formatPrice(productPrice)}</span>
+                    <StarRating rating={5} />
+                </div>
             </div>
         </div>
     );
