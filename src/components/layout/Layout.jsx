@@ -13,13 +13,13 @@ export default function Layout() {
 
     return (
         <>
-        <Preloader />
+            <Preloader />
 
-        <Header />
+            <Header />
 
-        <Outlet />
+            <Outlet />
 
-        <Footer />
+            <Footer />
         </>
-    )
+    );
 }

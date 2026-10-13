@@ -28,13 +28,19 @@ export default function About() {
                                 <span>We started in Boulder with one idea: good gear makes every trail better.</span>
                                 <div className={styles.quote}>
                                     <i className="fa fa-quote-left" />
-                                    <p>Every product in our store is tested on real trails, roads and walls before it reaches you.</p>
+                                    <p>
+                                        Every product in our store is tested on real trails, roads and walls before it reaches you.
+                                    </p>
                                 </div>
-                                <p>From hiking boots to climbing harnesses, we pick gear for hikers, runners, bikers and climbers of every level.</p>
+                                <p>
+                                    From hiking boots to climbing harnesses, we pick gear for hikers, runners, bikers and climbers of every level.
+                                </p>
                                 <ul>
                                     {socialLinks.map((link) => (
                                         <li key={link.name}>
-                                            <a href={link.url} aria-label={link.name}><i className={link.icon} /></a>
+                                            <a href={link.url} aria-label={link.name}>
+                                                <i className={link.icon} />
+                                            </a>
                                         </li>
                                     ))}
                                 </ul>
@@ -64,7 +70,9 @@ export default function About() {
                                                 <ul>
                                                     {socialLinks.map((link) => (
                                                         <li key={link.name}>
-                                                            <a href={link.url} aria-label={link.name}><i className={link.icon} /></a>
+                                                            <a href={link.url} aria-label={link.name}>
+                                                                <i className={link.icon} />
+                                                            </a>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -97,7 +105,9 @@ export default function About() {
                         <div className="col-lg-4">
                             <div className={styles.serviceItem}>
                                 <h4>Gear Advice</h4>
-                                <p>Not sure what you need? Our team helps you pick the right gear for your next trip.</p>
+                                <p>
+                                    Not sure what you need? Our team helps you pick the right gear for your next trip.
+                                </p>
                                 <img src="/assets/images/hero-hiking.jpg" alt="Hiking" />
                             </div>
                         </div>

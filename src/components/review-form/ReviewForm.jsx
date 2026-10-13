@@ -48,19 +48,39 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
                 <div className={styles.stars} onMouseLeave={() => setHoverRating(0)}>
                     {[1, 2, 3, 4, 5].map((star) => (
                         <label key={star} onMouseEnter={() => setHoverRating(star)}>
-                            <input type="radio" name="rating" value={star} checked={values.rating === String(star)} onChange={changeHandler} aria-label={`${star} out of 5 stars`} />
+                            <input
+                                type="radio"
+                                name="rating"
+                                value={star}
+                                checked={values.rating === String(star)}
+                                onChange={changeHandler}
+                                aria-label={`${star} out of 5 stars`}
+                            />
                             <i className={star <= shownRating ? "fa fa-star" : "fa fa-star-o"} aria-hidden="true" />
                         </label>
                     ))}
                 </div>
-                {ratingError && <ErrorMessage variant="form" className={styles.fieldError} message="Please rate our product." />}
+                {ratingError && (
+                    <ErrorMessage variant="form" className={styles.fieldError} message="Please rate our product." />
+                )}
             </fieldset>
             <fieldset>
-                <textarea name="content" placeholder="Your review" aria-label="Your review" maxLength={1000} value={values.content} onChange={changeHandler} />
-                {contentError && <ErrorMessage variant="form" className={styles.fieldError} message="Please write your review." />}
+                <textarea
+                    name="content"
+                    placeholder="Your review"
+                    aria-label="Your review"
+                    maxLength={1000}
+                    value={values.content}
+                    onChange={changeHandler}
+                />
+                {contentError && (
+                    <ErrorMessage variant="form" className={styles.fieldError} message="Please write your review." />
+                )}
             </fieldset>
             {error && <ErrorMessage variant="form" className={styles.error} message={error} />}
-            <button type="submit" disabled={pending}>{pending ? "Please wait..." : "Post Review"}</button>
+            <button type="submit" disabled={pending}>
+                {pending ? "Please wait..." : "Post Review"}
+            </button>
         </form>
     );
 }

@@ -22,8 +22,6 @@ export default function Catalog() {
     const { pathname, hash, key } = useLocation();
     const navigate = useNavigate();
     const productsRef = useRef(null);
-
-    
     const { data: products = [], loading, error } = useAsync((signal) =>
         getProducts(category, signal),
         [category]
@@ -67,7 +65,14 @@ export default function Catalog() {
                             />
                         </div>
                         <div className="col-lg-4">
-                            {isReady && <Pagination className={styles.paginationTop} page={page} pageCount={pageCount} hash="#products" />}
+                            {isReady && (
+                                <Pagination
+                                    className={styles.paginationTop}
+                                    page={page}
+                                    pageCount={pageCount}
+                                    hash="#products"
+                                />
+                            )}
                         </div>
                         <div className={`col-lg-4 ${styles.category}`}>
                             <select value={pathname} onChange={handleCategoryChange} aria-label="Category">
@@ -97,7 +102,12 @@ export default function Catalog() {
                                 ))}
                             </div>
 
-                            <Pagination className={styles.pagination} page={page} pageCount={pageCount} hash="#products" />
+                            <Pagination
+                                className={styles.pagination}
+                                page={page}
+                                pageCount={pageCount}
+                                hash="#products"
+                            />
                         </>
                     )}
                 </div>

@@ -1,17 +1,17 @@
-import { Route, Routes } from "react-router"
-import AuthProvider from "./contexts/AuthProvider"
-import Layout from "./components/layout/Layout"
-import GuestGuard from "./components/guards/GuestGuard"
-import Home from "./pages/home/Home"
-import About from "./pages/about/About"
-import Contact from "./pages/contact/Contact"
-import Catalog from "./pages/catalog/Catalog"
-import ProductDetails from "./pages/product-details/ProductDetails"
-import Login from "./pages/auth/Login"
-import Register from "./pages/auth/Register"
-import NotFound from "./pages/not-found/NotFound"
+import { Route, Routes } from "react-router";
+import AuthProvider from "./contexts/AuthProvider";
+import Layout from "./components/layout/Layout";
+import GuestGuard from "./components/guards/GuestGuard";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
+import Catalog from "./pages/catalog/Catalog";
+import ProductDetails from "./pages/product-details/ProductDetails";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import NotFound from "./pages/not-found/NotFound";
 
-function App() {
+export default function App() {
     return (
         <AuthProvider>
             <Routes>
@@ -30,7 +30,5 @@ function App() {
                 </Route>
             </Routes>
         </AuthProvider>
-    )
+    );
 }
-
-export default App

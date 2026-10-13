@@ -1,12 +1,12 @@
-import { useRef } from "react"
-import CarouselSection from "../../components/carousel-section/CarouselSection"
-import ExploreSection from "../../components/explore-section/ExploreSection"
-import CommunitySection from "../../components/community-section/CommunitySection"
-import SubscribeSection from "../../components/subscribe-section/SubscribeSection"
-import HeroSection from "../../components/hero-section/HeroSection"
-import { getProducts } from "../../services/productService"
-import useAsync from "../../hooks/useAsync"
-import useScrollToHash from "../../hooks/useScrollToHash"
+import { useRef } from "react";
+import HeroSection from "../../components/hero-section/HeroSection";
+import CarouselSection from "../../components/carousel-section/CarouselSection";
+import ExploreSection from "../../components/explore-section/ExploreSection";
+import CommunitySection from "../../components/community-section/CommunitySection";
+import SubscribeSection from "../../components/subscribe-section/SubscribeSection";
+import { getProducts } from "../../services/productService";
+import useAsync from "../../hooks/useAsync";
+import useScrollToHash from "../../hooks/useScrollToHash";
 
 export default function Home() {
     const topRef = useRef(null);

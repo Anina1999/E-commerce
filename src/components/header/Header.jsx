@@ -114,7 +114,9 @@ export default function Header() {
                                     <ul className={openSubmenu === "pages" ? styles.open : undefined}>
                                         {pageLinks.map((link) => (
                                             <li key={link.to}>
-                                                <NavLink to={link.to} className={pageLinkClass} onClick={closeMenus}>{link.label}</NavLink>
+                                                <NavLink to={link.to} className={pageLinkClass} onClick={closeMenus}>
+                                                    {link.label}
+                                                </NavLink>
                                             </li>
                                         ))}
                                     </ul>
@@ -130,29 +132,41 @@ export default function Header() {
                                     </button>
                                     <ul className={openSubmenu === "account" ? styles.open : undefined}>
                                         <li>
-                                            <NavLink to="/favorites" className={pageLinkClass} onClick={closeMenus}>Favorites</NavLink>
+                                            <NavLink to="/favorites" className={pageLinkClass} onClick={closeMenus}>
+                                                Favorites
+                                            </NavLink>
                                         </li>
                                         {isAuthenticated && (
                                             <li>
-                                                <NavLink to="/orders" className={pageLinkClass} onClick={closeMenus}>My Orders</NavLink>
+                                                <NavLink to="/orders" className={pageLinkClass} onClick={closeMenus}>
+                                                    My Orders
+                                                </NavLink>
                                             </li>
                                         )}
                                         {isAdmin && (
                                             <li>
-                                                <NavLink to="/admin/products" className={pageLinkClass} onClick={closeMenus}>Admin Panel</NavLink>
+                                                <NavLink to="/admin/products" className={pageLinkClass} onClick={closeMenus}>
+                                                    Admin Panel
+                                                </NavLink>
                                             </li>
                                         )}
                                         {isAuthenticated ? (
                                             <li>
-                                                <button type="button" className={styles.logout} onClick={logoutHandler}>Logout</button>
+                                                <button type="button" className={styles.logout} onClick={logoutHandler}>
+                                                    Logout
+                                                </button>
                                             </li>
                                         ) : (
                                             <>
                                                 <li>
-                                                    <NavLink to="/login" className={pageLinkClass} onClick={closeMenus}>Login</NavLink>
+                                                    <NavLink to="/login" className={pageLinkClass} onClick={closeMenus}>
+                                                        Login
+                                                    </NavLink>
                                                 </li>
                                                 <li>
-                                                    <NavLink to="/register" className={pageLinkClass} onClick={closeMenus}>Register</NavLink>
+                                                    <NavLink to="/register" className={pageLinkClass} onClick={closeMenus}>
+                                                        Register
+                                                    </NavLink>
                                                 </li>
                                             </>
                                         )}
@@ -169,7 +183,12 @@ export default function Header() {
                                         />
                                     ))}
                                 <li className={styles.cartLink}>
-                                    <NavLink to="/cart" className={pageLinkClass} aria-label="Cart" onClick={closeMenus}>
+                                    <NavLink
+                                        to="/cart"
+                                        className={pageLinkClass}
+                                        aria-label="Cart"
+                                        onClick={closeMenus}
+                                    >
                                         <i className="fa fa-shopping-cart" aria-hidden="true" />
                                     </NavLink>
                                 </li>

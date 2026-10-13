@@ -12,7 +12,7 @@ export default function Preloader() {
         const clearTimeoutsHandler = () => {
             clearTimeout(fadeTimer);
             clearTimeout(hideTimer);
-        }
+        };
 
         return clearTimeoutsHandler;
     }, []);

@@ -70,14 +70,35 @@ export default function ProductDetails() {
                                     <p className={styles.description}>{product.description}</p>
                                     <div className={styles.quote}>
                                         <i className="fa fa-quote-left" />
-                                        <p>Tested by our team on the trails around Boulder before it reaches the shelf.</p>
+                                        <p>
+                                            Tested by our team on the trails around Boulder before it reaches the shelf.
+                                        </p>
                                     </div>
                                     <div className={styles.quantity}>
                                         <h6>Quantity</h6>
                                         <div className={styles.counter}>
-                                            <button type="button" onClick={() => setQuantity(quantity - 1)} disabled={quantity === 1} aria-label="Decrease quantity">-</button>
-                                            <input type="number" name="quantity" value={quantity} readOnly aria-label="Quantity" />
-                                            <button type="button" onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button>
+                                            <button
+                                                type="button"
+                                                onClick={() => setQuantity(quantity - 1)}
+                                                disabled={quantity === 1}
+                                                aria-label="Decrease quantity"
+                                            >
+                                                -
+                                            </button>
+                                            <input
+                                                type="number"
+                                                name="quantity"
+                                                value={quantity}
+                                                readOnly
+                                                aria-label="Quantity"
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => setQuantity(quantity + 1)}
+                                                aria-label="Increase quantity"
+                                            >
+                                                +
+                                            </button>
                                         </div>
                                     </div>
                                     <div className={styles.total}>
@@ -95,10 +116,20 @@ export default function ProductDetails() {
                                 subtitle="What other hikers, bicyclist, runners and climbers think of it"
                             />
                             {reviewsReady && !authLoading && !isAuthenticated && (
-                                <Link to="/login" state={{ from: location.pathname }} className={styles.loginButton}>Log in to write a review</Link>
+                                <Link
+                                    to="/login"
+                                    state={{ from: location.pathname }}
+                                    className={styles.loginButton}
+                                >
+                                    Log in to write a review
+                                </Link>
                             )}
                             {reviewsReady && isAuthenticated && !hasReviewed && (
-                                <ReviewForm className={styles.reviewForm} productId={productId} refreshReviews={refreshReviews} />
+                                <ReviewForm
+                                    className={styles.reviewForm}
+                                    productId={productId}
+                                    refreshReviews={refreshReviews}
+                                />
                             )}
                             {reviewsLoading && <Loader />}
                             {!reviewsLoading && reviewsError && <ErrorMessage />}

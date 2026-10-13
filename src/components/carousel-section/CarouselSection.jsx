@@ -1,11 +1,11 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
 import ProductCard from "../product-card/ProductCard";
 import SectionHeading from "../section-heading/SectionHeading";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../error-message/ErrorMessage";
 import EmptyState from "../empty-state/EmptyState";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from 'swiper/modules';
-import "swiper/css";
 import styles from "./CarouselSection.module.css";
 
 export default function CarouselSection({
@@ -31,7 +31,12 @@ export default function CarouselSection({
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <SectionHeading className={styles.heading} eyebrow={eyebrow} title={title} subtitle={subtitle} />
+                        <SectionHeading
+                            className={styles.heading}
+                            eyebrow={eyebrow}
+                            title={title}
+                            subtitle={subtitle}
+                        />
                     </div>
                 </div>
             </div>
@@ -43,17 +48,23 @@ export default function CarouselSection({
                         {isReady && products.length === 0 && <EmptyState />}
                         {isReady && products.length > 0 && (
                             <>
-                                <button type="button" className={styles.carouselPrev} aria-label="Previous" >
+                                <button type="button" className={styles.carouselPrev} aria-label="Previous">
                                     <i className="fa fa-angle-left" />
                                 </button>
                                 <Swiper
                                     modules={[Navigation]}
                                     navigation={{
                                         prevEl: `#${id} .${styles.carouselPrev}`,
-                                        nextEl: `#${id} .${styles.carouselNext}` }}
+                                        nextEl: `#${id} .${styles.carouselNext}`,
+                                    }}
                                     spaceBetween={30}
                                     slidesPerView={1}
-                                    breakpoints={{768: { slidesPerView: 2 }, 992: { slidesPerView: 3 }}} loop>
+                                    breakpoints={{
+                                        768: { slidesPerView: 2 },
+                                        992: { slidesPerView: 3 },
+                                    }}
+                                    loop
+                                >
                                     {products.map((product) => (
                                         <SwiperSlide key={product.id}>
                                             <ProductCard
@@ -65,7 +76,7 @@ export default function CarouselSection({
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
-                                <button type="button" className={styles.carouselNext} aria-label="Next" >
+                                <button type="button" className={styles.carouselNext} aria-label="Next">
                                     <i className="fa fa-angle-right" />
                                 </button>
                             </>

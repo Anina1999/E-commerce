@@ -1,11 +1,11 @@
 import { useState } from "react";
-import useForm from "../../hooks/useForm";
 import SectionHeading from "../section-heading/SectionHeading";
+import useForm from "../../hooks/useForm";
 import styles from "./SubscribeSection.module.css";
 
 const initialValues = {
-    name: '',
-    email: '',
+    name: "",
+    email: "",
 };
 
 export default function SubscribeSection() {
@@ -66,7 +66,11 @@ export default function SubscribeSection() {
                                     </fieldset>
                                 </div>
                             </div>
-                            {sent && <p className={styles.success}>Thank you for subscribing! Check your inbox for the 30% code.</p>}
+                            {sent && (
+                                <p className={styles.success}>
+                                    Thank you for subscribing! Check your inbox for the 30% code.
+                                </p>
+                            )}
                         </form>
                     </div>
                     <div className="col-lg-4">
