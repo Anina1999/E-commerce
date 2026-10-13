@@ -2,6 +2,8 @@ import { formatDate } from "../../utils/formatDate";
 import styles from "./ReviewItem.module.css";
 
 export default function ReviewItem({ review, isOwn, onEdit }) {
+    const isEdited = review.updated_at !== review.created_at;
+
     return (
         <li className={styles.reviewItem}>
             <div className={styles.header}>
@@ -14,7 +16,10 @@ export default function ReviewItem({ review, isOwn, onEdit }) {
                     ))}
                 </ul>
             </div>
-            <span className={styles.date}>{formatDate(review.created_at)}</span>
+            <span className={styles.date}>
+                {formatDate(review.created_at)}
+                {isEdited && " · Edited"}
+            </span>
             <p>{review.content}</p>
             {isOwn && !review.is_hidden && (
                 <button type="button" className={styles.edit} onClick={onEdit}>Edit</button>
