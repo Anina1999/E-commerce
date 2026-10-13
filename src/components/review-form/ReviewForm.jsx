@@ -15,7 +15,7 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
     const [error, setError] = useState("");
     const [pending, setPending] = useState(false);
 
-    const reviewSubmitHandler = async (values, resetForm) => {
+    const reviewSubmitHandler = async (values) => {
         if (!values.rating || !values.content.trim()) {
             setShowErrors(true);
             return;
@@ -26,12 +26,9 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
 
         try {
             await createReview(productId, Number(values.rating), values.content);
-            setShowErrors(false);
-            resetForm();
-            refreshReviews();
+            await refreshReviews();
         } catch (err) {
             setError(getReviewErrorMessage(err));
-        } finally {
             setPending(false);
         }
     };
