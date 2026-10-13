@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react"
-import { useLocation } from "react-router"
+import { useRef } from "react"
 import CarouselSection from "../../components/carousel-section/CarouselSection"
 import ExploreSection from "../../components/explore-section/ExploreSection"
 import CommunitySection from "../../components/community-section/CommunitySection"
@@ -7,9 +6,9 @@ import SubscribeSection from "../../components/subscribe-section/SubscribeSectio
 import HeroSection from "../../components/hero-section/HeroSection"
 import { getProducts } from "../../services/productService"
 import useAsync from "../../hooks/useAsync"
+import useScrollToHash from "../../hooks/useScrollToHash"
 
 export default function Home() {
-    const { hash, key } = useLocation();
     const topRef = useRef(null);
     const hikingRef = useRef(null);
     const runningRef = useRef(null);
@@ -22,28 +21,14 @@ export default function Home() {
     const climbing = useAsync((signal) => getProducts("climbing", signal));
     const loading = hiking.loading || running.loading || biking.loading || climbing.loading;
 
-    useEffect(() => {
-        if (loading) {
-            return;
-        }
-
-        const sections = {
-            "#top": topRef,
-            "#hiking": hikingRef,
-            "#running": runningRef,
-            "#biking": bikingRef,
-            "#climbing": climbingRef,
-            "#explore": exploreRef,
-        };
-        const section = sections[hash]?.current;
-
-        if (!section) return;
-
-        const images = [...document.images].map((image) => image.decode());
-
-        Promise.allSettled(images)
-            .then(() => section.scrollIntoView({ behavior: "smooth" }));
-    }, [hash, key, loading]);
+    useScrollToHash({
+        "#top": topRef,
+        "#hiking": hikingRef,
+        "#running": runningRef,
+        "#biking": bikingRef,
+        "#climbing": climbingRef,
+        "#explore": exploreRef,
+    }, !loading);
 
     return (
         <>

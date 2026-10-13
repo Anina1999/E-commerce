@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import ErrorMessage from "../error-message/ErrorMessage";
 import useAuth from "../../hooks/useAuth";
+import useHeaderScroll from "../../hooks/useHeaderScroll";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.css";
 
@@ -13,6 +14,8 @@ const sectionLinks = [
     { id: "climbing", label: "Climbing" },
     { id: "explore", label: "Explore", afterSubmenus: true },
 ];
+
+const sectionIds = sectionLinks.map((link) => link.id);
 
 const pageLinkClass = ({ isActive }) => (isActive ? styles.active : undefined);
 
@@ -31,14 +34,13 @@ function SectionLink({ id, label, activeSection, onSelect }) {
 }
 
 export default function Header() {
-    const [isSticky, setIsSticky] = useState(false);
-    const [activeSection, setActiveSection] = useState("top");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(null);
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const { isAuthenticated, isAdmin, profileError, logout } = useAuth();
     const isHome = pathname === "/";
+    const { isSticky, activeSection, setActiveSection } = useHeaderScroll(sectionIds, isHome);
 
     const handleSectionSelect = (id) => {
         setActiveSection(id);
@@ -65,30 +67,6 @@ export default function Header() {
             navigate("/");
         }
     };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsSticky(window.scrollY > 0);
-
-            if (!isHome) {
-                setActiveSection(null);
-                return;
-            }
-
-            const current = sectionLinks.map((link) => link.id)
-                .findLast((id) => {
-                    const section = document.getElementById(id);
-                    return section && section.getBoundingClientRect().top <= 81;
-                });
-
-            if (current) setActiveSection(current);
-        };
-
-        handleScroll();
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [isHome]);
 
     return (
         <header className={isSticky ? `${styles.header} ${styles.sticky}` : styles.header}>
