@@ -1,5 +1,4 @@
-/* The ridge above the section and the solid background come from the global .ridge-section class in main.css.
-   It rises into the page heading photo; tier 4 sits halfway on the sunrise path (see --tier-0..7 in main.css) before subscribe closes it with tier 7 */
+/* Ridge and background come from the global .ridge-section in main.css */
 .contactUs {
   --tier-bg: var(--tier-4);
 
@@ -7,7 +6,6 @@
   padding-bottom: 90px;
 }
 
-/* Spacing for SectionHeading, passed through its className prop */
 .heading {
   margin-bottom: 40px;
 }
@@ -81,7 +79,6 @@
   }
 }
 
-/* Thank-you note shown under the form after submit */
 .success {
   margin-top: 15px;
   font-size: 16px;

@@ -15,3 +15,10 @@ export async function getReviews(productId, signal) {
 
     return data;
 }
+
+export async function createReview(productId, rating, content) {
+    const { error } = await supabase.from("reviews")
+        .insert({ product_id: productId, rating, content });
+
+    if (error) throw error;
+}

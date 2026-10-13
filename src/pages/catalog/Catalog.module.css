@@ -1,5 +1,4 @@
-/* The ridge above the section and the solid background come from the global .ridge-section class in main.css.
-   It rises into the page heading photo; tier 2 is the same step the About page starts on (see --tier-0..7 in main.css) */
+/* Ridge and background come from the global .ridge-section in main.css */
 .products {
   --tier-bg: var(--tier-2);
 
@@ -7,14 +6,12 @@
   padding-bottom: 90px;
 }
 
-/* Heading on the left, page numbers in the middle (centered like the ones under the grid), category dropdown on the right; they stack below 992px.
-   Changing the category or the page scrolls here, stopping a little below the 80px sticky header */
+/* Changing the category or the page scrolls here, stopping a little below the 80px sticky header */
 .toolbar {
   margin-bottom: 50px;
   scroll-margin-top: 110px;
 }
 
-/* Spacing for the top Pagination, passed through its className prop */
 .paginationTop {
   margin-top: 20px;
 }
@@ -23,8 +20,7 @@
   margin-top: 20px;
 }
 
-/* Same box as the page number buttons: 44px high, graphite border, 14px text.
-   The browser arrow is replaced by a chevron drawn as a background, so it sits as far from the edge as the text does */
+/* The browser arrow is replaced by a chevron background, so it sits as far from the edge as the text does */
 .category select {
   height: 44px;
   min-width: 190px;
@@ -70,12 +66,10 @@
   }
 }
 
-/* Space between the rows of product cards; the card look comes from ProductCard.module.css */
 .cell {
   margin-bottom: 40px;
 }
 
-/* Spacing for Pagination, passed through its className prop */
 .pagination {
   margin-top: 10px;
 }

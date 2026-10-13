@@ -1,6 +1,4 @@
-/* Shared by the Login and Register pages.
-   The ridge above the section and the solid background come from the global .ridge-section class in main.css.
-   It rises into the graphite page heading; tier 2 (cream) keeps the form light before the footer ridge */
+/* Ridge and background come from the global .ridge-section in main.css */
 .auth {
   --tier-bg: var(--tier-2);
 
@@ -8,12 +6,10 @@
   padding-bottom: 120px;
 }
 
-/* Spacing for SectionHeading, passed through its className prop */
 .heading {
   margin-bottom: 40px;
 }
 
-/* Inputs follow the Contact page form */
 .auth form input {
   width: 100%;
   height: 44px;
@@ -51,18 +47,15 @@
   color: var(--color-graphite);
 }
 
-/* While the request is running the button can't be clicked again */
 .auth form button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* Spacing for the ErrorMessage form variant, passed through its className prop */
 .error {
   margin-bottom: 20px;
 }
 
-/* "Don't have an account? Register" under the button */
 .switch {
   margin-top: 20px;
   font-size: 16px;

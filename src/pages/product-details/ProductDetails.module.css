@@ -1,5 +1,4 @@
-/* The ridge above the section and the solid background come from the global .ridge-section class in main.css.
-   It rises into the page heading photo; tier 2 is the same step the Catalog starts on (see --tier-0..7 in main.css) */
+/* Ridge and background come from the global .ridge-section in main.css */
 .product {
   --tier-bg: var(--tier-2);
 
@@ -7,15 +6,13 @@
   padding-bottom: 90px;
 }
 
-/* The template had two wide photos in 8 columns; our product photos are almost square, so one photo takes half the row like on the About page */
 .image img {
   display: block;
   width: 100%;
   border-radius: 8px;
 }
 
-/* No white box as in the template: the text sits straight on the section color.
-   Relative so the stars can sit in the top right corner */
+/* Relative so the stars can sit in the top right corner */
 .content {
   position: relative;
   margin-left: 30px;
@@ -77,8 +74,6 @@
   font-weight: 500;
 }
 
-/* "Quantity" on the left, the -/+ counter on the right, between two lines.
-   Flex instead of the template's floats */
 .quantity {
   display: flex;
   justify-content: space-between;
@@ -97,7 +92,6 @@
   color: var(--color-muted);
 }
 
-/* Three joined boxes: - | number | + */
 .counter {
   display: flex;
 }
@@ -122,7 +116,6 @@
   background-color: var(--color-border);
 }
 
-/* "-" is off at quantity 1, so the count never goes below one */
 .counter button:disabled {
   color: var(--color-border);
   background-color: var(--color-surface);
@@ -153,7 +146,6 @@
   margin: 0;
 }
 
-/* Total on the left, Add To Cart on the right */
 .total {
   display: flex;
   justify-content: space-between;
@@ -166,7 +158,6 @@
   color: var(--color-muted);
 }
 
-/* The template's .main-border-button in graphite, as a real button */
 .addToCart {
   font-size: 13px;
   font-weight: 600;
@@ -189,6 +180,27 @@
   margin-top: 70px;
   padding-top: 50px;
   border-top: 1px solid var(--color-border);
+}
+
+.loginPrompt {
+  margin: 30px 0 0;
+  font-size: 16px;
+  color: var(--color-muted);
+}
+
+.loginPrompt a {
+  font-weight: 600;
+  color: var(--color-teal-dark);
+}
+
+/* !important beats the global "a { text-decoration: none !important }" in main.css */
+.loginPrompt a:hover {
+  color: var(--color-graphite);
+  text-decoration: underline !important;
+}
+
+.reviewForm {
+  margin-top: 30px;
 }
 
 @media (max-width: 991px) {

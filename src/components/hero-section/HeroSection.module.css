@@ -1,5 +1,5 @@
 .mainBanner {
-  /* First step of the sunrise path down the page (see --tier-0..7 in main.css) */
+  /* First step of the sunrise path (see --tier-0..7 in main.css) */
   background-color: var(--tier-0);
   /* Clears the 136px header and its ridge */
   padding-top: 166px;
@@ -64,7 +64,6 @@
   }
 }
 
-/* The text moves into the flow and the photo fills the box behind it */
 @media (max-width: 767px) {
   .innerContent {
     position: relative;

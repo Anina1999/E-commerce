@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useForm from "../../hooks/useForm";
 import useAuth from "../../hooks/useAuth";
 import PageHeading from "../../components/page-heading/PageHeading";
@@ -16,6 +16,7 @@ const initialValues = {
 export default function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
     const [error, setError] = useState("");
     const [pending, setPending] = useState(false);
 
@@ -25,7 +26,7 @@ export default function Login() {
 
         try {
             await login(values.email, values.password);
-            navigate("/");
+            navigate(location.state?.from || "/");
         } catch (err) {
             setError(getAuthErrorMessage(err));
         } finally {
@@ -64,7 +65,7 @@ export default function Login() {
                                     <button type="submit" disabled={pending}>{pending ? "Please wait..." : "Login"}</button>
                                 </fieldset>
                                 <p className={styles.switch}>
-                                    Don't have an account? <Link to="/register">Register</Link>
+                                    Don't have an account? <Link to="/register" state={location.state}>Register</Link>
                                 </p>
                             </form>
                         </div>

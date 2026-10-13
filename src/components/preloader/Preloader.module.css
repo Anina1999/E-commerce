@@ -29,7 +29,6 @@
   height: 50px;
 }
 
-/* Three circles that grow and fade one after another */
 .jumper > div {
   background-color: #fff;
   width: 50px;

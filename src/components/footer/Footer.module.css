@@ -8,7 +8,6 @@
   background-color: var(--color-graphite);
 }
 
-/* Mountain ridge rising out of the footer, same two tones as the logo */
 .footer::before {
   content: "";
   position: absolute;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useForm from "../../hooks/useForm";
 import useAuth from "../../hooks/useAuth";
 import PageHeading from "../../components/page-heading/PageHeading";
@@ -18,6 +18,7 @@ const initialValues = {
 export default function Register() {
     const { register } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
     const [error, setError] = useState("");
     const [pending, setPending] = useState(false);
 
@@ -32,7 +33,7 @@ export default function Register() {
 
         try {
             await register(values.username, values.email, values.password);
-            navigate("/");
+            navigate(location.state?.from || "/");
         } catch (err) {
             setError(getAuthErrorMessage(err));
         } finally {
@@ -77,7 +78,7 @@ export default function Register() {
                                     <button type="submit" disabled={pending}>{pending ? "Please wait..." : "Register"}</button>
                                 </fieldset>
                                 <p className={styles.switch}>
-                                    Already have an account? <Link to="/login">Login</Link>
+                                    Already have an account? <Link to="/login" state={location.state}>Login</Link>
                                 </p>
                             </form>
                         </div>

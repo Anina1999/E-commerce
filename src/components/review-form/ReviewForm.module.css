@@ -1,0 +1,84 @@
+.reviewForm fieldset {
+  margin-bottom: 20px;
+}
+
+.reviewForm legend {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-graphite);
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+}
+
+.stars label {
+  position: relative;
+  margin: 0;
+  font-size: 22px;
+  color: var(--color-teal-deep);
+  cursor: pointer;
+}
+
+/* Hidden but still focusable, so the arrow keys can pick the rating */
+.stars input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.stars input:focus-visible + i {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.reviewForm textarea {
+  display: block;
+  width: 100%;
+  height: 140px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-muted);
+  border: 1px solid var(--color-muted);
+  background-color: var(--color-surface);
+  resize: vertical;
+}
+
+.reviewForm textarea:focus {
+  border-color: var(--color-graphite);
+}
+
+.fieldError {
+  margin-top: 8px;
+}
+
+.error {
+  margin-bottom: 20px;
+}
+
+.reviewForm button {
+  height: 44px;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--color-graphite);
+  border: 1px solid transparent;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.reviewForm button:not(:disabled):hover {
+  background-color: #fff;
+  border: 1px solid var(--color-graphite);
+  color: var(--color-graphite);
+}
+
+.reviewForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

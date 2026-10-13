@@ -2,7 +2,7 @@
   margin-bottom: 28.5px;
 }
 
-/* Rounded photo with a graphite tint so white text always reads */
+/* Graphite tint so white text always reads */
 .thumb {
   position: relative;
   border-radius: var(--radius);
@@ -48,7 +48,6 @@
   color: var(--color-teal-light);
 }
 
-/* Dark panel with the description and the button, shown on hover */
 .hoverContent {
   position: absolute;
   top: 15px;

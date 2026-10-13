@@ -1,4 +1,3 @@
-/* Inline loader for a block of content while its request runs; same three circles as the page Preloader, in teal */
 .loader {
   padding: 60px 0;
 }
@@ -10,7 +9,6 @@
   margin: 0 auto;
 }
 
-/* Three circles that grow and fade one after another */
 .jumper > div {
   background-color: var(--color-teal);
   width: 50px;

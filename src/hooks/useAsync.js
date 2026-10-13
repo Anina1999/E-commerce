@@ -4,6 +4,7 @@ export default function useAsync(asyncFn, deps = []) {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [version, setVersion] = useState(0);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -28,11 +29,14 @@ export default function useAsync(asyncFn, deps = []) {
             controller.abort();
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, deps);
+    }, [...deps, version]);
+
+    const refresh = () => setVersion((version) => version + 1);
 
     return {
         data,
         loading,
         error,
+        refresh,
     };
 }

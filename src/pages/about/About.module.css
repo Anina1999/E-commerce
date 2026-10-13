@@ -1,7 +1,6 @@
-/* The ridge above each section and the solid background come from the global .ridge-section class in main.css.
-   Same sunrise path as the home page (see --tier-0..7 in main.css): tier 2, 4 and 6, then subscribe closes it with tier 7 */
+/* Ridge and background come from the global .ridge-section in main.css;
+   tiers 2, 4 and 6 follow the home page sunrise path, then subscribe closes it with tier 7 */
 
-/* About us: photo of the store and the story next to it; its ridge rises into the page heading photo */
 .aboutUs {
   --tier-bg: var(--tier-2);
 
@@ -59,7 +58,6 @@
   margin-top: 25px;
 }
 
-/* Social links under the story */
 .rightContent ul {
   border-top: 1px solid var(--color-border);
   margin-top: 30px;
@@ -88,7 +86,6 @@
   color: var(--color-graphite);
 }
 
-/* Our team */
 .ourTeam {
   --tier-bg: var(--tier-4);
 
@@ -102,7 +99,6 @@
   transform: scaleX(-1);
 }
 
-/* Spacing for both SectionHeadings (team and services), passed through their className prop; centering is the "about" variant */
 .heading {
   margin-bottom: 60px;
 }
@@ -117,7 +113,6 @@
   object-fit: cover;
 }
 
-/* Dark overlay with the social links, shown on hover */
 .hoverEffect {
   position: absolute;
   background-color: rgba(0,0,0,0.9);
@@ -185,7 +180,6 @@
   font-style: italic;
 }
 
-/* Our services */
 .ourServices {
   --tier-bg: var(--tier-6);
 
@@ -193,7 +187,6 @@
   padding-bottom: 90px;
 }
 
-/* White card so it stands out on the section color */
 .serviceItem {
   padding: 30px;
   background-color: var(--color-surface);

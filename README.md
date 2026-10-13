@@ -93,3 +93,4 @@
 
 ## Steps to add reviews
     - [x] Show reviews under each product
+    - [x] Write a review under a product

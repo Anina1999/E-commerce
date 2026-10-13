@@ -1,9 +1,7 @@
-/* Sunrise to mirror the subscribe sunset: pale sky at the top warming to alpenglow, with the page rising into it as a ridge.
-   No background here: the sky is painted by ::after, so the ridge can stay see-through */
+/* No background here: the sky is painted by ::after, so the ridge can stay see-through */
 .header {
   border-bottom: none;
   box-shadow: none;
-  /* Always fixed, so it never scrolls away; only the height changes, and that is animated */
   position: fixed;
   top: 0px;
   left: 0px;
@@ -14,7 +12,6 @@
   transition: all .5s ease 0s;
 }
 
-/* Compact header once the page leaves the very top (isSticky in Header.jsx) */
 .sticky {
   border-bottom: none !important;
   height: 80px!important;
@@ -78,7 +75,7 @@
   mask-image: none;
 }
 
-/* Account error strip (ErrorMessage banner) hangs right under the fixed header, so it follows the height animation */
+/* Hangs right under the fixed header, so it follows the height animation */
 .alert {
   position: absolute;
   top: 100%;
@@ -86,7 +83,6 @@
   right: 0;
 }
 
-/* Cart icon after Explore, shown to everyone */
 .header .mainNav .nav li.cartLink a {
   font-size: 18px;
 }
@@ -184,7 +180,6 @@
   border-radius: var(--radius);
 }
 
-/* Underline under the section links: the current section and on hover */
 @media (min-width: 768px) {
   .header .mainNav .nav li.sectionLink a {
     position: relative;
@@ -209,13 +204,11 @@
   }
 }
 
-/* Pages and Account: a button with a dropdown */
 .header .mainNav .nav li.submenu {
   position: relative;
   padding-right: 30px;
 }
 
-/* Down arrow (Font Awesome angle-down) */
 .header .mainNav .nav li.submenu:after {
   font-family: FontAwesome;
   content: "\f107";
@@ -278,7 +271,6 @@
   cursor: pointer;
 }
 
-/* The current page in the dropdown, and its Pages/Account button */
 .header .mainNav .nav li.submenu ul li a.active,
 .header .mainNav .nav li.submenu:has(a.active) .submenuToggle {
   color: var(--color-teal-deep)!important;
@@ -297,7 +289,7 @@
   transition-delay: 0s, 0s, 0.3s;
 }
 
-/* Hamburger button, shown only on phones; the span is the middle bar, ::before and ::after the outer ones */
+/* The span is the middle bar, ::before and ::after the outer ones */
 .header .mainNav .menuTrigger {
   cursor: pointer;
   position: absolute;
@@ -350,7 +342,6 @@
   top: 10px;
 }
 
-/* Open menu: the middle bar fades and the outer bars turn into an X */
 .header .mainNav .menuTrigger.open span,
 .header .mainNav .menuTrigger.open span:before,
 .header .mainNav .menuTrigger.open span:after {
@@ -394,7 +385,6 @@
   }
 }
 
-/* Phones: the menu folds into a full-width list under the hamburger button */
 @media (max-width: 767px) {
   .header .mainNav .logo {
     color: var(--color-graphite);

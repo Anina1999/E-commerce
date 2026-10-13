@@ -1,4 +1,3 @@
-/* Shown in place of the content when its request fails */
 .errorMessage {
   padding: 60px 0;
   text-align: center;
@@ -15,7 +14,6 @@
   color: var(--color-muted);
 }
 
-/* A thin strip in one line, for errors that must not hide the page (the account error under the header) */
 .banner {
   display: flex;
   align-items: center;
@@ -36,7 +34,6 @@
   color: var(--color-surface);
 }
 
-/* Small red line inside a form, for a failed submit (wrong password, email taken) */
 .form {
   display: flex;
   align-items: center;

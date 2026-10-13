@@ -1,25 +1,29 @@
 import { useState } from "react";
-import { useParams } from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/error-message/ErrorMessage";
 import EmptyState from "../../components/empty-state/EmptyState";
 import ReviewItem from "../../components/review-item/ReviewItem";
+import ReviewForm from "../../components/review-form/ReviewForm";
 import NotFound from "../not-found/NotFound";
 import { getProductById } from "../../services/productService";
 import { getReviews } from "../../services/reviewService";
 import useAsync from "../../hooks/useAsync";
+import useAuth from "../../hooks/useAuth";
 import { formatPrice } from "../../utils/formatPrice";
 import styles from "./ProductDetails.module.css";
 
 export default function ProductDetails() {
     const { productId } = useParams();
+    const location = useLocation();
+    const { user, isAuthenticated, loading: authLoading } = useAuth();
     const { data: product, loading, error } = useAsync((signal) =>
         getProductById(productId, signal),
         [productId]
     );
-    const { data: reviews, loading: reviewsLoading, error: reviewsError } = useAsync((signal) =>
+    const { data: reviews, loading: reviewsLoading, error: reviewsError, refresh: refreshReviews } = useAsync((signal) =>
         getReviews(productId, signal),
         [productId]
     );
@@ -27,6 +31,7 @@ export default function ProductDetails() {
 
     const isReady = !loading && !error;
     const reviewsReady = !reviewsLoading && !reviewsError;
+    const hasReviewed = reviewsReady && reviews.some((review) => review.author_id === user?.id);
 
     if (isReady && !product) {
         return <NotFound />;
@@ -89,6 +94,14 @@ export default function ProductDetails() {
                                 title="Reviews"
                                 subtitle="What other hikers, bicyclist, runners and climbers think of it"
                             />
+                            {reviewsReady && !authLoading && !isAuthenticated && (
+                                <p className={styles.loginPrompt}>
+                                    <Link to="/login" state={{ from: location.pathname }}>Log in</Link> to write a review
+                                </p>
+                            )}
+                            {reviewsReady && isAuthenticated && !hasReviewed && (
+                                <ReviewForm className={styles.reviewForm} productId={productId} refreshReviews={refreshReviews} />
+                            )}
                             {reviewsLoading && <Loader />}
                             {!reviewsLoading && reviewsError && <ErrorMessage />}
                             {reviewsReady && reviews.length === 0 && <EmptyState message="No reviews yet" />}

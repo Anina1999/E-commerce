@@ -1,4 +1,4 @@
-/* The ridge above the section and the solid background come from the global .ridge-section class in main.css */
+/* Ridge and background come from the global .ridge-section in main.css */
 .explore {
   --tier-bg: var(--tier-5);
 
@@ -62,7 +62,6 @@
   margin-top: 35px;
 }
 
-/* The two highlight cards (content.highlights) */
 .highlight {
   min-height: 255px;
   background-color: var(--color-surface);
@@ -86,7 +85,6 @@
   font-weight: 500;
 }
 
-/* The first highlight and the first image make the top row of the 2x2 grid */
 .firstHighlight,
 .firstImage {
   margin-bottom: 30px;

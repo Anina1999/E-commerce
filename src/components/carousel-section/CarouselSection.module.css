@@ -1,10 +1,10 @@
-/* The ridge above the section and the solid background come from the global .ridge-section class in main.css */
+/* Ridge and background come from the global .ridge-section in main.css */
 .productCarousel {
   padding-top: 90px;
   padding-bottom: 90px;
 }
 
-/* tier prop: the section color on the sunrise path down the page (see --tier-0..7 in main.css) */
+/* tier prop: the section color, see --tier-0..7 in main.css */
 .tier1 { --tier-bg: var(--tier-1); }
 .tier2 { --tier-bg: var(--tier-2); }
 .tier3 { --tier-bg: var(--tier-3); }
@@ -16,7 +16,6 @@
   transform: scaleX(-1);
 }
 
-/* Spacing for SectionHeading, passed through its className prop */
 .heading {
   margin-bottom: 60px;
 }

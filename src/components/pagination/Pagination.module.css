@@ -1,5 +1,4 @@
-/* Page numbers: the template's square buttons, rounded like the other buttons.
-   gap instead of side margins keeps the first and last button on the edges; outer spacing comes from the parent through the className prop */
+/* gap instead of side margins keeps the first and last button on the edges */
 .pagination ul {
   display: flex;
   justify-content: center;
