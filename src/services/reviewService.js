@@ -26,7 +26,9 @@ export async function createReview(productId, rating, content) {
 export async function updateReview(reviewId, rating, content) {
     const { error } = await supabase.from("reviews")
         .update({ rating, content })
-        .eq("id", reviewId);
+        .eq("id", reviewId)
+        .select()
+        .single();
 
     if (error) throw error;
 }
