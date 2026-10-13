@@ -28,6 +28,11 @@ export default function ProductDetails() {
         [productId]
     );
     const [quantity, setQuantity] = useState(1);
+    const [editing, setEditing] = useState(false);
+
+    if (!user && editing) {
+        setEditing(false);
+    }
 
     const isReady = !loading && !error;
     const reviewsReady = !reviewsLoading && !reviewsError;
@@ -137,7 +142,22 @@ export default function ProductDetails() {
                             {reviewsReady && reviews.length > 0 && (
                                 <ul>
                                     {reviews.map((review) => (
-                                        <ReviewItem key={review.id} review={review} />
+                                        editing && review.author_id === user?.id ? (
+                                            <li key={review.id} className={styles.editing}>
+                                                <ReviewForm
+                                                    review={review}
+                                                    refreshReviews={refreshReviews}
+                                                    onClose={() => setEditing(false)}
+                                                />
+                                            </li>
+                                        ) : (
+                                            <ReviewItem
+                                                key={review.id}
+                                                review={review}
+                                                isOwn={review.author_id === user?.id}
+                                                onEdit={() => setEditing(true)}
+                                            />
+                                        )
                                     ))}
                                 </ul>
                             )}

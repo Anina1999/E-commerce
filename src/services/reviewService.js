@@ -22,3 +22,11 @@ export async function createReview(productId, rating, content) {
 
     if (error) throw error;
 }
+
+export async function updateReview(reviewId, rating, content) {
+    const { error } = await supabase.from("reviews")
+        .update({ rating, content })
+        .eq("id", reviewId);
+
+    if (error) throw error;
+}

@@ -3,5 +3,5 @@ export function getReviewErrorMessage(error) {
         return "You have already reviewed this product.";
     }
 
-    return "Could not post your review. Please try again.";
+    return "Could not save your review. Please try again.";
 }

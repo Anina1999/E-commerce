@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ErrorMessage from "../error-message/ErrorMessage";
-import { createReview } from "../../services/reviewService";
+import { createReview, updateReview } from "../../services/reviewService";
 import useForm from "../../hooks/useForm";
 import { getReviewErrorMessage } from "../../utils/reviewErrorMessage";
 import styles from "./ReviewForm.module.css";
@@ -10,7 +10,7 @@ const initialValues = {
     content: "",
 };
 
-export default function ReviewForm({ productId, refreshReviews, className }) {
+export default function ReviewForm({ productId, review, refreshReviews, onClose, className }) {
     const [showErrors, setShowErrors] = useState(false);
     const [error, setError] = useState("");
     const [pending, setPending] = useState(false);
@@ -26,19 +26,29 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
         setPending(true);
 
         try {
-            await createReview(productId, Number(values.rating), values.content);
-            await refreshReviews();
+            if (review) {
+                await updateReview(review.id, Number(values.rating), values.content);
+                await refreshReviews();
+                onClose();
+            } else {
+                await createReview(productId, Number(values.rating), values.content);
+                await refreshReviews();
+            }
         } catch (err) {
             setError(getReviewErrorMessage(err));
             setPending(false);
         }
     };
 
-    const { values, changeHandler, submitHandler } = useForm(initialValues, reviewSubmitHandler);
+    const { values, changeHandler, submitHandler } = useForm(
+        review ? { rating: String(review.rating), content: review.content } : initialValues,
+        reviewSubmitHandler
+    );
 
     const ratingError = showErrors && !values.rating;
     const contentError = showErrors && !values.content.trim();
     const shownRating = hoverRating || Number(values.rating);
+    const submitLabel = review ? "Save Changes" : "Post Review";
     const rootClassName = [styles.reviewForm, className].filter(Boolean).join(" ");
 
     return (
@@ -78,9 +88,14 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
                 )}
             </fieldset>
             {error && <ErrorMessage variant="form" className={styles.error} message={error} />}
-            <button type="submit" disabled={pending}>
-                {pending ? "Please wait..." : "Post Review"}
+            <button type="submit" className={styles.submit} disabled={pending}>
+                {pending ? "Please wait..." : submitLabel}
             </button>
+            {review && (
+                <button type="button" className={styles.cancel} onClick={onClose} disabled={pending}>
+                    Cancel
+                </button>
+            )}
         </form>
     );
 }

@@ -1,7 +1,7 @@
 import { formatDate } from "../../utils/formatDate";
 import styles from "./ReviewItem.module.css";
 
-export default function ReviewItem({ review }) {
+export default function ReviewItem({ review, isOwn, onEdit }) {
     return (
         <li className={styles.reviewItem}>
             <div className={styles.header}>
@@ -16,6 +16,9 @@ export default function ReviewItem({ review }) {
             </div>
             <span className={styles.date}>{formatDate(review.created_at)}</span>
             <p>{review.content}</p>
+            {isOwn && !review.is_hidden && (
+                <button type="button" className={styles.edit} onClick={onEdit}>Edit</button>
+            )}
         </li>
     );
 }

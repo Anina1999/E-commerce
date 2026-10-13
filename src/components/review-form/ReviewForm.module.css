@@ -61,24 +61,39 @@
   margin-bottom: 20px;
 }
 
-.reviewForm button {
+.submit,
+.cancel {
   height: 44px;
   padding: 0 30px;
   font-size: 16px;
   font-weight: 500;
-  background-color: var(--color-graphite);
-  border: 1px solid transparent;
-  color: #fff;
+  border: 1px solid var(--color-graphite);
   transition: all 0.3s;
 }
 
-.reviewForm button:not(:disabled):hover {
+.submit {
+  background-color: var(--color-graphite);
+  color: #fff;
+}
+
+.submit:not(:disabled):hover {
   background-color: #fff;
-  border: 1px solid var(--color-graphite);
   color: var(--color-graphite);
 }
 
-.reviewForm button:disabled {
+.cancel {
+  margin-left: 10px;
+  background-color: transparent;
+  color: var(--color-graphite);
+}
+
+.cancel:not(:disabled):hover {
+  background-color: var(--color-graphite);
+  color: #fff;
+}
+
+.submit:disabled,
+.cancel:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
