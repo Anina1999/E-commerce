@@ -158,7 +158,8 @@
   color: var(--color-muted);
 }
 
-.addToCart {
+.addToCart,
+.loginButton {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -171,7 +172,8 @@
   transition: all .3s;
 }
 
-.addToCart:hover {
+.addToCart:hover,
+.loginButton:hover {
   color: #fff;
   background-color: var(--color-graphite);
 }
@@ -182,21 +184,16 @@
   border-top: 1px solid var(--color-border);
 }
 
-.loginPrompt {
-  margin: 30px 0 0;
-  font-size: 16px;
-  color: var(--color-muted);
+.loginButton {
+  display: inline-block;
+  margin-top: 30px;
+  color: #fff;
+  background-color: var(--color-teal-dark);
+  border-color: var(--color-teal-dark);
 }
 
-.loginPrompt a {
-  font-weight: 600;
-  color: var(--color-teal-dark);
-}
-
-/* !important beats the global "a { text-decoration: none !important }" in main.css */
-.loginPrompt a:hover {
-  color: var(--color-graphite);
-  text-decoration: underline !important;
+.loginButton:hover {
+  border-color: var(--color-graphite);
 }
 
 .reviewForm {

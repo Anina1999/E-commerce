@@ -95,9 +95,7 @@ export default function ProductDetails() {
                                 subtitle="What other hikers, bicyclist, runners and climbers think of it"
                             />
                             {reviewsReady && !authLoading && !isAuthenticated && (
-                                <p className={styles.loginPrompt}>
-                                    <Link to="/login" state={{ from: location.pathname }}>Log in</Link> to write a review
-                                </p>
+                                <Link to="/login" state={{ from: location.pathname }} className={styles.loginButton}>Log in to write a review</Link>
                             )}
                             {reviewsReady && isAuthenticated && !hasReviewed && (
                                 <ReviewForm className={styles.reviewForm} productId={productId} refreshReviews={refreshReviews} />

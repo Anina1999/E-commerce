@@ -14,6 +14,7 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
     const [showErrors, setShowErrors] = useState(false);
     const [error, setError] = useState("");
     const [pending, setPending] = useState(false);
+    const [hoverRating, setHoverRating] = useState(0);
 
     const reviewSubmitHandler = async (values) => {
         if (!values.rating || !values.content.trim()) {
@@ -37,17 +38,18 @@ export default function ReviewForm({ productId, refreshReviews, className }) {
 
     const ratingError = showErrors && !values.rating;
     const contentError = showErrors && !values.content.trim();
+    const shownRating = hoverRating || Number(values.rating);
     const rootClassName = [styles.reviewForm, className].filter(Boolean).join(" ");
 
     return (
         <form className={rootClassName} onSubmit={submitHandler}>
             <fieldset>
                 <legend>Your rating</legend>
-                <div className={styles.stars}>
+                <div className={styles.stars} onMouseLeave={() => setHoverRating(0)}>
                     {[1, 2, 3, 4, 5].map((star) => (
-                        <label key={star}>
+                        <label key={star} onMouseEnter={() => setHoverRating(star)}>
                             <input type="radio" name="rating" value={star} checked={values.rating === String(star)} onChange={changeHandler} aria-label={`${star} out of 5 stars`} />
-                            <i className={star <= Number(values.rating) ? "fa fa-star" : "fa fa-star-o"} aria-hidden="true" />
+                            <i className={star <= shownRating ? "fa fa-star" : "fa fa-star-o"} aria-hidden="true" />
                         </label>
                     ))}
                 </div>
