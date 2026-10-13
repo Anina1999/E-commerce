@@ -179,7 +179,7 @@ create policy "Users write their own reviews"
 
 create policy "Authors update their reviews"
   on public.reviews for update to authenticated
-  using (author_id = (select auth.uid()))
+  using (author_id = (select auth.uid()) and not is_hidden)
   with check (author_id = (select auth.uid()));
 
 create policy "Authors delete their reviews"
