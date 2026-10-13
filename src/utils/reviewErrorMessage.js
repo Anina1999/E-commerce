@@ -9,3 +9,11 @@ export function getReviewErrorMessage(error) {
 
     return "Could not save your review. Please try again.";
 }
+
+export function getDeleteErrorMessage(error) {
+    if (error.code === "PGRST116") {
+        return "Something went wrong. Please refresh the page.";
+    }
+
+    return "Could not delete your review. Please try again.";
+}

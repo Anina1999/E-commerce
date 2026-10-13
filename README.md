@@ -96,3 +96,4 @@
     - [x] Write a review under a product
     - [x] Edit your own review
     - [x] Show when a review was edited
+    - [x] Delete review

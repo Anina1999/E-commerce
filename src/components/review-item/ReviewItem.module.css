@@ -29,26 +29,45 @@
   color: var(--color-muted);
 }
 
-.reviewItem p {
+.text {
   margin: 12px 0 0;
   font-size: 15px;
   color: var(--color-muted);
 }
 
-.edit {
+.actions {
+  display: flex;
+  gap: 10px;
   margin-top: 15px;
+}
+
+.edit,
+.delete {
   padding: 6px 18px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-graphite);
   background-color: transparent;
-  border: 1px solid var(--color-graphite);
   border-radius: var(--radius);
   cursor: pointer;
   transition: all .3s;
 }
 
+.edit {
+  color: var(--color-graphite);
+  border: 1px solid var(--color-graphite);
+}
+
 .edit:hover {
   color: #fff;
   background-color: var(--color-graphite);
+}
+
+.delete {
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+
+.delete:hover {
+  color: #fff;
+  background-color: var(--color-danger);
 }

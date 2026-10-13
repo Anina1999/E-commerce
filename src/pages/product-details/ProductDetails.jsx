@@ -156,6 +156,7 @@ export default function ProductDetails() {
                                                 review={review}
                                                 isOwn={review.author_id === user?.id}
                                                 onEdit={() => setEditing(true)}
+                                                refreshReviews={refreshReviews}
                                             />
                                         )
                                     ))}

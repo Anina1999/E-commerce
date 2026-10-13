@@ -32,3 +32,13 @@ export async function updateReview(reviewId, rating, content) {
 
     if (error) throw error;
 }
+
+export async function deleteReview(reviewId) {
+    const { error } = await supabase.from("reviews")
+        .delete()
+        .eq("id", reviewId)
+        .select()
+        .single();
+
+    if (error) throw error;
+}

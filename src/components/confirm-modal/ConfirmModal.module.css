@@ -1,0 +1,79 @@
+/* No padding on the dialog itself, so only a click on the backdrop has the dialog as its target */
+.confirmModal {
+  width: calc(100% - 30px);
+  max-width: 420px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+.confirmModal::backdrop {
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.content {
+  padding: 30px;
+}
+
+.content h5 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-graphite);
+}
+
+.content p {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+.error {
+  margin-top: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cancel,
+.confirm {
+  height: 44px;
+  padding: 0 25px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  transition: all 0.3s;
+}
+
+.cancel {
+  background-color: transparent;
+  border: 1px solid var(--color-graphite);
+  color: var(--color-graphite);
+}
+
+.cancel:not(:disabled):hover {
+  background-color: var(--color-graphite);
+  color: #fff;
+}
+
+.confirm {
+  background-color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  color: #fff;
+}
+
+.confirm:not(:disabled):hover {
+  background-color: transparent;
+  color: var(--color-danger);
+}
+
+.cancel:disabled,
+.confirm:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
