@@ -37,7 +37,8 @@ export default function ProductDetails() {
 
     const isReady = !loading && !error;
     const reviewsReady = !reviewsLoading && !reviewsError;
-    const hasReviewed = reviewsReady && reviews.some((review) => review.author_id === user?.id);
+    const ownReview = reviews?.find((review) => review.author_id === user?.id);
+    const otherReviews = reviews?.filter((review) => review.author_id !== user?.id);
 
     if (isReady && !product) {
         return <NotFound />;
@@ -124,36 +125,37 @@ export default function ProductDetails() {
                                     Log in to write a review
                                 </Link>
                             )}
-                            {reviewsReady && isAuthenticated && !hasReviewed && (
-                                <ReviewForm
-                                    className={styles.reviewForm}
-                                    productId={productId}
-                                    refreshReviews={refreshReviews}
-                                />
-                            )}
                             {reviewsLoading && <Loader />}
                             {!reviewsLoading && reviewsError && <ErrorMessage />}
-                            {reviewsReady && reviews.length === 0 && <EmptyState message="No reviews yet" />}
-                            {reviewsReady && reviews.length > 0 && (
-                                <ul>
-                                    {reviews.map((review) => (
-                                        editing && review.author_id === user?.id ? (
-                                            <li key={review.id} className={styles.editing}>
-                                                <ReviewForm
-                                                    review={review}
-                                                    refreshReviews={refreshReviews}
-                                                    onClose={() => setEditing(false)}
-                                                />
-                                            </li>
-                                        ) : (
-                                            <ReviewItem
-                                                key={review.id}
-                                                review={review}
-                                                isOwn={review.author_id === user?.id}
-                                                onEdit={() => setEditing(true)}
+                            {reviewsReady && !authLoading && !isAuthenticated && reviews.length === 0 && (
+                                <EmptyState message="No reviews yet" />
+                            )}
+                            {reviewsReady && (isAuthenticated || reviews.length > 0) && (
+                                <ul className={styles.reviewList}>
+                                    {isAuthenticated && !ownReview && (
+                                        <li className={styles.formCard}>
+                                            <ReviewForm productId={productId} refreshReviews={refreshReviews} />
+                                        </li>
+                                    )}
+                                    {ownReview && editing && (
+                                        <li className={styles.formCard}>
+                                            <ReviewForm
+                                                review={ownReview}
                                                 refreshReviews={refreshReviews}
+                                                onClose={() => setEditing(false)}
                                             />
-                                        )
+                                        </li>
+                                    )}
+                                    {ownReview && !editing && (
+                                        <ReviewItem
+                                            review={ownReview}
+                                            isOwn
+                                            onEdit={() => setEditing(true)}
+                                            refreshReviews={refreshReviews}
+                                        />
+                                    )}
+                                    {otherReviews.map((review) => (
+                                        <ReviewItem key={review.id} review={review} />
                                     ))}
                                 </ul>
                             )}

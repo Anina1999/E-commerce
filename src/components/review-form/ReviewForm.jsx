@@ -10,7 +10,7 @@ const initialValues = {
     content: "",
 };
 
-export default function ReviewForm({ productId, review, refreshReviews, onClose, className }) {
+export default function ReviewForm({ productId, review, refreshReviews, onClose }) {
     const [showErrors, setShowErrors] = useState(false);
     const [error, setError] = useState("");
     const [pending, setPending] = useState(false);
@@ -49,10 +49,9 @@ export default function ReviewForm({ productId, review, refreshReviews, onClose,
     const contentError = showErrors && !values.content.trim();
     const shownRating = hoverRating || Number(values.rating);
     const submitLabel = review ? "Save Changes" : "Post Review";
-    const rootClassName = [styles.reviewForm, className].filter(Boolean).join(" ");
 
     return (
-        <form className={rootClassName} onSubmit={submitHandler}>
+        <form className={styles.reviewForm} onSubmit={submitHandler}>
             <fieldset>
                 <legend>Your rating</legend>
                 <div className={styles.stars} onMouseLeave={() => setHoverRating(0)}>
@@ -88,14 +87,16 @@ export default function ReviewForm({ productId, review, refreshReviews, onClose,
                 )}
             </fieldset>
             {error && <ErrorMessage variant="form" className={styles.error} message={error} />}
-            <button type="submit" className={styles.submit} disabled={pending}>
-                {pending ? "Please wait..." : submitLabel}
-            </button>
-            {review && (
-                <button type="button" className={styles.cancel} onClick={onClose} disabled={pending}>
-                    Cancel
+            <div className={styles.buttons}>
+                <button type="submit" className={styles.submit} disabled={pending}>
+                    {pending ? "Please wait..." : submitLabel}
                 </button>
-            )}
+                {review && (
+                    <button type="button" className={styles.cancel} onClick={onClose} disabled={pending}>
+                        Cancel
+                    </button>
+                )}
+            </div>
         </form>
     );
 }

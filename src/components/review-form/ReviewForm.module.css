@@ -61,6 +61,12 @@
   margin-bottom: 20px;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .submit,
 .cancel {
   height: 44px;
@@ -82,7 +88,6 @@
 }
 
 .cancel {
-  margin-left: 10px;
   background-color: transparent;
   color: var(--color-graphite);
 }

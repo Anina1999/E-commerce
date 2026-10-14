@@ -32,8 +32,8 @@ export default function ConfirmModal({ title, message, confirmLabel, pending, er
         >
             <div className={styles.content}>
                 <h5>{title}</h5>
-                <p>{message}</p>
-                {error && <ErrorMessage variant="form" className={styles.error} message={error} />}
+                <p className={styles.message}>{message}</p>
+                {error && <ErrorMessage variant="modal" className={styles.error} message={error} />}
                 <div className={styles.buttons}>
                     <button type="button" className={styles.cancel} onClick={onCancel} disabled={pending}>
                         Cancel

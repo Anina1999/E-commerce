@@ -4,3 +4,9 @@
   font-size: 16px;
   color: var(--color-teal-deep);
 }
+
+.review {
+  justify-content: center;
+  gap: 6px;
+  font-size: 26px;
+}

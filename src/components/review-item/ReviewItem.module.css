@@ -1,19 +1,19 @@
 .reviewItem {
-  padding: 25px 0;
-  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  padding: 30px 25px;
+  text-align: center;
+  background-color: var(--color-surface);
+  border-radius: 24px;
+  box-shadow: 0 12px 28px rgba(31,42,51,0.08);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header h6 {
+/* Equal padding on both sides keeps the name centered and clear of the icons in the corner */
+.username {
   margin: 0;
-  font-size: 16px;
+  padding: 0 60px;
+  font-size: 20px;
   font-weight: 700;
-  color: var(--color-graphite);
+  color: var(--color-teal-dark);
 }
 
 .date {
@@ -23,25 +23,42 @@
   color: var(--color-muted);
 }
 
+.date::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  background-color: var(--color-alpenglow);
+}
+
 .text {
-  margin: 12px 0 0;
-  font-size: 15px;
+  margin: 15px 0 0;
+  font-size: 16px;
   color: var(--color-muted);
 }
 
+.stars {
+  margin-top: 18px;
+}
+
 .actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 6px;
 }
 
 .edit,
 .delete {
-  padding: 6px 18px;
-  font-size: 13px;
-  font-weight: 600;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 14px;
   background-color: transparent;
-  border-radius: var(--radius);
+  border-radius: 50%;
   cursor: pointer;
   transition: all .3s;
 }

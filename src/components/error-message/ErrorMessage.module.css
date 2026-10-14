@@ -51,3 +51,20 @@
   font-size: 15px;
   color: var(--color-danger);
 }
+
+.modal {
+  padding: 0;
+}
+
+.modal i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Inline, so the icon flows with the first line and stays next to the text when it wraps */
+.modal p {
+  display: inline;
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-danger);
+}

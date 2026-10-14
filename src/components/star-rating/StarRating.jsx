@@ -1,7 +1,7 @@
 import styles from "./StarRating.module.css";
 
-export default function StarRating({ rating, className }) {
-    const rootClassName = [styles.starRating, className].filter(Boolean).join(" ");
+export default function StarRating({ rating, variant, className }) {
+    const rootClassName = [styles.starRating, styles[variant], className].filter(Boolean).join(" ");
 
     return (
         <ul className={rootClassName} aria-label={`${rating} out of 5 stars`}>
