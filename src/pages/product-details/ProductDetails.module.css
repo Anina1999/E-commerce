@@ -12,13 +12,13 @@
   border-radius: 8px;
 }
 
-/* Relative so the stars can sit in the top right corner */
+/* Relative so the rating can sit in the top right corner */
 .content {
   position: relative;
   margin-left: 30px;
 }
 
-/* Room on the right so a long name doesn't run under the stars */
+/* Room on the right so a long name doesn't run under the rating */
 .content h4 {
   padding-right: 110px;
   font-size: 22px;
@@ -37,10 +37,19 @@
   padding-bottom: 20px;
 }
 
-.stars {
+.rating {
   position: absolute;
   right: 0;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.ratingText {
+  font-size: 13px;
+  color: var(--color-muted);
 }
 
 .description {

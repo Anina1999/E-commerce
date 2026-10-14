@@ -14,6 +14,7 @@ import { getReviews } from "../../services/reviewService";
 import useAsync from "../../hooks/useAsync";
 import useAuth from "../../hooks/useAuth";
 import { formatPrice } from "../../utils/formatPrice";
+import { getRating } from "../../utils/rating";
 import styles from "./ProductDetails.module.css";
 
 export default function ProductDetails() {
@@ -49,6 +50,7 @@ export default function ProductDetails() {
     const reviewsReady = !reviewsLoading && !reviewsError;
     const ownReview = reviews?.find((review) => review.author_id === user?.id);
     const otherReviews = reviews?.filter((review) => review.author_id !== user?.id);
+    const rating = reviewsReady ? getRating(reviews) : null;
     const shownReviews = otherReviews?.slice(0, isAuthenticated ? visibleCount - 1 : visibleCount);
     const hasMoreReviews = reviewsReady && shownReviews.length < otherReviews.length;
     const canShowFewer = reviewsReady && visibleCount > 4;
@@ -85,7 +87,20 @@ export default function ProductDetails() {
                                 <div className={styles.content}>
                                     <h4>{product.name}</h4>
                                     <span className={styles.price}>{formatPrice(product.price)}</span>
-                                    <StarRating rating={5} className={styles.stars} />
+                                    <div className={styles.rating}>
+                                        {reviewsReady && <StarRating rating={rating.average} />}
+                                        {reviewsReady && rating.count === 0 && (
+                                            <span className={styles.ratingText}>No ratings yet</span>
+                                        )}
+                                        {reviewsReady && rating.count > 0 && (
+                                            <span className={styles.ratingText}>
+                                                {rating.average.toFixed(1)} ({rating.count} {rating.count === 1 ? "review" : "reviews"})
+                                            </span>
+                                        )}
+                                        {!reviewsLoading && reviewsError && (
+                                            <span className={styles.ratingText}>Rating unavailable</span>
+                                        )}
+                                    </div>
                                     <p className={styles.description}>{product.description}</p>
                                     <div className={styles.quote}>
                                         <i className="fa fa-quote-left" />
