@@ -100,3 +100,6 @@
     - [x] Show more or fewer reviews
     - [x] Show the average rating on the product page
     - [x] Show the average rating on product cards
+
+## Steps to add favorites
+    - [x] Add products to favorites with the heart

@@ -49,8 +49,7 @@
   margin: 0px 10px;
 }
 
-.hoverContent ul li a,
-.hoverContent ul li button {
+.action {
   width: 50px;
   height: 50px;
   text-align: center;
@@ -63,16 +62,15 @@
   transition: all 0.3s;
 }
 
-/* The heart and cart are buttons, so drop the browser button look to match the link */
-.hoverContent ul li button {
+/* The cart is a button, so drop the browser button look to match the link */
+button.action {
   border: 0;
   padding: 0;
   font: inherit;
   cursor: pointer;
 }
 
-.hoverContent ul li a:hover,
-.hoverContent ul li button:hover {
+.action:hover {
   background-color: var(--color-teal);
   color: #fff;
 }

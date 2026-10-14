@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import ErrorMessage from "../error-message/ErrorMessage";
 import useAuth from "../../hooks/useAuth";
+import useFavorites from "../../hooks/useFavorites";
 import useHeaderScroll from "../../hooks/useHeaderScroll";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.css";
@@ -45,6 +46,7 @@ export default function Header() {
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const { isAuthenticated, isAdmin, profileError, logout } = useAuth();
+    const { error: favoritesError, updateError: favoritesUpdateError } = useFavorites();
     const isHome = pathname === "/";
     const { isSticky, activeSection, setActiveSection } = useHeaderScroll(sectionIds, isHome);
 
@@ -81,6 +83,20 @@ export default function Header() {
                     variant="banner"
                     className={styles.alert}
                     message="We couldn't load your account. Please refresh the page."
+                />
+            )}
+            {favoritesUpdateError && (
+                <ErrorMessage
+                    variant="banner"
+                    className={styles.alert}
+                    message="Could not update your favorites. Please try again."
+                />
+            )}
+            {!favoritesUpdateError && favoritesError && (
+                <ErrorMessage
+                    variant="banner"
+                    className={styles.alert}
+                    message="We couldn't load your favorites. Please refresh the page."
                 />
             )}
             <div className="container">
@@ -131,17 +147,19 @@ export default function Header() {
                                         Account
                                     </button>
                                     <ul className={openSubmenu === "account" ? styles.open : undefined}>
-                                        <li>
-                                            <NavLink to="/favorites" className={pageLinkClass} onClick={closeMenus}>
-                                                Favorites
-                                            </NavLink>
-                                        </li>
                                         {isAuthenticated && (
-                                            <li>
-                                                <NavLink to="/orders" className={pageLinkClass} onClick={closeMenus}>
-                                                    My Orders
-                                                </NavLink>
-                                            </li>
+                                            <>
+                                                <li>
+                                                    <NavLink to="/favorites" className={pageLinkClass} onClick={closeMenus}>
+                                                        Favorites
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink to="/orders" className={pageLinkClass} onClick={closeMenus}>
+                                                        My Orders
+                                                    </NavLink>
+                                                </li>
+                                            </>
                                         )}
                                         {isAdmin && (
                                             <li>

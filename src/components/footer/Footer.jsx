@@ -76,13 +76,15 @@ export default function Footer() {
                                     </li>
                                 </>
                             )}
-                            <li>
-                                <Link to="/favorites">Favorites</Link>
-                            </li>
                             {isAuthenticated && (
-                                <li>
-                                    <Link to="/orders">My Orders</Link>
-                                </li>
+                                <>
+                                    <li>
+                                        <Link to="/favorites">Favorites</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/orders">My Orders</Link>
+                                    </li>
+                                </>
                             )}
                             {isAdmin && (
                                 <li>

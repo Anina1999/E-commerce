@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import FavoriteButton from "../favorite-button/FavoriteButton";
 import StarRating from "../star-rating/StarRating";
 import { formatPrice } from "../../utils/formatPrice";
 import { getRating } from "../../utils/rating";
@@ -17,17 +18,19 @@ export default function ProductCard({
                 <div className={styles.hoverContent}>
                     <ul>
                         <li>
-                            <Link to={`/products/${productId}/details`} aria-label={`View details: ${productName}`}>
+                            <Link
+                                to={`/products/${productId}/details`}
+                                className={styles.action}
+                                aria-label={`View details: ${productName}`}
+                            >
                                 <i className="fa fa-eye" aria-hidden="true" />
                             </Link>
                         </li>
                         <li>
-                            <button type="button" aria-label={`Add to favorites: ${productName}`}>
-                                <i className="fa fa-heart-o" aria-hidden="true" />
-                            </button>
+                            <FavoriteButton variant="card" productId={productId} productName={productName} />
                         </li>
                         <li>
-                            <button type="button" aria-label={`Add to cart: ${productName}`}>
+                            <button type="button" className={styles.action} aria-label={`Add to cart: ${productName}`}>
                                 <i className="fa fa-shopping-cart" aria-hidden="true" />
                             </button>
                         </li>

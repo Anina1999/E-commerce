@@ -1,0 +1,33 @@
+.favoriteButton {
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.favoriteButton:disabled {
+  cursor: wait;
+}
+
+/* Same round white look as the eye and cart icons next to it in ProductCard */
+.card {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  color: var(--color-graphite);
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(31,42,51,0.15);
+  transition: all 0.3s;
+}
+
+.favorite {
+  color: var(--color-danger);
+}
+
+.card:hover {
+  background-color: var(--color-teal);
+  color: #fff;
+}
