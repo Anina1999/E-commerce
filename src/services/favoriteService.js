@@ -12,7 +12,7 @@ export async function getFavoriteIds(signal) {
 
 export async function addFavorite(productId) {
     const { error } = await supabase.from("favorites")
-        .insert({ product_id: productId });
+        .upsert({ product_id: productId }, { onConflict: "user_id,product_id", ignoreDuplicates: true });
 
     if (error) throw error;
 }

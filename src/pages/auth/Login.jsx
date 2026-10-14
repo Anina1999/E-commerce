@@ -53,6 +53,12 @@ export default function Login() {
                                 title="Sign In To Your Account"
                                 subtitle="Your cart and favorites are waiting for you."
                             />
+                            {location.state?.message && (
+                                <p className={styles.notice}>
+                                    <i className="fa fa-info-circle" aria-hidden="true" />
+                                    {location.state.message}
+                                </p>
+                            )}
                             <form id="login" onSubmit={submitHandler}>
                                 <fieldset>
                                     <input

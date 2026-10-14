@@ -85,14 +85,14 @@ export default function Header() {
                     message="We couldn't load your account. Please refresh the page."
                 />
             )}
-            {favoritesUpdateError && (
+            {!profileError && favoritesUpdateError && (
                 <ErrorMessage
                     variant="banner"
                     className={styles.alert}
                     message="Could not update your favorites. Please try again."
                 />
             )}
-            {!favoritesUpdateError && favoritesError && (
+            {!profileError && !favoritesUpdateError && favoritesError && (
                 <ErrorMessage
                     variant="banner"
                     className={styles.alert}

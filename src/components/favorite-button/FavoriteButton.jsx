@@ -23,8 +23,12 @@ export default function FavoriteButton({ productId, productName, variant }) {
         return (
             <Link
                 to="/login"
-                state={{ from: location.pathname }}
+                state={{
+                    from: location.pathname + location.search,
+                    message: "You need an account to add products to your favorites.",
+                }}
                 className={className}
+                title="Log in to add to favorites"
                 aria-label={`Log in to add to favorites: ${productName}`}
             >
                 <i className="fa fa-heart-o" aria-hidden="true" />

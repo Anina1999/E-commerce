@@ -33,6 +33,7 @@ export default function useAsync(asyncFn, deps = []) {
     const refresh = async () => {
         try {
             setData(await asyncFn());
+            setError(null);
         } catch (err) {
             setError(err);
         }

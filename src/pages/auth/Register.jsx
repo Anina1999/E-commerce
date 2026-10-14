@@ -60,6 +60,12 @@ export default function Register() {
                                 title="Create Your Account"
                                 subtitle="Save your favorites and track your orders."
                             />
+                            {location.state?.message && (
+                                <p className={styles.notice}>
+                                    <i className="fa fa-info-circle" aria-hidden="true" />
+                                    {location.state.message}
+                                </p>
+                            )}
                             <form id="register" onSubmit={submitHandler}>
                                 <fieldset>
                                     <input
