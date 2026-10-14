@@ -2,7 +2,7 @@ import { supabase } from "../lib/supabase";
 
 export async function getProducts(category, signal) {
     let query = supabase.from("products")
-        .select("*")
+        .select("*, reviews(rating, is_hidden)")
         .order("id");
 
     if (category) {

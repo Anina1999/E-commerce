@@ -99,3 +99,4 @@
     - [x] Delete review
     - [x] Show more or fewer reviews
     - [x] Show the average rating on the product page
+    - [x] Show the average rating on product cards

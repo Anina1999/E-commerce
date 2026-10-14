@@ -72,6 +72,7 @@ export default function CarouselSection({
                                                 productName={product.name}
                                                 productPrice={product.price}
                                                 productImage={product.image_url}
+                                                productReviews={product.reviews}
                                             />
                                         </SwiperSlide>
                                     ))}

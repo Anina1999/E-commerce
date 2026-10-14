@@ -97,6 +97,7 @@ export default function Catalog() {
                                             productName={product.name}
                                             productPrice={product.price}
                                             productImage={product.image_url}
+                                            productReviews={product.reviews}
                                         />
                                     </div>
                                 ))}

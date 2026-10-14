@@ -1,13 +1,15 @@
 import { Link } from "react-router";
 import StarRating from "../star-rating/StarRating";
 import { formatPrice } from "../../utils/formatPrice";
+import { getRating } from "../../utils/rating";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({
     productId,
     productName,
     productPrice,
-    productImage
+    productImage,
+    productReviews
 }) {
     return (
         <div className={styles.item}>
@@ -37,7 +39,7 @@ export default function ProductCard({
                 <h4>{productName}</h4>
                 <div className={styles.priceRow}>
                     <span>{formatPrice(productPrice)}</span>
-                    <StarRating rating={5} />
+                    <StarRating rating={getRating(productReviews).average} />
                 </div>
             </div>
         </div>
