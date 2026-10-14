@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
 import SectionHeading from "../../components/section-heading/SectionHeading";
@@ -30,6 +30,16 @@ export default function ProductDetails() {
     );
     const [quantity, setQuantity] = useState(1);
     const [editing, setEditing] = useState(false);
+    const [visibleCount, setVisibleCount] = useState(4);
+    const [shownProductId, setShownProductId] = useState(productId);
+    const reviewsRef = useRef(null);
+
+    if (productId !== shownProductId) {
+        setShownProductId(productId);
+        setQuantity(1);
+        setEditing(false);
+        setVisibleCount(4);
+    }
 
     if (!user && editing) {
         setEditing(false);
@@ -39,6 +49,14 @@ export default function ProductDetails() {
     const reviewsReady = !reviewsLoading && !reviewsError;
     const ownReview = reviews?.find((review) => review.author_id === user?.id);
     const otherReviews = reviews?.filter((review) => review.author_id !== user?.id);
+    const shownReviews = otherReviews?.slice(0, isAuthenticated ? visibleCount - 1 : visibleCount);
+    const hasMoreReviews = reviewsReady && shownReviews.length < otherReviews.length;
+    const canShowFewer = reviewsReady && visibleCount > 4;
+
+    const showFewerHandler = () => {
+        setVisibleCount(4);
+        reviewsRef.current.scrollIntoView({ behavior: "smooth" });
+    };
 
     if (isReady && !product) {
         return <NotFound />;
@@ -111,7 +129,7 @@ export default function ProductDetails() {
                         </div>
                     )}
                     {isReady && (
-                        <div className={styles.reviews}>
+                        <div className={styles.reviews} ref={reviewsRef}>
                             <SectionHeading
                                 title="Reviews"
                                 subtitle="What other hikers, bicyclist, runners and climbers think of it"
@@ -154,10 +172,28 @@ export default function ProductDetails() {
                                             refreshReviews={refreshReviews}
                                         />
                                     )}
-                                    {otherReviews.map((review) => (
+                                    {shownReviews.map((review) => (
                                         <ReviewItem key={review.id} review={review} />
                                     ))}
                                 </ul>
+                            )}
+                            {(hasMoreReviews || canShowFewer) && (
+                                <div className={styles.listButtons}>
+                                    {hasMoreReviews && (
+                                        <button
+                                            type="button"
+                                            className={styles.listButton}
+                                            onClick={() => setVisibleCount(visibleCount + 4)}
+                                        >
+                                            Show more reviews
+                                        </button>
+                                    )}
+                                    {canShowFewer && (
+                                        <button type="button" className={styles.listButton} onClick={showFewerHandler}>
+                                            Show fewer reviews
+                                        </button>
+                                    )}
+                                </div>
                             )}
                         </div>
                     )}

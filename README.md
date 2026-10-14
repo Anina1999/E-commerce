@@ -97,3 +97,4 @@
     - [x] Edit your own review
     - [x] Show when a review was edited
     - [x] Delete review
+    - [x] Show more or fewer reviews
