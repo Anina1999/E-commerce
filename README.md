@@ -90,6 +90,7 @@
 
 ## Steps to protect the routes
     - [x] Hide Login and Register routes from logged-in users
+    - [x] Hide the Favorites page from guests
 
 ## Steps to add reviews
     - [x] Show reviews under each product

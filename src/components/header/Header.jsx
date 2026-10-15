@@ -68,12 +68,8 @@ export default function Header() {
 
     const logoutHandler = async () => {
         closeMenus();
-
-        try {
-            await logout();
-        } finally {
-            navigate("/");
-        }
+        navigate("/");
+        await logout();
     };
 
     return (

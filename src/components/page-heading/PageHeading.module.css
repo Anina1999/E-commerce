@@ -19,6 +19,10 @@
   background-image: var(--veil), url(/assets/images/page-heading-product.jpg);
 }
 
+.favorites {
+  background-image: var(--veil), url(/assets/images/page-heading-catalog.jpg);
+}
+
 .about {
   background-image: var(--veil), url(/assets/images/page-heading-about.jpg);
 }
