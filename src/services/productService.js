@@ -16,6 +16,22 @@ export async function getProducts(category, signal) {
     return data;
 }
 
+export async function getProductsByIds(ids, signal) {
+    if (ids.length === 0) {
+        return [];
+    }
+
+    const { data, error } = await supabase.from("products")
+        .select("*, reviews(rating, is_hidden)")
+        .in("id", ids)
+        .order("id")
+        .abortSignal(signal);
+
+    if (error) throw error;
+
+    return data;
+}
+
 export async function getProductById(productId, signal) {
     if (!Number.isInteger(Number(productId))) {
         return null;

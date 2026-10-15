@@ -1,0 +1,15 @@
+/* Ridge and background come from the global .ridge-section in main.css */
+.products {
+  --tier-bg: var(--tier-2);
+
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.heading {
+  margin-bottom: 50px;
+}
+
+.cell {
+  margin-bottom: 40px;
+}
