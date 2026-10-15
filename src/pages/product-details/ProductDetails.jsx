@@ -8,6 +8,7 @@ import EmptyState from "../../components/empty-state/EmptyState";
 import ReviewItem from "../../components/review-item/ReviewItem";
 import ReviewForm from "../../components/review-form/ReviewForm";
 import StarRating from "../../components/star-rating/StarRating";
+import FavoriteButton from "../../components/favorite-button/FavoriteButton";
 import NotFound from "../not-found/NotFound";
 import { getProductById } from "../../services/productService";
 import { getReviews } from "../../services/reviewService";
@@ -80,6 +81,13 @@ export default function ProductDetails() {
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className={styles.image}>
+                                    <div className={styles.favoriteCorner}>
+                                        <FavoriteButton
+                                            variant="details"
+                                            productId={product.id}
+                                            productName={product.name}
+                                        />
+                                    </div>
                                     <img src={product.image_url} alt={product.name} />
                                 </div>
                             </div>

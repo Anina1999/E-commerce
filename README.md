@@ -106,3 +106,4 @@
     - [x] Add products to favorites with the heart
     - [x] Redirect guest to Login to add favorites
     - [x] Show favorite products on their page
+    - [x] Add to favorites from the details page

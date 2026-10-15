@@ -6,6 +6,16 @@
   padding-bottom: 90px;
 }
 
+.image {
+  position: relative;
+}
+
+.favoriteCorner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 .image img {
   display: block;
   width: 100%;

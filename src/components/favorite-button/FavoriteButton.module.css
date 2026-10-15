@@ -9,8 +9,9 @@
   cursor: wait;
 }
 
-/* Same round white look as the eye and cart icons next to it in ProductCard */
-.card {
+/* Same round white look as the eye and cart icons in ProductCard; on Product Details it sits on the photo, where white shows on any image */
+.card,
+.details {
   width: 50px;
   height: 50px;
   text-align: center;
@@ -27,7 +28,8 @@
   color: var(--color-danger);
 }
 
-.card:hover {
+.card:hover,
+.details:hover {
   background-color: var(--color-teal);
   color: #fff;
 }
