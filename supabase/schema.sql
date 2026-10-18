@@ -13,13 +13,9 @@ create function public.is_admin()
 returns boolean
 language sql
 stable
-security definer
 set search_path = ''
 as $$
-  select exists (
-    select 1 from public.profiles
-    where id = (select auth.uid()) and role = 'admin'
-  );
+  select coalesce((select auth.jwt()) -> 'app_metadata' ->> 'role' = 'admin', false);
 $$;
 
 create function public.handle_new_user()
@@ -152,9 +148,9 @@ create policy "Products are visible to everyone"
   on public.products for select
   using (true);
 
-create policy "Admins create their own products"
+create policy "Owners create their products"
   on public.products for insert to authenticated
-  with check ((select public.is_admin()) and owner_id = (select auth.uid()));
+  with check (owner_id = (select auth.uid()));
 
 create policy "Owners update their products"
   on public.products for update to authenticated
@@ -164,6 +160,19 @@ create policy "Owners update their products"
 create policy "Owners delete their products"
   on public.products for delete to authenticated
   using (owner_id = (select auth.uid()));
+
+create policy "Only admins create products"
+  on public.products as restrictive for insert to authenticated
+  with check ((select public.is_admin()));
+
+create policy "Only admins update products"
+  on public.products as restrictive for update to authenticated
+  using ((select public.is_admin()))
+  with check ((select public.is_admin()));
+
+create policy "Only admins delete products"
+  on public.products as restrictive for delete to authenticated
+  using ((select public.is_admin()));
 
 create policy "Visible reviews for everyone, hidden ones for the author and admins"
   on public.reviews for select

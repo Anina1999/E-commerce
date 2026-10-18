@@ -6,7 +6,7 @@ import logo from "../../assets/logo-white.svg";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
-    const { isAuthenticated, isAdmin } = useAuth();
+    const { isAuthenticated } = useAuth();
 
     return (
         <footer className={styles.footer}>
@@ -47,16 +47,10 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="col-lg-3">
-                        <h4>Useful Links</h4>
+                        <h4>Company</h4>
                         <ul>
                             <li>
-                                <Link to="/">Homepage</Link>
-                            </li>
-                            <li>
                                 <Link to="/about">About Us</Link>
-                            </li>
-                            <li>
-                                <Link to="/catalog">Catalog</Link>
                             </li>
                             <li>
                                 <Link to="/contact">Contact Us</Link>
@@ -86,14 +80,6 @@ export default function Footer() {
                                     </li>
                                 </>
                             )}
-                            {isAdmin && (
-                                <li>
-                                    <Link to="/admin/products">Admin Panel</Link>
-                                </li>
-                            )}
-                            <li>
-                                <Link to="/cart">Cart</Link>
-                            </li>
                         </ul>
                     </div>
                     <div className="col-lg-12">
