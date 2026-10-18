@@ -5,7 +5,6 @@ drop function if exists public.handle_new_user, public.is_admin, public.set_revi
 create table public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   username text,
-  role text not null default 'customer' check (role in ('customer', 'admin')),
   created_at timestamptz not null default now()
 );
 

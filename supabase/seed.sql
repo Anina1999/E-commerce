@@ -8,8 +8,12 @@ begin
     raise exception 'Create admin.tour@gmail.com in Authentication -> Users first';
   end if;
 
+  update auth.users
+  set raw_app_meta_data = raw_app_meta_data || '{"role": "admin"}'
+  where id = admin_id;
+
   update public.profiles
-  set role = 'admin', username = 'Tourashop Admin'
+  set username = 'Tourashop Admin'
   where id = admin_id;
 
   delete from public.products where owner_id = admin_id;
