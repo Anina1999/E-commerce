@@ -23,6 +23,14 @@ const pageLinks = [
     { to: "/contact", label: "Contact Us" },
 ];
 
+const accountLinks = [
+    { to: "/favorites", label: "Favorites", roles: ["user", "admin"] },
+    { to: "/orders", label: "My Orders", roles: ["user", "admin"] },
+    { to: "/admin/products", label: "Admin Panel", roles: ["admin"] },
+    { to: "/login", label: "Login", roles: ["guest"] },
+    { to: "/register", label: "Register", roles: ["guest"] },
+];
+
 const pageLinkClass = ({ isActive }) => (isActive ? styles.active : undefined);
 
 function SectionLink({ id, label, activeSection, onSelect }) {
@@ -47,6 +55,10 @@ export default function Header() {
     const { isAuthenticated, isAdmin, logout } = useAuth();
     const isHome = pathname === "/";
     const { isSticky, activeSection, setActiveSection } = useHeaderScroll(sectionIds, isHome);
+
+    let role = "guest";
+    if (isAuthenticated) role = "user";
+    if (isAdmin) role = "admin";
 
     const handleSectionSelect = (id) => {
         setActiveSection(id);
@@ -121,46 +133,21 @@ export default function Header() {
                                         Account
                                     </button>
                                     <ul className={openSubmenu === "account" ? styles.open : undefined}>
+                                        {accountLinks
+                                            .filter((link) => link.roles.includes(role))
+                                            .map((link) => (
+                                                <li key={link.to}>
+                                                    <NavLink to={link.to} className={pageLinkClass} onClick={closeMenus}>
+                                                        {link.label}
+                                                    </NavLink>
+                                                </li>
+                                            ))}
                                         {isAuthenticated && (
-                                            <>
-                                                <li>
-                                                    <NavLink to="/favorites" className={pageLinkClass} onClick={closeMenus}>
-                                                        Favorites
-                                                    </NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink to="/orders" className={pageLinkClass} onClick={closeMenus}>
-                                                        My Orders
-                                                    </NavLink>
-                                                </li>
-                                            </>
-                                        )}
-                                        {isAdmin && (
-                                            <li>
-                                                <NavLink to="/admin/products" className={pageLinkClass} onClick={closeMenus}>
-                                                    Admin Panel
-                                                </NavLink>
-                                            </li>
-                                        )}
-                                        {isAuthenticated ? (
                                             <li>
                                                 <button type="button" className={styles.logout} onClick={logoutHandler}>
                                                     Logout
                                                 </button>
                                             </li>
-                                        ) : (
-                                            <>
-                                                <li>
-                                                    <NavLink to="/login" className={pageLinkClass} onClick={closeMenus}>
-                                                        Login
-                                                    </NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink to="/register" className={pageLinkClass} onClick={closeMenus}>
-                                                        Register
-                                                    </NavLink>
-                                                </li>
-                                            </>
                                         )}
                                     </ul>
                                 </li>
