@@ -30,7 +30,7 @@ export default function FavoritesProvider({ children }) {
         return () => window.removeEventListener("focus", refresh);
     }, [userId, refresh]);
 
-    const isFavorite =(productId) => favoriteIds.includes(productId);
+    const isFavorite = (productId) => favoriteIds.includes(productId);
 
     const toggleFavorite = async (productId) => {
         setUpdateError(null);

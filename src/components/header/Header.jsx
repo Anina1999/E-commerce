@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router";
-import ErrorMessage from "../error-message/ErrorMessage";
+import AppAlerts from "../app-alerts/AppAlerts";
 import useAuth from "../../hooks/useAuth";
-import useFavorites from "../../hooks/useFavorites";
 import useHeaderScroll from "../../hooks/useHeaderScroll";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.css";
@@ -45,8 +44,7 @@ export default function Header() {
     const [openSubmenu, setOpenSubmenu] = useState(null);
     const { pathname } = useLocation();
     const navigate = useNavigate();
-    const { isAuthenticated, isAdmin, profileError, logout } = useAuth();
-    const { error: favoritesError, updateError: favoritesUpdateError } = useFavorites();
+    const { isAuthenticated, isAdmin, logout } = useAuth();
     const isHome = pathname === "/";
     const { isSticky, activeSection, setActiveSection } = useHeaderScroll(sectionIds, isHome);
 
@@ -74,27 +72,7 @@ export default function Header() {
 
     return (
         <header className={isSticky ? `${styles.header} ${styles.sticky}` : styles.header}>
-            {profileError && (
-                <ErrorMessage
-                    variant="banner"
-                    className={styles.alert}
-                    message="We couldn't load your account. Please refresh the page."
-                />
-            )}
-            {!profileError && favoritesUpdateError && (
-                <ErrorMessage
-                    variant="banner"
-                    className={styles.alert}
-                    message="Could not update your favorites. Please try again."
-                />
-            )}
-            {!profileError && !favoritesUpdateError && favoritesError && (
-                <ErrorMessage
-                    variant="banner"
-                    className={styles.alert}
-                    message="We couldn't load your favorites. Please refresh the page."
-                />
-            )}
+            <AppAlerts className={styles.alert} />
             <div className="container">
                 <div className="row">
                     <div className="col-12">
