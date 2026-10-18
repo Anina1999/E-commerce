@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 import FavoritesContext from "./FavoritesContext";
 import { addFavorite, getFavoriteIds, removeFavorite } from "../services/favoriteService";
 import useAsync from "../hooks/useAsync";
@@ -20,15 +20,19 @@ export default function FavoritesProvider({ children }) {
         [userId]
     );
 
+    const onFocus = useEffectEvent(() => refresh());
+
     useEffect(() => {
         if (!userId) {
             return;
         }
 
-        window.addEventListener("focus", refresh);
+        const handler = () => onFocus();
 
-        return () => window.removeEventListener("focus", refresh);
-    }, [userId, refresh]);
+        window.addEventListener("focus", handler);
+
+        return () => window.removeEventListener("focus", handler);
+    }, [userId]);
 
     const isFavorite = (productId) => favoriteIds.includes(productId);
 
