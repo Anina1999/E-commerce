@@ -186,7 +186,8 @@ create policy "Authors delete their reviews"
   on public.reviews for delete to authenticated
   using (author_id = (select auth.uid()));
 
-revoke update on public.reviews from anon, authenticated;
+revoke insert, update on public.reviews from anon, authenticated;
+grant insert (product_id, rating, content) on public.reviews to authenticated;
 grant update (rating, content) on public.reviews to authenticated;
 
 create policy "Users see their favorites"
@@ -200,6 +201,9 @@ create policy "Users add their favorites"
 create policy "Users remove their favorites"
   on public.favorites for delete to authenticated
   using (user_id = (select auth.uid()));
+
+revoke insert on public.favorites from anon, authenticated;
+grant insert (product_id) on public.favorites to authenticated;
 
 create policy "Users see their orders, admins see all"
   on public.orders for select to authenticated
@@ -216,3 +220,5 @@ create policy "Users cancel their pending orders"
 
 revoke update on public.orders from anon, authenticated;
 grant update (status) on public.orders to authenticated;
+
+revoke insert, update, delete on public.products, public.reviews, public.favorites, public.orders from anon;
