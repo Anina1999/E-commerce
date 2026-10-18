@@ -32,7 +32,7 @@ export default function AuthProvider({ children }) {
         loading: !sessionChecked || profileLoading,
         profileError,
         isAuthenticated: !!user,
-        isAdmin: !!user && profile?.role === "admin",
+        isAdmin: !!user && user.app_metadata?.role === "admin",
         login: signIn,
         register: signUp,
         logout: signOut,

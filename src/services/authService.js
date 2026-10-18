@@ -28,7 +28,7 @@ export async function signOut() {
 
 export async function getProfile(userId, signal) {
     const { data, error } = await supabase.from("profiles")
-        .select("username, role")
+        .select("username")
         .eq("id", userId)
         .abortSignal(signal)
         .single();
