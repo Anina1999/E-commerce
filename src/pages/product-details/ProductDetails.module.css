@@ -171,9 +171,7 @@
   color: var(--color-muted);
 }
 
-.addToCart,
-.loginButton,
-.listButton {
+.addToCart {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -186,61 +184,13 @@
   transition: all .3s;
 }
 
-.addToCart:hover,
-.loginButton:hover,
-.listButton:hover {
+.addToCart:hover {
   color: #fff;
   background-color: var(--color-graphite);
 }
 
-/* "Show fewer reviews" scrolls here, stopping a little below the 80px sticky header */
 .reviews {
-  scroll-margin-top: 110px;
   margin-top: 70px;
-  padding-top: 50px;
-  border-top: 1px solid var(--color-border);
-}
-
-.loginButton {
-  display: inline-block;
-  margin-top: 30px;
-  color: #fff;
-  background-color: var(--color-teal-dark);
-  border-color: var(--color-teal-dark);
-}
-
-.loginButton:hover {
-  border-color: var(--color-graphite);
-}
-
-.reviewList {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: start;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.listButtons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-}
-
-/* Same card look as ReviewItem, so the form takes the own review's place in the grid */
-.formCard {
-  padding: 30px 25px;
-  background-color: var(--color-surface);
-  border-radius: 24px;
-  box-shadow: 0 12px 28px rgba(31,42,51,0.08);
-}
-
-@media (min-width: 768px) {
-  .reviewList {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 991px) {

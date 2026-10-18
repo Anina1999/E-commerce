@@ -1,27 +1,21 @@
-import { useRef, useState } from "react";
-import { Link, useLocation, useParams } from "react-router";
+import { useState } from "react";
+import { useParams } from "react-router";
 import PageHeading from "../../components/page-heading/PageHeading";
-import SectionHeading from "../../components/section-heading/SectionHeading";
 import Loader from "../../components/loader/Loader";
 import ErrorMessage from "../../components/error-message/ErrorMessage";
-import EmptyState from "../../components/empty-state/EmptyState";
-import ReviewItem from "../../components/review-item/ReviewItem";
-import ReviewForm from "../../components/review-form/ReviewForm";
 import StarRating from "../../components/star-rating/StarRating";
 import FavoriteButton from "../../components/favorite-button/FavoriteButton";
+import ProductReviews from "../../components/product-reviews/ProductReviews";
 import NotFound from "../not-found/NotFound";
 import { getProductById } from "../../services/productService";
 import { getReviews } from "../../services/reviewService";
 import useAsync from "../../hooks/useAsync";
-import useAuth from "../../hooks/useAuth";
 import { formatPrice } from "../../utils/formatPrice";
 import { getRating } from "../../utils/rating";
 import styles from "./ProductDetails.module.css";
 
 export default function ProductDetails() {
     const { productId } = useParams();
-    const location = useLocation();
-    const { user, isAuthenticated, loading: authLoading } = useAuth();
     const { data: product, loading, error } = useAsync((signal) =>
         getProductById(productId, signal),
         [productId]
@@ -31,35 +25,16 @@ export default function ProductDetails() {
         [productId]
     );
     const [quantity, setQuantity] = useState(1);
-    const [editing, setEditing] = useState(false);
-    const [visibleCount, setVisibleCount] = useState(4);
     const [shownProductId, setShownProductId] = useState(productId);
-    const reviewsRef = useRef(null);
 
     if (productId !== shownProductId) {
         setShownProductId(productId);
         setQuantity(1);
-        setEditing(false);
-        setVisibleCount(4);
-    }
-
-    if (!user && editing) {
-        setEditing(false);
     }
 
     const isReady = !loading && !error;
     const reviewsReady = !reviewsLoading && !reviewsError;
-    const ownReview = reviews?.find((review) => review.author_id === user?.id);
-    const otherReviews = reviews?.filter((review) => review.author_id !== user?.id);
     const rating = reviewsReady ? getRating(reviews) : null;
-    const shownReviews = otherReviews?.slice(0, isAuthenticated ? visibleCount - 1 : visibleCount);
-    const hasMoreReviews = reviewsReady && shownReviews.length < otherReviews.length;
-    const canShowFewer = reviewsReady && visibleCount > 4;
-
-    const showFewerHandler = () => {
-        setVisibleCount(4);
-        reviewsRef.current.scrollIntoView({ behavior: "smooth" });
-    };
 
     if (isReady && !product) {
         return <NotFound />;
@@ -152,73 +127,15 @@ export default function ProductDetails() {
                         </div>
                     )}
                     {isReady && (
-                        <div className={styles.reviews} ref={reviewsRef}>
-                            <SectionHeading
-                                title="Reviews"
-                                subtitle="What other hikers, bicyclist, runners and climbers think of it"
-                            />
-                            {reviewsReady && !authLoading && !isAuthenticated && (
-                                <Link
-                                    to="/login"
-                                    state={{ from: location.pathname }}
-                                    className={styles.loginButton}
-                                >
-                                    Log in to write a review
-                                </Link>
-                            )}
-                            {reviewsLoading && <Loader />}
-                            {!reviewsLoading && reviewsError && <ErrorMessage />}
-                            {reviewsReady && !authLoading && !isAuthenticated && reviews.length === 0 && (
-                                <EmptyState message="No reviews yet" />
-                            )}
-                            {reviewsReady && (isAuthenticated || reviews.length > 0) && (
-                                <ul className={styles.reviewList}>
-                                    {isAuthenticated && !ownReview && (
-                                        <li className={styles.formCard}>
-                                            <ReviewForm productId={productId} refreshReviews={refreshReviews} />
-                                        </li>
-                                    )}
-                                    {ownReview && editing && (
-                                        <li className={styles.formCard}>
-                                            <ReviewForm
-                                                review={ownReview}
-                                                refreshReviews={refreshReviews}
-                                                onClose={() => setEditing(false)}
-                                            />
-                                        </li>
-                                    )}
-                                    {ownReview && !editing && (
-                                        <ReviewItem
-                                            review={ownReview}
-                                            isOwn
-                                            onEdit={() => setEditing(true)}
-                                            refreshReviews={refreshReviews}
-                                        />
-                                    )}
-                                    {shownReviews.map((review) => (
-                                        <ReviewItem key={review.id} review={review} />
-                                    ))}
-                                </ul>
-                            )}
-                            {(hasMoreReviews || canShowFewer) && (
-                                <div className={styles.listButtons}>
-                                    {hasMoreReviews && (
-                                        <button
-                                            type="button"
-                                            className={styles.listButton}
-                                            onClick={() => setVisibleCount(visibleCount + 4)}
-                                        >
-                                            Show more reviews
-                                        </button>
-                                    )}
-                                    {canShowFewer && (
-                                        <button type="button" className={styles.listButton} onClick={showFewerHandler}>
-                                            Show fewer reviews
-                                        </button>
-                                    )}
-                                </div>
-                            )}
-                        </div>
+                        <ProductReviews
+                            key={productId}
+                            className={styles.reviews}
+                            productId={productId}
+                            reviews={reviews}
+                            loading={reviewsLoading}
+                            error={reviewsError}
+                            refreshReviews={refreshReviews}
+                        />
                     )}
                 </div>
             </section>
