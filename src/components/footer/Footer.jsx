@@ -87,7 +87,7 @@ export default function Footer() {
                             <p>
                                 Copyright © 2026 Tourashop. All Rights Reserved.
                                 <br />
-                                Design:{" "}
+                                Based on a template by{" "}
                                 <a
                                     href="https://templatemo.com"
                                     target="_parent"
@@ -95,8 +95,7 @@ export default function Footer() {
                                 >
                                     TemplateMo
                                 </a>
-                                <br />
-                                Distributed By:{" "}
+                                , distributed by{" "}
                                 <a
                                     href="https://themewagon.com"
                                     target="_blank"
