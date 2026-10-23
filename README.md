@@ -165,7 +165,6 @@ The rules for who can do what are in the database with Row Level Security (RLS),
 - A guest can't write anything.
 
 When a user adds a review or a favorite, the database takes the user id from the login token, so nobody can write a review in someone else's name.
-<!-- TODO: add the keep-alive at the deploy and describe it here -->
 
 ### 7. Data Operations (CRUD)
 
@@ -386,6 +385,6 @@ These parts are planned. Their links and buttons are already in the app, but for
     - [x] Install wrangler "npm i -D wrangler"
     - [x] Log in to Cloudflare "npx wrangler login"
     - [x] Check the build locally with wrangler "npm run preview"
-    - [x] Check a preview online before the deploy "npx wrangler preview"
+    - [x] Check the changes on a staging preview before the deploy "npm run deploy-preview"
     - [x] Deploy the app to Cloudflare Workers "npx wrangler deploy"
     - [x] Deploy again after a change "npm run deploy"
