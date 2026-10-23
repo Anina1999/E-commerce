@@ -37,10 +37,15 @@ export default function Catalog() {
         return <NotFound />;
     }
 
-    const page = Number(searchParams.get("page")) || 1;
+    const page = Number(searchParams.get("page") ?? 1);
     const { pageItems: pageProducts, pageCount } = paginate(products, page, PRODUCTS_PER_PAGE);
 
     const isReady = !loading && !error;
+    const lastPage = Math.max(pageCount, 1);
+
+    if (!Number.isInteger(page) || page < 1 || (isReady && page > lastPage)) {
+        return <NotFound />;
+    }
 
     const handleCategoryChange = (event) => {
         navigate(`${event.target.value}#products`);
