@@ -6,6 +6,8 @@ Tourashop is an online shop for outdoor gear for hiking, running, biking and cli
 
 https://tourashop.aninaangelova.workers.dev/
 
+Cart, My Orders and the Admin Panel are not built yet. Their links are already in the menu and open Not Found for now, and Add To Cart doesn't do anything. They are planned for later, see [Roadmap](#roadmap--not-built-yet).
+
 ## Tech stack
 
 - React 19 with Vite 8
@@ -230,9 +232,9 @@ Contact and Subscribe only show a thank-you message for now. They don't send or 
   - `useHeaderScroll` makes the header stick to the top and marks the section in view on Home.
   - `useScrollToHash` scrolls Home to a section when the link is like `/#hiking`.
 - Give one example of mount / update / unmount behavior in your app. The Catalog page loads its products with `useAsync`, and the effect depends on the category in the URL.
-  1. Mount: the user opens `/catalog/hiking`. The effect runs and asks Supabase for the hiking products. Until they come, the page shows a loader.
-  2. Update: the user picks Running in the dropdown. The category changes, so the effect runs again and asks for the running products. If the hiking request hasn't finished yet, the cleanup cancels it first, so old products can't show up on the wrong page.
-  3. Unmount: the user leaves the Catalog. The cleanup cancels the request if it is still running, and its answer is ignored.
+  - Mount: the user opens `/catalog/hiking`. The effect runs and asks Supabase for the hiking products. Until they come, the page shows a loader.
+  - Update: the user picks Running in the dropdown. The category changes, so the effect runs again and asks for the running products. If the hiking request hasn't finished yet, the cleanup cancels it first, so old products can't show up on the wrong page.
+  - Unmount: the user leaves the Catalog. The cleanup cancels the request if it is still running, and its answer is ignored.
 
 #### Context API
 
