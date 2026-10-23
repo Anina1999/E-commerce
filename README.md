@@ -4,8 +4,7 @@ Tourashop is an online shop for outdoor gear for hiking, running, biking and cli
 
 ## Live demo
 
-- - - - -
-<!-- TODO: add the deploy link -->
+https://tourashop.aninaangelova.workers.dev/
 
 ## Tech stack
 
@@ -15,6 +14,7 @@ Tourashop is an online shop for outdoor gear for hiking, running, biking and cli
 - Swiper for the product carousels on the home page
 - CSS Modules next to each component, plus Bootstrap 4 grid, Font Awesome icons and a global main.css from the template
 - React Compiler
+- Cloudflare Workers for hosting, deployed with wrangler
 
 ## Getting started
 
@@ -37,11 +37,11 @@ You need Node.js 20.19 or newer, because Vite 8 asks for it.
    ```
    npm run dev
    ```
-5. To make a production build and check it locally:
+5. To check the production build locally:
    ```
-   npm run build
    npm run preview
    ```
+   It builds the app and serves it with wrangler, the same way Cloudflare does. Open the address it prints.
 
 ## Database setup
 
@@ -54,6 +54,12 @@ The whole database is in two SQL files. `supabase/schema.sql` makes the tables, 
 3. In Authentication → Users, add a user with the email admin.tour@gmail.com and a password of your choice. seed.sql looks for this user and stops with an error if it doesn't exist.
 4. In the SQL Editor, run the whole `supabase/schema.sql`.
 5. Then run `supabase/seed.sql`. It gives admin.tour@gmail.com the admin role, sets its username to "Tourashop Admin" and adds 32 products, 8 in each category. The product photos are in `public/assets/images`.
+
+## Deploy
+
+The app is hosted on Cloudflare Workers as static files. I deploy it from my computer with `npm run deploy`, which builds the app and uploads it to Cloudflare. The settings are in `wrangler.jsonc`. The line `"not_found_handling": "single-page-application"` sends every unknown address to `index.html`, so React Router opens the right page even after a refresh on an address like `/products/5/details`.
+
+Vite puts the Supabase URL and the publishable key from my `.env` into the build, so I don't set them in Cloudflare. The publishable key is made to be public. The data is protected by RLS in the database.
 
 ## Project structure
 
@@ -375,3 +381,11 @@ These parts are planned. Their links and buttons are already in the app, but for
     - [x] Redirect guest to Login to add favorites
     - [x] Show favorite products on their page
     - [x] Add to favorites from the details page
+
+### Steps to deploy
+    - [x] Install wrangler "npm i -D wrangler"
+    - [x] Log in to Cloudflare "npx wrangler login"
+    - [x] Check the build locally with wrangler "npm run preview"
+    - [x] Check a preview online before the deploy "npx wrangler preview"
+    - [x] Deploy the app to Cloudflare Workers "npx wrangler deploy"
+    - [x] Deploy again after a change "npm run deploy"
