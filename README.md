@@ -2,6 +2,29 @@
 
 Tourashop is an online shop for outdoor gear for hiking, running, biking and climbing.
 
+## Contents
+
+- [Live demo](#live-demo)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+- [Database setup](#database-setup)
+- [Deploy](#deploy)
+- [Project structure](#project-structure)
+- [Functional Guide](#functional-guide)
+  - [1. Project Overview](#1-project-overview)
+  - [2. User Access & Permissions](#2-user-access--permissions)
+  - [3. Authentication & Session Handling](#3-authentication--session-handling)
+  - [4. Routing Structure](#4-routing-structure)
+  - [5. List → Details Flow](#5-list--details-flow)
+  - [6. Data Source & Backend](#6-data-source--backend)
+  - [7. Data Operations (CRUD)](#7-data-operations-crud)
+  - [8. Forms & Validation](#8-forms--validation)
+  - [9. React-Specific Techniques](#9-react-specific-techniques)
+  - [10. Typical User Flow](#10-typical-user-flow)
+  - [11. Error & Edge Case Handling](#11-error--edge-case-handling)
+- [Roadmap / Not built yet](#roadmap--not-built-yet)
+- [Development log](#development-log)
+
 ## Live demo
 
 https://tourashop.aninaangelova.workers.dev/
@@ -275,6 +298,9 @@ These parts are planned. Their links and buttons are already in the app, but for
 
 ## Development log
 
+<details>
+<summary>Show all steps</summary>
+
 ### Steps to set up the project
     - [x] Install vite react project "npm create vite@latest"
     - [x] Clean up the project
@@ -390,3 +416,5 @@ These parts are planned. Their links and buttons are already in the app, but for
     - [x] Check the changes on a staging preview before the deploy "npm run deploy-preview"
     - [x] Deploy the app to Cloudflare Workers "npx wrangler deploy"
     - [x] Deploy again after a change "npm run deploy"
+
+</details>
